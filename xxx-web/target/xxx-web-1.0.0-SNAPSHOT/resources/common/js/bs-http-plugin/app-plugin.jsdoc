@@ -1,0 +1,24 @@
+/**
+ * @class
+ * @classdesc bossJS <pre>博思客户端js，requirejs已经打包进app-plugin 中。
+ * 引用app-pluginjquery必须先引入
+ *      &#60;link href="resources/common/themes/default/app.plugin.min.css" rel="stylesheet" type="text/css"/&#62;
+ *      &#60;script src="jquery.js"&#62;&#60;/script&#62;
+ *      &#60;script src="resources/common/js/dist/app-plugin.js"&#62;&#60;/script&#62;
+ *  </pre>
+ * @name app-plugin
+ */
+var bossJS = {};
+
+/**
+ *
+ * @memberOf app-plugin
+ * @param {object} options
+ * @param {string} options.path 可忽略。项目上下文名称。 http://localhost:8080/xxxx/   (xxxx项目上下文名称)
+ * @param {object} options.jquery jquery对象，不填写默认自动寻找 $,jQuery
+ * @example
+ * bossJS.init();
+ */
+bossJS.init = function (options) {
+    
+}

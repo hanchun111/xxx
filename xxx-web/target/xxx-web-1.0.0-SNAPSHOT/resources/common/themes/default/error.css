@@ -1,0 +1,79 @@
+ .btn-toolbar{margin:0 auto; text-align:center;  clear:both;}
+.error{ 
+	width:520px; 
+	height:110px;
+}
+.errorDiv{ 
+	width:856px; 
+	height:280px; 
+	text-align:left;
+	padding:10px 10px 10px 26px; 
+	overflow:auto; 
+	font-family:Arial, Helvetica, sans-serif; 
+	clear:both;
+	font-size:14px; 
+}
+.error h1, .error h2, .error h3{ 
+	text-align:left;
+	font-family:"微软雅黑";
+	width:420px; 
+	margin-left:32px;
+	display:block; 
+	float:left; 
+}
+.error h1{  
+	font-size:38px; 
+	color:#a2a2a2; 
+	margin-top:16px; 
+	line-height:30px; 
+	height:30px;
+}
+.error h1 span{ 
+	display:block; 
+	float:left; 
+	margin-right:22px;
+	font-size:17px;
+}
+.error h2{  
+	font-size:14px; 
+	font-weight:400; 
+	color:#656565; 
+	line-height:40px; 
+	height:40px; 
+	border-bottom:1px solid #ccc;
+}
+
+.error h3{ 
+	font-size:14px; 
+	color:#9a9a9a; 
+	line-height:40px; 
+	height:40px; 
+	font-weight:400;
+}
+	
+
+.error h3 a{ 
+	padding-right:22px; 
+	text-decoration:none; 
+	font-size:13px; 
+	color:#2e69c9;
+}
+.error h3 a:hover{ 
+	padding-right:22px; 
+	text-decoration:underline;
+}
+h1 span.red{ 
+	color:red; padding-right:10px; 	
+	overflow: hidden; /*自动隐藏  zcac文字*/
+ 	font-size:16px;
+	text-overflow: ellipsis;/*文字隐藏后添加省略号*/
+    white-space: nowrap;/*强制不换行*/ 
+    width:240px;   
+    text-align:left;
+}
+ .errorDiv div, .errorDiv p{ 
+ 	text-align:left; 
+ 	font-size:1.2em; 
+ 	line-height:1.1em; 
+ 	color:#333;
+ }

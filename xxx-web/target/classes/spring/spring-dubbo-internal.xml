@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:dubbo="http://www.bosssoft.com.cn/schema/dubbo"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.bosssoft.com.cn/schema/dubbo http://www.bosssoft.com.cn/schema/dubbo/dubbo.xsd">
+
+	<dubbo:service interface="com.bosssoft.platform.shiro.spi.LoginAuthenticationHandler" class="com.bosssoft.cloud.xxx.internal.shiro.LoginAuthenticationHandlerImpl"/>
+
+	<dubbo:service interface="com.bosssoft.platform.shiro.spi.LoginAuthenticationListener" class="com.bosssoft.cloud.xxx.internal.shiro.LoginAuthenticationListenerImpl"/>
+	
+	<dubbo:service interface="com.bosssoft.platform.shiro.spi.PermissionAuthenticationHandler" class="com.bosssoft.cloud.xxx.internal.shiro.PermissionAuthenticationHandlerImpl"/>
+	
+	<dubbo:service interface="com.bosssoft.platform.shiro.spi.UserAttributeInitializer" class="com.bosssoft.cloud.xxx.internal.shiro.UserAttributeInitializerImpl"/>
+
+	<dubbo:reference id="com.bosssoft.platform.reference.shiro.spi.UserAttributeInitializer" check="false" interface="com.bosssoft.platform.shiro.spi.UserAttributeInitializer"/>
+	
+</beans>

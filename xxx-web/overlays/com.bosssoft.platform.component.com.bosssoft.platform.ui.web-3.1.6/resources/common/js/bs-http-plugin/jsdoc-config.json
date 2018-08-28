@@ -1,0 +1,33 @@
+{
+    "tags": {
+        "allowUnknownTags": true
+    },
+    "source": {
+        "include": ["src/main/webapp/resources/common/js/bs-http-plugin/app-plugin.jsdoc"],
+        "includePattern": ".+\\.js(doc)?$",
+        "excludePattern": "(^|\\/|\\\\)_"
+    },
+    "templates": {
+        "applicationName": "",
+        "disqus": "",
+        "googleAnalytics": "",
+        "openGraph": {
+            "title": "",
+            "type": "website",
+            "image": "",
+            "site_name": "",
+            "url": ""
+        },
+        "meta": {
+            "title": "",
+            "description": "",
+            "keyword": ""
+        },
+        "linenums": true
+    },
+    "opts": {
+        "encoding": "utf8",
+        "destination": "./plugin-docs/",
+        "template": "./node_modules/jaguarjs-jsdoc"
+    }
+}

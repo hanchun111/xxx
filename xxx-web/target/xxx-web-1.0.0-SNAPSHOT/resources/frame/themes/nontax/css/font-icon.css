@@ -1,0 +1,81 @@
+
+@font-face {font-family: "iconfont";
+  src: url('fonts/iconfont.eot?t=1504698340283'); /* IE9*/
+  src: url('fonts/iconfont.eot?t=1504698340283#iefix') format('embedded-opentype'), /* IE6-IE8 */
+ 
+  url('fonts/iconfont.ttf?t=1504698340283') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('fonts/iconfont.svg?t=1504698340283#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont,[class^='icon-'] {
+  font-family:"iconfont" !important;
+  font-size:14px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+.icon-shoucang:before { content: "\e791"; }
+
+.icon-mediaskipbackward:before { content: "\e984"; }
+
+.icon-mediaskipforward:before { content: "\e985"; }
+
+.icon-star:before { content: "\e60a"; }
+
+.icon-zhengquetishi:before { content: "\e65a"; }
+
+.icon-xiazai:before { content: "\e668"; }
+
+.icon-bangzhutianchong:before { content: "\e671"; }
+
+.icon-cuowutishitianchong:before { content: "\e675"; }
+
+.icon-shanchutianchong:before { content: "\e68c"; }
+
+.icon-shouyetianchong:before { content: "\e692"; }
+
+.icon-xiugaitianchong:before { content: "\e69f"; }
+
+.icon-yonghutianchong:before { content: "\e6a2"; }
+
+.icon-star1:before { content: "\e640"; }
+
+.icon-user:before { content: "\e926"; }
+
+
+.icon-password:before { content: "\e63e"; }
+
+.icon-tuichufffpx:before { content: "\e60c"; }
+
+.icon-chazhao:before { content: "\e601"; }
+
+.icon-arrow-circle-down:before { content: "\e61e"; }
+
+.icon-arrow-circle-o-right:before { content: "\e620"; }
+
+.icon-arrows-alt:before { content: "\e616"; }
+
+.icon-caret-down:before { content: "\e63a"; }
+
+.icon-caret-left:before { content: "\e63b"; }
+
+.icon-caret-right:before { content: "\e63c"; }
+
+.icon-caret-up:before { content: "\e63d"; }
+
+.icon-user-circle-o:before { content: "\e74f"; }
+
+.icon-collection:before { content: "\e6ea"; }
+
+.icon-remove:before { content: "\e702"; }
+
+.icon-zhuye-selected:before { content: "\e62a"; }
+
+.icon-fullscreen:before { content: "\e607"; }
+
+.icon-org:before { content: "\e600"; }
+
+.icon-xialacaidan:before { content: "\e602"; }
+.icon-start:before { content: "\e64c"; }

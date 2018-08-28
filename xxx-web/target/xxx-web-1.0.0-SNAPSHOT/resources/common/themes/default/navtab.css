@@ -1,0 +1,224 @@
+
+.navtabs{
+	font-size:14px;
+}
+.navtabs a{
+	color:#000;
+	text-decoration:none;
+}
+
+.navtabs-content{
+	width: 99%;
+ 	margin:5px auto 0px auto;
+	text-align:center;
+	border-radius: 4px;
+	overflow:hidden;
+	clear:both;
+	position:relative;
+	display:block; 
+	border:1px solid #cbcbcb; 
+	position:relative;
+}
+.navtabs-content .tabpage{
+	height: inherit;
+}
+.navtabs-footer{
+    height:28px;
+ 	width: 99%;
+	text-align:center;
+	display:block; 
+	height:27px; 
+	border-style:none;
+	border-width:1px 1px 1px 1px;
+	background-position:0 -450px; 
+	background-repeat:repeat-x; 
+	position:relative;
+	margin:0px auto 0px auto;
+}
+.navtabs-morelist{
+	border-color:#b8d0d6;
+	background:#FFF;
+}
+.navtabs-tabarea{
+	margin-left:12px;
+	margin-top:-1px;
+	position:relative;
+	overflow:hidden;
+	height:27px;
+}
+.navtabs-tabs{
+	position:absolute;
+	display:block;
+	width:10000px;
+	height:27px;
+}
+.navtabs-tabs li{
+	position:relative;
+	float:left;
+}
+.navtabs-tabs  li.tab{
+	background:url(images/navtab/unsel.png) repeat-x !important;
+	height:26px;
+}
+.navtabs-tabs  li.tab span{line-height:25px;  }
+.navtabs-tabs  li.tab .close{
+	background:url(images/navtab/tabcl.png) no-repeat !important;
+	display: block;
+    height: 16px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    right: -6px;
+    text-indent: -1000px;
+    top: 3px;
+   z-index:78;   width: 16px;
+}
+.navtabs-tabs  li.tab .close:hover{
+background:url(images/navtab/tabcloseH.png) no-repeat !important;	
+	display: block;
+    height: 16px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    right: -6px;
+    text-indent: -1000px;
+    top: 3px;
+    width: 16px;	
+    z-index:19;
+}
+
+.navtabs-tabs li.split-first{
+	background:url(images/navtab/tabfirst.png) no-repeat 0px 0px !important;
+	height:26px;
+	width:20px;
+}
+.navtabs-tabs li.split-last{
+	background:url(images/navtab/tabright.png) no-repeat right top !important;
+	width:20px;
+	height:26px;
+}
+.navtabs-tabs li.split-center{
+	background:url(images/navtab/tabright0.png) no-repeat -8px 0px !important;
+	width:24px;
+	height:26px;
+}
+.navtabs-tabs  li.tab.selected{
+	background:url(images/navtab/sel.png) repeat-x !important;
+	font-weight:600;
+}
+.navtabs-tabs li.split-first.lselect{
+	background:url(images/navtab/firstL.png) no-repeat left top !important;
+}
+.navtabs-tabs li.split-last.rselect{
+	background:url(images/navtab/lastR.png) no-repeat right top !important;
+}
+.navtabs-tabs li.split-center.lselect{
+	background:url(images/navtab/tableft_s.png) no-repeat 0px 0px !important;
+}
+.navtabs-tabs li.split-center.rselect{
+	background:url(images/navtab/tabrights.png) no-repeat 0px 0px !important;
+
+}
+.navtabs-footer .tabsmove { 
+	height:25px; 
+	position:absolute; 
+	top:0; 
+	right:0; 
+	z-index:2;
+}
+.navtabs-footer [class^="tabs"] { 
+	background:url(./images/navtab/tabscontrol.png) no-repeat;
+	display:block; 
+	overflow:hidden; 
+	width:20px; 
+	height:23px; 
+	text-indent:-1000px; 
+	position:absolute; 
+	z-index:5;
+}
+.navtabs-footer .tabsleft { 
+	background-position:0 0; 
+	top:1px; 
+	left:0; 
+	cursor:pointer;
+}
+.navtabs-footer .tabsleft.hover { 
+	background-position:0 -50px;
+}
+.navtabs-footer .tabsleft.disabled { 
+	background-position:0 -100px; 
+	top:1px; 
+	left:0; 
+	cursor:default;
+}
+.navtabs-footer .tabsright { 
+	background-position:0 -150px; 
+	top:1px; 
+	right:15px; 
+	cursor:pointer;
+}
+.navtabs-footer .tabsright.hover { 
+	background-position:0 -200px;
+}
+.navtabs-footer .tabsright.disabled { 
+	background-position:0 -250px; 
+	top:1px; 
+	right:17px; 
+	cursor:default;
+}
+.navtabs-footer .tabsmore { 
+	background-position:0 -300px; 
+	top:5px; 
+	right:-2px; 
+	cursor:pointer;
+}
+.navtabs-footer .tabsmore.hover { 
+	background-position:0 -350px;
+}
+
+.navtabs .navtabs-morelist { 
+	display:none;
+	overflow-x:hidden; 
+	overflow-y:auto; 
+	width:240px; 
+	max-height:380px; 
+	padding:2px; 
+	border-style:solid; 
+	border-width:1px; 
+	position:absolute; 
+	bottom:26px; 
+	right:7px; 
+	z-index:113;
+}
+.navtabs .navtabs-morelist li { 
+	display:block; 
+	overflow:hidden; 
+	height:36px; 
+	line-height:36px;
+}
+.navtabs .navtabs-morelist li a { 
+	display:block; 
+	height:36px; 
+	line-height:36px;
+	padding:0 10px; 
+	border:solid 1px #FFF; 
+	white-space:nowrap; 
+	text-indent:20px;
+	text-align:left;
+    background: url("./images/menu2l.png") no-repeat 12px 13px;
+
+}
+.navtabs .navtabs-morelist li a:hover { 
+	border-color:#ececec; 
+	text-decoration:none; 
+	text-indent:20px;
+    background:#e8edf3 url("./images/menu2l.png") no-repeat 12px 13px;
+    text-align:left;
+   }
+.navtabs .navtabs-morelist li.selected a { 
+	text-indent:20px;
+	font-weight:bold; 
+	border-color:#dfe5ed; 
+    background:#ffffc2 url("./images/menu2h.png") no-repeat 12px 13px;
+    text-align:left;
+  }

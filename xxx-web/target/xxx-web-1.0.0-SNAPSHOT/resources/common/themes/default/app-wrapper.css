@@ -1,0 +1,396 @@
+.app-wrapper {
+	display: inline-block;
+	font-size: 0;
+	position: relative;
+	width: 100%;
+	border: 1px solid #fff;	
+	border-bottom: 1px solid #d1cdc8;
+	height: 30px;
+}
+/* 去除ie10的删除按钮 */
+input::-ms-clear {
+	display: none;
+}
+
+.panel-tooltip{
+	position: absolute;
+    border: 1px solid gray;
+    background: white;
+    padding: 1px;
+    color: #333;
+    display: none;
+}
+.app-wrapper input{
+	box-sizing: border-box;
+	padding-right: 30px;
+}
+
+.app-wrapper.app-textbox input,
+.app-wrapper.app-number input,
+.app-wrapper.app-money input{
+	padding-right: 0px;
+}
+
+.app-wrapper input,
+.app-wrapper textarea {
+	border: 0px;
+	/* position: relative; 按钮一直显示*/
+	margin-bottom: 0;
+	*margin-left: 0;
+	vertical-align: top;
+	width: 100% !important;
+	height: 100%;
+	resize: none;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.app-wrapper textarea{
+	white-space: normal;
+}
+
+.app-wrapper textarea[readonly].wrapper-tips,
+.app-wrapper textarea[disabled].wrapper-tips,
+.app-wrapper textarea.wrapper-tips,
+.app-wrapper input[readonly].wrapper-tips,
+.app-wrapper input[disabled].wrapper-tips,
+.app-wrapper input.wrapper-tips{
+	color: #cfcfcf;
+}
+
+.app-wrapper input:focus {
+	z-index: 2;
+}
+
+.app-wrapper .wrapper-btn {
+	cursor: pointer;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	height: 100%;
+	width: 28px;
+	padding-top: 2px;
+	background: white;
+	border-left: 1px solid #fff;
+}
+
+.app-wrapper .wrapper-date{
+	right: 28px;
+}
+
+/*文本框不能输入的样式*/
+.app-wrapper input[disabled],
+.app-wrapper input[readonly],
+.app-wrapper textarea[disabled],
+.app-wrapper textarea[readonly]{
+	background: #fff; 
+	color: black;
+	cursor: pointer;
+	border: none;
+	resize: none;
+	padding-right: 0px;
+}
+ 
+ /* 查询区背景色 */
+ .xquery .app-wrapper input[disabled],
+.xquery .app-wrapper input[readonly],
+.xquery .app-wrapper textarea[disabled],
+.xquery .app-wrapper textarea[readonly]{
+	background: none; 
+}
+.xquery .app-wrapper{
+	border:0;
+	border-bottom:1px #d1cdc8 solid
+}	
+ 
+/*---begin---鼠标经过时的样式*/
+.app-wrapper-active,
+.app-wrapper-hover {
+	border: 1px solid rgba(82, 168, 236, 0.8);
+	/* IE6-9 */
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px
+		rgba(82, 168, 236, 0.6);
+	-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px
+		rgba(82, 168, 236, 0.6);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px
+		rgba(82, 168, 236, 0.6);
+}
+.app-wrapper-hover.wrapper-disabled {
+	border: 1px solid rgba(211, 211, 211, 0.8);
+	/* IE6-9 */
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px
+		rgba(211, 211, 211, 0.6);
+	-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px
+		rgba(211, 211, 211, 0.6);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px
+		rgba(211, 211, 211, 0.6);
+}
+.app-wrapper-active .wrapper-btn,
+.app-wrapper:hover .wrapper-btn{
+	border-left: 1px solid rgba(82, 168, 236, 0.8);
+}
+/*---end---鼠标经过时的样式*/
+/*---begin---控件禁用下的样式*/
+.multipleboxDiv .wrapper-disabled-mask,
+.app-wrapper .wrapper-disabled-mask{
+	width: 100%;
+	height: 100%;
+	background: #fafafa; 
+	cursor: not-allowed;
+	filter: alpha(opacity=50);  /* ie 有效 */
+	-moz-opacity: 0.5; /* Firefox  有效 */
+	opacity: 0.5; /* 通用，其他浏览器  有效 */
+}
+/*---end---控件禁用下的样式*/
+
+/*---begin---控件禁用下的样式*/
+.multipleboxDiv .wrapper-readonly-mask,
+.app-wrapper .wrapper-readonly-mask{
+	width: 100%;
+	height: 100%;
+	background-color: white;
+	overflow: hidden;
+	overflow-y: auto;
+	border-bottom: 1px dashed #d1cdc8;
+	word-wrap: break-word;
+	word-break: break-all;
+}
+.app-wrapper .wrapper-disabled-mask label,
+.app-wrapper .wrapper-readonly-mask label{
+	line-height: 28px;
+}
+.app-wrapper.wrapper-readonly{
+	border-bottom: none;
+}
+.app-wrapper.wrapper-disabled input[type=showValue],
+.app-wrapper.wrapper-readonly input[type=showValue],
+.app-wrapper.wrapper-readonly textarea[type=showValue]{
+	display: none;
+}
+.app-wrapper.wrapper-disabled a,
+.app-wrapper.wrapper-readonly a{
+	display: none;
+}
+/*---end---控件禁用下的样式*/
+
+.app-wrapper>.wrapper-clear {
+	display: none;
+	background-color: white;
+	cursor: pointer;
+	position: absolute;
+	top:0px;
+	right: 0px;
+	height: 100%;
+	width: 28px;
+	padding-top:2px;
+}
+
+.app-wrapper>.wrapper-btn>i {
+	position: absolute;
+	top: 50%;
+	left: 0px;
+	margin-top: -11px;
+	background: url(./images/wrapper/btn.png) no-repeat -4px -2px;
+}
+
+.app-wrapper>.wrapper-clear>i{
+	background-position: -2px -216px;
+}
+
+.app-wrapper>.wrapper-clear:hover>i{
+	background-position: -46px -215px
+}
+
+.app-wrapper.app-textbox>.wrapper-open,
+.app-wrapper.app-number>.wrapper-open,
+.app-wrapper.app-money>.wrapper-open{
+	display: none;
+}
+
+.app-grid .focusInput,
+.app-wrapper.app-money input,
+.app-wrapper.app-number input{
+	ime-mode: disabled; 
+}
+
+.app-wrapper.app-combo>.wrapper-open>i{
+	background-position: -3px -67px;
+}
+
+.app-wrapper.app-combo:hover>.wrapper-open>i{
+	background-position: -89px -67px;
+}
+
+.app-wrapper.app-comboztree>.wrapper-open>i{
+	background-position: -3px -32px;
+}
+
+.app-wrapper.app-comboztree:hover>.wrapper-open>i{
+	background-position: -45px -32px;
+}
+
+.app-wrapper.app-combobox>.wrapper-open>i{
+	background-position: -3px -67px;
+}
+
+.app-wrapper.app-combobox:hover>.wrapper-open>i{
+	background-position: -89px -67px;
+}
+
+.app-wrapper.app-reference>.wrapper-open>i,
+.app-wrapper.app-combogrid>.wrapper-open>i,
+.app-wrapper.app-datetime>.wrapper-range>i {
+	background-position: -4px -2px;
+}
+
+.app-wrapper.app-reference:hover>.wrapper-open>i,
+.app-wrapper.app-combogrid:hover>.wrapper-open>i,
+.app-wrapper.app-datetime>.wrapper-range:hover>i {
+	background-position: -47px -2px;
+}
+
+.app-wrapper.app-datetime>.wrapper-open>i{
+	background-position: -4px -146px;
+}
+
+.app-wrapper.app-datetime:hover>.wrapper-open>i{
+	background-position: -45px -145px
+}
+
+.app-wrapper.app-suggest>.wrapper-open>i,
+.app-wrapper.app-typeahead>.wrapper-open>i{
+	background-position: -4px -184px;
+}
+
+.app-wrapper.app-suggest:hover>.wrapper-open>i,
+.app-wrapper.app-typeahead:hover>.wrapper-open>i{
+	background-position: -46px -183px
+}
+
+/**默认在网格中 隐藏控件的按钮**/
+tr[role='row'] td div .app-wrapper a {
+	display: none;
+}
+/**默认在网格中鼠标经过时 显示按钮**/
+tr[role='row'] td div .app-wrapper:hover a {
+	display: inline-block;
+}
+
+/*日期面板上一个*/
+.datetimepicker i.icon-arrow-left{
+	background: url(./images/wrapper/btn.png) no-repeat -1px -244px;
+}
+/*日期面板下一个*/
+.datetimepicker i.icon-arrow-right{
+	background: url(./images/wrapper/btn.png) no-repeat -48px -244px;
+}
+/*---begin---单选框、复选框*/
+div.multipleboxDiv>div.checkboxDiv,
+div.multipleboxDiv>div.radioboxDiv{
+	display: inline-block;
+	margin-right: 10px;
+}
+
+div.multipleboxDiv div.checkboxDiv input,
+div.multipleboxDiv div.checkboxDiv label,
+div.multipleboxDiv div.radioboxDiv input,
+div.multipleboxDiv div.radioboxDiv label{
+	display: inline-block;
+	cursor: pointer;
+}
+
+div.multipleboxDiv div.checkboxDiv input[disabled],
+div.multipleboxDiv div.checkboxDiv label[disabled],
+div.multipleboxDiv div.radioboxDiv input[disabled],
+div.multipleboxDiv div.radioboxDiv label[disabled]{
+	cursor: not-allowed;
+	color: gray;
+}
+.multipleboxDiv{text-align:left; position: relative;}
+
+div.multipleboxDiv.horizontal>div{
+	display: inline-block;
+}
+
+div.multipleboxDiv.vertical>div{
+	display: block;
+}
+/*---end---单选框、复选框*/
+
+/*文字超过长度后显示...*/
+.text-overflow{
+	width: auto;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+/**错误信息的提示框*/
+.app-wrapper.errorTarger,.app-wrapper.errorTarger:hover,
+.errorTarger,.errorTarger:hover {
+	border: 1px solid red;
+	/* IE6-9 */
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px
+		red;
+	-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px
+		red;
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px
+		red;
+}
+.errorWrapper{
+	border: 1px solid #bababa;
+	height: auto;
+	border-radius: 10px;
+	padding: 10px;
+	color: red;
+	font-size: 16px;
+	display: none;
+	position:absolute;
+	min-width: 70px;
+	z-index:30002;
+	background-color: white;
+}
+.errorWrapper div{
+	position:relative;
+}
+.errorWrapper div div {
+	width: 27px;
+	height: 13px;
+	background: url(./images/error/error.png) no-repeat top left;
+	display: block;
+	position: absolute;
+	z-index: 1;
+	bottom: -23px;
+	left: 22px;
+}
+.errorWrapper.up div div {
+	background: url(./images/error/error_up.png) no-repeat top left;
+	top: -23px;
+}
+.errorWrapper div span {
+	background: #fff;
+	display: block;
+	position: relative;
+	text-align: left
+}
+.app-xquerybox input{
+	
+	
+	background: url(./images/wrapper/btn.png) no-repeat;
+background-color: #fff;
+	background-position: -50px -186px;
+	text-indent: 20px;
+}
+.app-wrapper.app-xquerybox:hover>.wrapper-open>i {
+    background-position: -89px -67px;
+}
+
+.app-wrapper.app-xquerybox .wrapper-search {
+	right:28px;
+}
+.app-wrapper.app-xquerybox .wrapper-search>i {
+	  background-position: 0px 0px;
+	  position: relative;
+    top: 3px;
+    left: 3px;
+	  background: url(./images/wrapper/querybox_search.png) no-repeat;
+}

@@ -1,0 +1,390 @@
+html,body{min-height:100%;height:100%; padding:0px; margin:0px}
+.login-wrapper{
+	min-height: 100%;
+	overflow: hidden;
+	height: 100%;
+	
+}
+.login-wrapper .login-header{
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:100%;
+	background:#fff;
+
+	z-index:999;
+}
+.login-wrapper .login-body{
+	
+	width:100%;
+	padding-top:120px;
+	height:100%;
+	position: relative;
+}
+
+.login-wrapper .login-footer{
+	background:#fff;
+	position:absolute;
+	bottom:0px;
+	left:0px;
+	width:100%;
+	padding:20px 0px;
+z-index:999;
+}
+
+
+.login-wrapper .login-footer .login-footer-body{
+	width:1024px;
+	margin:auto;
+	height:inherit;
+	text-align:center;
+}
+
+.login-wrapper .login-header .login-header-body{
+	width:1024px;
+	margin:auto;
+	height:120px;
+}
+.login-wrapper .logo{
+	height:76px;
+	width:605px;
+	float:left;
+	margin-top:50px;
+}
+
+.tool-wrapper{
+	width:400px;
+
+	float:right;
+	padding-top:76px;
+	
+}
+.tool-wrapper ul{
+		list-style:none;
+		text-align:right;
+
+	
+}
+.tool-wrapper ul li{
+	display:inline-block;
+	
+	margin-right:5px;
+}
+
+.tool-wrapper ul li:hover,.tool-wrapper ul li:active,.tool-wrapper ul li:focus {
+
+	color:#000;
+	
+}
+
+
+.tool-wrapper ul li:hover a,tool-wrapper ul li:hover i{
+	
+	color:#000;
+	
+}
+.tool-wrapper ul li i{
+	
+		font-size:14px;
+		
+}
+.tool-wrapper ul li a{
+	font-size:12px;
+	cursor:pointer;
+	padding:5px;
+	color: #000;
+	line-height:26px;
+}
+.login-bg{
+	position:absolute;
+	bottom: 200px;
+}
+
+.login-from-tabs{
+	
+	width:294px;
+	height:302px;
+	
+}
+.login-form{
+	position:relative;
+	z-index:999;
+	
+	
+}
+
+
+/*---------------------reset----------------------*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td { margin:0; padding:0; border:0; outline:0;}
+body, button, input, select, textarea {
+    font: 12px/1.5 tahoma,arial,"Hiragino Sans GB",\5b8b\4f53;
+}
+ol, ul, li { list-style:none } 
+body { background:#FFF;}
+:focus { outline:0 }
+table { border-collapse:collapse; border-spacing:0 }
+table,table td,table th{border:1px solid #edeada;border-collapse:collapse;}
+address, cite, code, dfn, em, var, i { font-style:normal }
+input[type=button], input[type=submit], button { cursor:pointer; outline:none;}
+.input, select { vertical-align:middle }
+* html .clearfix { zoom:1 }
+*+html .clearfix { zoom:1 }
+textarea{resize:none;}
+a { text-decoration:none; }
+.clearfix:after {clear: both;content: ".";display: block;height: 0;overflow: hidden;visibility: hidden;}
+.pos-r{ position:relative;}
+.hide{ display:none;}
+
+.error-box{
+	color:red;
+	font-size:12px;
+	margin-bottom:10px;
+	position:absolute;
+	top:0px;
+	left:25px;
+}
+
+
+label.form-label {
+    display: block;
+    float: none;
+    height: auto;
+    line-height: 12px;
+    text-align: left;
+    width: auto;
+	font-size:14px;
+	color:#000;
+	font-weight:bold;
+	
+	
+	margin-top:16px;
+	margin-bottom:16px;
+}
+
+
+
+
+.i-text{ 
+  width:220px;
+  height:37px;
+  line-height:37px;
+  border:1px solid #dbdbdb;
+  background:#fff no-repeat;
+  color:#666;
+  font-size:14px; 
+  text-indent:12px;
+  	border-radius: 4px; 
+    -webkit-border-radius:4px; 
+	-moz-border-radius:4px; 
+	padding-left:24px;
+ }
+ 
+.fm-item-focus .i-text{
+  border:1px solid #31abff;
+  color:#666;
+  font-size:14px; 
+  text-indent:12px; 
+  box-shadow: 0 1px 4px rgba(11, 122, 179, 0.65) inset, 0 0 14px rgba(11, 122, 179, 0.45);
+
+}
+ .fm-item-focus .ui-label i{
+ 
+  color:#75c2f6;
+ 
+
+}
+ .yzm{ width:112px;}
+ .yzm-img{ position:absolute; left:170px; top:12px; cursor:pointer;height:29px;}
+
+.btn-login{ 
+	width:246px;
+	border: 0px solid #777;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family:serif;
+	font-size:18px;
+	font-weight:900;
+    padding: 0 .95em 0 0;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    position: relative;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+	background-color: #71c41c;
+	height:43px;
+}
+
+
+
+
+
+.header-logo{
+	width:167px; height:87px; background:url(../images/logo.gif) no-repeat; border:none; margin-top:5px;
+	
+	
+}
+
+
+.ui-nav {
+	background:#fff;
+	width:284px;
+	padding:5px;
+}
+.ui-nav li {
+    float: left;
+    width: 50%;
+    color: #8b8b8b;
+    text-align: center;
+    border-bottom: 2px #eee solid;
+    font-size: 16px;
+    padding: 15px 0 4px;
+    cursor: pointer;
+	
+}
+.authcenter{
+	background: url(../images/login-bg.jpg)center 0 no-repeat;
+}
+.authcenter-body {
+    position: relative;
+    width: 990px;
+    height: auto;
+    min-height: 350px;
+    margin: 0 auto;
+    padding: 50px 0;
+}.clear-float {
+    clear: both;
+}
+.ui-nav li.active {
+    color: #187beb;
+	
+    border-bottom-color: #0AE;
+}
+.authcenter-body-login {
+    float: right;
+  
+       width:320px;
+    height: auto;
+    position: relative;
+}
+.login-modern {
+    background: rgba(255,255,255,1);
+    _background: 0 0;
+	width:294px;
+ height:247px;
+    _border: 0;
+	background:#fff;
+   
+}
+.login {
+    position: relative;
+    overflow: hidden;
+  
+
+}
+
+.ui-label {
+    
+    display: block;
+
+    position: absolute;
+    top: 4px;
+    left: 8px;
+
+ 
+    overflow: hidden;
+    background-repeat: no-repeat;
+    z-index: 20;
+  
+   height: 32px;
+    width: 24px;
+
+}
+.ui-label i{
+	font-size:22px;	
+	    color: #e0e2e3;
+}
+.fm-item{
+	margin:25px 25px;
+position: relative;
+	
+}
+
+.login-form{
+	width:1024px; margin:auto; height:480px;
+	
+	
+}
+
+
+.login-form-left{
+	
+	float:right;
+	
+	
+}
+.login-form-left-body{
+	margin-top:130px;
+	margin-left:40px
+	
+}
+.login-form-right-body{
+		margin-top:160px;
+	
+}
+.login-form-right{
+	width:55%;
+	float:right;
+	
+}
+.login-body-bg{
+	
+background: #24a4e3;
+background-image:url("../../../nontax/custom/login-bg.png") ;
+background-repeat:no-repeat;
+background-position: center bottom;
+	
+}
+.news{
+	
+	
+	
+}
+.news-header{
+	border-bottom: solid 2px  #fff;
+	color:#fff;
+	width:90%;
+	
+}
+.news .news-header i{
+font-size:16px;
+}
+.news .news-header span{
+	
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:18px;
+}
+.news .news-body ul li {
+	padding:5px 0px;
+	list-style:inside;
+	color:#fff;
+		font-size:13px;
+}
+
+.news .news-body {
+	padding-left:16px;	
+}
+.news .news-body ul li a{
+	color:#fff;
+	font-size:13px;
+	
+}
+..news news-body ul{
+	color:#fff;
+	padding:5px 16px;
+}

@@ -1,0 +1,180 @@
+/* Alert */
+.alert { 
+	position: fixed;
+	z-index:2001; 
+	background-color: #ffffff;
+	-webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+          border-radius: 3px;
+	outline: none;
+		-webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+     -moz-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+	-webkit-background-clip: padding-box;
+     -moz-background-clip: padding-box;
+          background-clip: padding-box;
+}
+.alert i{ 
+	width:32px; height:32px; line-height:22px; display:inline-block;
+	vertical-align:middle;
+}
+.alert i.confirm{ 
+	background:url(./images/alert/confirm.png) no-repeat;
+}
+.alert i.warn{ 
+	background:url(./images/alert/warn.png) no-repeat;
+}
+.alert i.error{ 
+	background:url(./images/alert/confirm.png) no-repeat;
+}
+.alert i.info{ 
+	background:url(./images/alert/warn.png) no-repeat;
+}
+.alert i.correct{ 
+	background:url(./images/alert/warn.png) no-repeat;
+}
+.alert .alertHeader { 
+	padding: 9px 10px;
+	height: 40px;
+     border-bottom:1px solid #e9e9e9;
+     background:#fcfcfc;
+	-webkit-border-top-left-radius: 9px;
+     -moz-border-top-left-radius: 9px;
+          border-top-left-radius: 9px;
+    -webkit-border-top-right-radius: 9px;
+     -moz-border-top-right-radius: 9px;
+          border-top-right-radius: 9px;
+}
+.alert .alertHeader .closebg{
+	-webkit-border-radius: 9px;
+     -moz-border-radius: 9px;
+          border-radius: 9px;
+	outline: none;
+	background:url("./images/dialog/closebg.png") no-repeat left top #FFFFFF;
+	width:64px;
+	height:37px;
+	margin:-9px -10px;
+	padding: 11px 13px;
+	float:right;
+}
+.alert .alertHeader .close,.alert .alertHeader .close:hover{
+	margin-top: -4px;
+	color:#6f6f6f;
+	float:right;
+	font-size:32px;
+	font-weight:400;
+	text-decoration:none; 
+}
+.alert .alertHeader h1,.alert .alertHeader h2,.alert .alertHeader h3,.alert .alertHeader h4,.alert .alertHeader h5,.alert .alertHeader h6 {
+  	font-family: "Helvetica Neue","​Helvetica,​Arial,​sans-serif";
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+}
+.alert .alertContent { 
+	position: relative;
+	padding: 50px 40px;
+	line-height:40px;
+	overflow-y: auto;
+	text-align:center;
+	font-family: "微软雅黑";
+    font-size: 16px;
+	vertical-align:middle;
+	display: block;
+	min-width:300px;
+}
+.alert .alertContent span{ 
+    font-family: "微软雅黑";
+    font-size: 16px;
+    height: auto;
+    line-height: 22px;
+    padding-left: 10px;
+    text-align: left;
+    vertical-align:middle;
+    margin-right:40px;
+}
+.alert .alertFooter { 
+	padding: 0px 15px 20px;
+	margin-bottom: 0;
+	text-align: center;
+}
+.alert .singlebtn { 
+	width:200px;
+}
+.alert .viewDetail{
+	text-align: left;
+}
+.alert .viewDetail a{
+	color:red;
+}
+.alert .alertDetail{
+	max-width:500px;
+	max-height:300px;
+	overflow-y:auto;
+	border:1px solid #cccccc;
+	padding:10px;
+}
+.alertBackground{
+	background: url("./images/mask.png") repeat  0 0;
+    display: none;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 2000;
+    /*opacity: 0.5;*/
+    filter:progid:DXImageTransform.Microsoft.Alpha(opacity=50);
+}
+
+.tips{
+	z-index: 2001;
+	background-color: #FFF;
+	border-radius: 2px;
+	position: fixed;
+	outline: medium none;
+
+}
+
+.tips i.correct{ 
+	background:url('./images/alert/ok1.png') no-repeat transparent 6px 8px;
+	width: 28px;
+	height: 28px;
+	display: block;
+	clear: none;
+	float:left;
+	margin-left: 9px;
+}
+.tips .tipsContent{ 
+	position: relative;
+	padding: 2px 1px;
+	line-height: 28px;
+	overflow-y: auto;
+	text-align: center;
+	font-family: "微软雅黑";
+	font-size: 16px;
+	vertical-align: middle;
+	display: block;
+	min-width: 100px;
+	background:#68af02;
+	-moz-border-radius: 2px;      /* Gecko browsers */
+    -webkit-border-radius: 2px;   /* Webkit browsers */
+    border-radius:2px;            /* W3C syntax */	
+}
+.tips .tipsContent span{ 
+	font-family: "微软雅黑";
+	font-size: 16px;
+	line-height: 28px;
+	padding-left: 0px;
+	text-align: left;
+	vertical-align: middle;
+	margin-right: 23px;
+	float: left;
+	display: block;
+	clear:none;
+	width: auto;
+	height: 28px;
+	margin: 0;
+	padding-right:20px;
+}
+.tips .tipsContent span a{color:#fff;}

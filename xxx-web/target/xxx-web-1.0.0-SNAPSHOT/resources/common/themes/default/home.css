@@ -1,0 +1,140 @@
+/*最大容器*/
+.pub_max{height: 100%;width: 100%; overflow: auto;}
+.pub_container{width:1000px; margin-top:20px;margin: 0 auto;}
+
+/*左容器*/
+.pub_leftDiv{width:650px; margin:10px 0px 0px 0px; float:left; min-height:420px; clear:none}
+
+/*右容器*/
+.pub_rightDiv{width:328px; border:1px solid #cfddf5 ;float:right; margin-top:10px; min-height:420px;clear:none; height:auto; padding-bottom:22px;}
+
+/*表格区*/
+.pub_tableDiv{width:100%; height:auto;}
+
+.pub_leftDiv .title{
+	float: left;
+	font-size:16px;
+	position: relative;
+}
+
+.pub_leftDiv .title:hover .setTitleBtn{
+	display: inline-block;
+}
+
+.pub_leftDiv .title .setTitleBtn{
+	display: none;
+	cursor: pointer;
+	height: 17px;
+	width: 20px;
+	background: url(../../default/images/home/modify.png) no-repeat;	
+}
+.pub_leftDiv .titleCombobox{
+	display: none;
+	left: 0;
+	top: 0;
+	height: 30px;
+	position: absolute;
+}
+
+
+.pub_leftDiv .filterBtn{float: right;}
+.pub_leftDiv .filterBtn .l-btn{ background:#fff; border:0; margin:0; padding:0px 5px 0px 5px; filter:0;}
+ 
+.pub_leftDiv .timeFilterSel{width:43px;border-radius:0; height:24px; background:url(../../default/images/home/timeFilterSel.jpg) no-repeat top left !important; color:#fff; font-size:13px; text-align:center; line-height:21px;}
+.pub_leftDiv .timeFilterSel .l-btn-left{margin:0;}
+.pub_leftDiv .timeFilterSel .l-btn-text{line-height:22px; color:#fff;}
+
+/*表格区*/
+.pub_chartDiv{width:100%; height:auto;margin-top:12px;}
+
+/*我的工作台*/
+.pub_myWork{width:100%; background:#f9fcff; height:48px; border-bottom:1px solid #cfddf5;}
+
+/*日期*/
+.pub_date{
+	color:#888;
+	width:40px;
+ 	display:block;
+  	overflow: hidden; /*自动隐藏  文字*/
+ 	font-size:12px;
+   	text-overflow: ellipsis;/*文字隐藏后添加省略号*/
+    white-space: nowrap;/*强制不换行*/
+ 	display:block;	
+ 	height:20px;
+	line-height: 20px;
+	font-size: 12px;	
+	}
+/*通知公告*/	
+.pub_x_list{ width:300px; float:left; height:auto; clear:both;  display:block; margin:0px 0px 0px 10px;}
+.pub_x_list ul li{ width:300px; height:30px; line-height:30px;   margin-bottom:1px; float:left; display:block;   }
+.pub_x_list ul li span{ font-family:"微软雅黑";  text-align:left; display:block; float:left; }
+.pub_w_228{
+	height:29px;
+	overflow: hidden;
+	font-size: 14px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	width: 234px;
+	display: block;
+	margin: 0;
+	text-decoration:none;
+	float: left;
+	padding-left: 23px;
+	text-align: left;
+	color:#222;
+	line-height: 29px;
+	background: url(../../default/images/home/list01.png) no-repeat 10px 12px;	
+ }	
+.x_list ul li a:hover{ text-decoration:underline;}
+
+.x_list{ width:300px; float:left; height:auto; clear:both;  display:block; margin:0px 0px 0px 10px;}
+.x_list ul li{ width:300px; height:30px; line-height:30px; background: url(images/list01.png) no-repeat 10px 12px; padding-left:10px; margin-bottom:1px;    }
+.x_list ul li span{ font-family:"微软雅黑";  text-align:left; display:block; float:left; }
+.w_228{
+	height:29px;
+	overflow: hidden;
+	font-size: 14px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	width: 234px;
+	display: block;
+	margin: 0;
+	text-decoration:none;
+	float: left;
+	padding-left: 23px;
+	text-align: left;
+	color:#222;
+	line-height: 29px;
+ 	background: url(../../default/images/home/list01.png) no-repeat 10px 12px;	}	
+
+ 
+ /*我的工作台*/
+.pub_myWork a,
+.pub_myWork span{ display:block; }
+.pub_myWork a{color:#fff; float:right;display:block;line-height:30px; height:30px; margin:10px 12px 0px 0px; text-decoration:none; padding:0px 15px 0px 15px;}
+.pub_myWork span{ font-size:18px; float:left; padding-left:12px;line-height:48px; height:48px;}
+.pub_kaip{background:#7076f2; color:#fff;}
+.pub_kaip:hover{background:#5158eb; text-decoration:none;}
+.pub_kaijks{background:#22cc93; color:#fff;}
+.pub_kaijks:hover{background:#08ae76; text-decoration:none;}
+ 
+.x_list h3{ width:96%; display:block; float:left; height:30px; border-bottom:1px solid #e0e0e0; margin-bottom:12px; margin-top:20px; line-height:30px; margin-left:6px;}
+.x_list h3 span{ float:left; font-family:'微软雅黑'; font-size:16px; padding-left:2px; display:block; font-weight:400;}
+.x_left h3 span{padding-left:2px;}
+.pub_db{background:url(images/db.png) no-repeat left center;}
+ 
+.x_list h3 a{display: block;
+	float: right;
+	width: 40px;
+	font-weight: 400;
+	color: #999;
+	font-size: 13px;
+	height: 22px;
+	text-decoration:none;
+	line-height:29px;
+}
+.x_list h3 a:hover{	text-decoration: underline;	}
+ .pub_red{ color:red; font-weight:400; padding:2px;} 
+ 
+
+  

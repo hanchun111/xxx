@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Page id="xxxUserPage" layout="border"
+      templatePath="xxx/demo/user_index.jsp"
+      js="resources/js/user_index.js"
+      jsId="afauser_index" xmlns="http://www.bosssoft.User"
+      xmlns:xsi="http://www.w3.User/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.bosssoft.User ../../../schema/uis/uitemplate-2.0.xsd">
+    <items>
+        <Panel id="afaOrgPanel_User_details" region="center" layout="border">
+            <items>
+                <Panel id="afaUserPanel_User" region="north" height="80" layout="border">
+                    <items>
+                        <ButtonArea id="afaUserPanel_operate" displayType="MENU" height="50" >
+                            <Button id="afaUserPanel_add" name="新增" icon="btn-add" iconMode="ONLYICON" ></Button>
+                            <Button id="afaUserPanel_del" name="删除" icon="btn-delete" iconMode="ONLYICON" ></Button>
+                            <Button id="afaUserPanel_mainOrgAndPos" name="批量更新机构/岗位" icon="btn-detail" iconMode="ONLYICON" ></Button>
+                            <Button id="afaUserPanel_auth" name="授权" icon="btn-edit" iconMode="ONLYICON" ></Button>
+                        </ButtonArea>
+                        <Query id="afaUserPage_query" queryTarget="afaUserPanelUserdetails" isAdvance="true" style="display: block" manual="false" advColCount="2">
+                            <quicks>
+                                <QueryItem id="Name" field="u.USER_NAME" name="用户名"  operator="like" width='110'  editorType="TEXTBOX" />
+                                <QueryItem id="Code" field="u.USER_CODE" name="用户账号"  operator="like" width='110'  editorType="TEXTBOX" />
+                                <QueryItem id="mobileNo" field="mobile_no" name="手机号码"  operator="=" width='180'  editorType="TEXTBOX" visible="false"/>
+                                <QueryItem id="identityCode" field="u.identity_code" name="身份证号" width='180' operator="like" />
+                                <QueryItem id="orgName" field="o.org_name" name="机构名称" operator="like" width='180'/>
+                            </quicks>
+                        </Query>
+                    </items>
+                </Panel>
+                <Panel id="afaUserPanel" region="center"  layout="border">
+                    <items>
+                        <XGrid id="afaUserPanelUserdetails"
+                               url="user/queryUserPage.do" rownumbers="normal" autoLoad="true"
+                               fitColumns="ES" fit="true" checkbox="true" pager="down" pagelist="30,50,100">
+                            <columns>
+                                <XGridColumn field="userName" title="用户名称" align="center"></XGridColumn>
+                                <XGridColumn field="userCode" title="用户账号" align="center"></XGridColumn>
+                                <XGridColumn field="identityCode" title="身份证号" align="center"></XGridColumn>
+                                <XGridColumn field="mobileNo" title="手机号码" align="center"></XGridColumn>
+                                <XGridColumn field="mainOrgName" title="所属机构" align="center"></XGridColumn>
+                                <XGridColumn field="mainPosName" title="所属岗位" align="center"></XGridColumn>
+                            </columns>
+                                <frozenColumnsRight>
+                                <XGridColumn field="operation" title="操作" width="150">
+                                    <Button id="afaUserPanel_grid_btnOrg"  icon="btn-edit" name="信息修改"/>
+                                    <Button id="afaUserPanel_grid_btnView"  icon="btn-detail" name="用户权限或用户信息"/>
+                                    <Button id="afaUserPanel_grid_btnReset"  icon="btn-refresh" name="密码重置"/>
+                                    <Button id="afaUserPanel_grid_btnDel"  icon="btn-delete" name="删除用户"/>
+                                    <Button id="afaUserPanel_grid_btnLoginReset"  icon="cancelRelation" name="解锁用户"/>
+                                </XGridColumn>
+                            </frozenColumnsRight>
+                        </XGrid>
+                    </items>
+                </Panel>
+            </items>
+        </Panel>
+    </items>
+</Page>

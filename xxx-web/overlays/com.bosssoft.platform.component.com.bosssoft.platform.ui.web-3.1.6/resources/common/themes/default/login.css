@@ -1,0 +1,234 @@
+@charset "utf-8";
+/* CSS Document */
+/* CSS Document */
+*{margin:0;padding:0;}
+ul,ol{list-style:none outside;}
+img{border:0 none;vertical-align:top;}
+table{border-collapse:collapse;border-spacing:0;}
+body{font:12px/1.5 Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif;}
+h1,h2,h3,h4,h5,h6{font-size:14px;}
+a:link, a:visited{text-decoration:none;}
+a:hover, a:focus, a:active{text-decoration:underline;}
+a:focus, a:active{outline:none;}
+.lft{float:left;display:inline;}
+.rgt{float:right;display:inline;}
+.clearfix:after{visibility:hidden;display:block;font-size:1px;content:" ";clear:both;height:0;}
+*html .clearfix{zoom:1;} /* IE6 */
+*:first-child+html .clearfix{zoom:1;}
+  
+*{margin:0 auto; text-align:center; padding:0;list-style-type:none;}
+body{font-size:12px;line-height:180%;font-family:"微软雅黑",Arial, Helvetica, sans-serif; background:#aed0f5 url(images/login/loginbg.png) no-repeat top center;}
+a,img{border:0;}
+a{color:#333;}
+a:hover{color:#3366cc;text-decoration:none;}
+.demopage{width:732px;margin:14px 0px 0px 58px; position:relative;}
+.demopage h2{font-size:14px;margin:20px 0;}
+/* #marquee1 */
+
+#marquee1{width:732px;height:467px;overflow:hidden;  }
+#marquee1 ul li{float:left;width:732px;border:0px solid #ddd;padding:0px;}
+#marquee1 ul li img{display:block;}
+#marquee1 ul li a{cursor:default;}
+ 
+/* control */
+.control{height:25px; width:100px;line-height:25px;overflow:hidden;padding:0; position:absolute; z-index:22; bottom:22px; right:122px;  }
+.control a:hover{ opacity:0.9;filter:alpha(opacity= 90);
+}
+
+
+/*主体框架*/
+
+.max{ width:990px; height:650px;    overflow:hidden; position:relative;}
+.header{ width:990px; height:66px;  float:left; border-bottom:1px solid #ced7e0; position:relative;}
+.center{ width:990px; height:530px;  float:left; position:relative; }
+.footer{ width:990px; height:66px;   float:left; border-top:1px solid #ced7e0;}
+
+.logo{ width:337px; height:36px; float:left; margin:15px 0px 0px 10px;}
+.rightTop{ width:318px; height:17px; color:#949494; position:absolute; z-index:32; top:20px; right:22px;}
+.rightTop span{
+	display:inline-block;
+  	color:#333;
+	padding-left: 20px;
+	line-height: 28px;
+	margin: 0 4px;
+}
+.rightTop .down{
+	background: url(images/login/download.png) no-repeat;
+		background-position-y: 7px;
+}
+.rightTop .tel{
+		background: url(images/login/tel.png)  no-repeat;
+		background-position-y: 7px;
+		padding-left: 22px;
+}
+.rightTop .tel b{color: #fd0f0a;font-size: 13px}
+
+.redFont{font-size:16px; color:red;  }
+.helpDoc{padding:0px 40px 1px 17px; line-height:18px;}
+.helpTel{background:blue url(images/login/f80.png) no-rpeat 0px 0px; padding:0px 10px 0px 20px; line-height:18px;}
+
+.loginDiv{ position:absolute; top:92px; right:20px; width:300px; padding-bottom:20px; background: url(images/login/f80.png); border:1px solid #b8bbbe;}
+
+.logo_f{ float:left; width:195px;  height:23px; float:left; margin-top:5px;}
+.footer a{ color:#888;letter-spacing:4px;}
+.footer .logo_f a{ color:#333;letter-spacing:6px;  }
+
+.gybs{ float:right; width:auto; height:20px; margin-top:10px; }
+.gybs a{ color:#444; font-size:14px;}
+.border{ border-right:1px solid #94a3b2; padding-right:12px; height:12px; line-height:12px; overflow:hidden; margin-right:12px;}
+
+/*tabs*/
+.line{ height:45px; width:1px; background:#cdcdcd; position:absolute; top:0; left:150px;}
+
+.tabsDiv{
+    width:300px;
+	height:38px;
+}
+.tabs 
+{
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+}
+.tabs li
+{
+    float: left;
+    line-height:42px;
+    margin: 0;
+	width:150px;
+	height:42px;
+    padding: 2px 0px 0px 0px;
+	font-size:14px;
+}
+.tabs li img{
+	margin:5px 12px 0px 0px;
+}
+.tab-nav{
+     cursor:pointer;
+    background:#eee url(images/login/loginTabBg.png) repeat-x top left;
+	 border-bottom:1px solid #cdcdcd;
+ }
+.tab-nav-action{
+	background:none url(images/login/f80.png);    
+	cursor:pointer;
+}
+.tabs-body
+{
+    padding: 15px 0px 0px 0px;
+    display:block;
+    position:relative;
+}
+
+.tabs-body div 
+{
+   /* padding:10px;*/
+}
+
+form.userLoginForm{
+	display:block;
+}
+
+form.userLoginForm div{
+	display:block;
+	position:relative;
+	margin:0 auto;
+	width:250px;
+	padding:20px 6px  6px 6px;
+}
+
+form.userLoginForm div.errordiv{padding-top:6px;}
+
+
+.userLoginForm input{
+	text-align:left;
+	border:1px solid #aeaeae;
+	width:235px;
+	height:39px;
+	line-height:30px;
+	font-size:15px;
+	text-indent:43px;
+	padding:0px 0px;
+	display:inline-block;
+	width:240px;
+	margin:0;
+}
+
+/*登录输入框的图标*/
+form.userLoginForm div i{
+	position:absolute;
+	z-index:26;
+	top:21px;
+	left:11px;
+	height:39px;
+	width:39px;	
+	display:block;
+}
+form.userLoginForm div i.userInputB{background:url(images/login/user.png) no-repeat left top;}
+form.userLoginForm div i.PwInputB{background:url(images/login/Pw.png) no-repeat left top;}
+
+/*errorSpan*/
+form.userLoginForm div span.errorSpan{
+	display: block;
+	width: 239px;
+	height: 19px;
+	background: #fff;
+	border: 1px dotted red;
+	text-align: center;
+	line-height: 20px;
+	padding: 0;
+	color: red;	
+}
+/*errorSpan*/
+form.userLoginForm div span.infoSpan{
+	display: block;
+	width: 239px;
+	height: 19px;
+	background: #fff;
+	border: 1px dotted #888;
+	text-align: center;
+	line-height: 20px;
+	padding: 0;
+	color:#888;
+}
+
+form.userLoginForm div input.CaptchaInput{
+	display:inline-block;
+	width:95px;
+	height:35px;
+	margin:0;
+	text-indent:2px;
+}
+form.userLoginForm div .CaptchaImage{
+	width:100px;
+	height:35px;
+	border:1px solid #000;
+}
+
+
+
+.userLoginForm input.subimt{
+	background:url(images/login/loginBtn.png) no-repeat left top;
+	height:41px; border:none; cursor:pointer; margin-top:0px;margin-bottom:6px;
+	width:242px;
+}
+.userLoginForm input.subimt:hover{
+     opacity:0.9;
+     filter:alpha(opacity= 90);
+}
+
+.jitLoginForm div{
+	display:block;
+	position:relative;
+	margin:0 auto;
+	width:250px;
+	padding:20px 6px  6px 6px;
+}
+.jitLoginForm input.subimt{
+	background:url(images/login/loginBtn.png) no-repeat left top;
+	height:41px; border:none; cursor:pointer; margin-top:0px;margin-bottom:6px;
+	width:242px;
+}
+
+
+
+

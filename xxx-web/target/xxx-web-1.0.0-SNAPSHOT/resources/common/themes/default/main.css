@@ -1,0 +1,513 @@
+
+@charset "utf-8";
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+  outline: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family:'微软雅黑';
+}
+td{
+	vertical-align: middle;
+}
+
+html,body{
+    font: 100% 微软雅黑;
+    margin: 0; /* 最好将 body 元素的边距和填充设置为 0 以覆盖不同的浏览器默认值 */
+    padding: 0;
+	color:#434343;
+	font-family:Arial,微软雅黑;
+	line-height:20px; 
+	font-size:12px;
+	word-break:normal; 
+	background: #FFF;
+}
+
+html { 
+	height: 100%; 
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { 
+	display: block; 
+}
+
+ol, ul { 
+	list-style: none; 
+}
+
+blockquote, q { 
+	quotes: none; 
+}
+
+blockquote:before, blockquote:after, q:before, q:after { 
+	content: ''; 
+	content: none; 
+}
+
+strong { 
+	font-weight: bold; 
+}
+
+img { 
+	border: 0; 
+	max-width: 100%; 
+}
+
+p { 
+	font-size: 1.2em; 
+	line-height: 1.0em; color: #333; 
+}
+ * {
+	margin:0; 
+	padding:0;
+}
+html {
+	color:#434343; 
+	background-color:#fff;
+}
+body{
+	color:#434343;
+	font-family:Arial,微软雅黑;
+	line-height:20px; 
+	font-size:12px;
+	height: 100%;
+	width: 100%; 
+	word-break:normal; 
+	background: #FFF;
+}
+a{
+	color:#434343; 
+	text-decoration:none; 
+	font-size:15px;
+}
+a:hover {
+	text-decoration:underline;
+}
+img {
+	border:0; 
+	vertical-align:middle;
+}
+li {
+	list-style:none;
+}
+
+ 
+ 
+
+ 
+.clearfloat { /* 此类应当放在 div 或 break 元素上，而且该元素应当是完全包含浮动的容器关闭之前的最后一个元素 */
+    clear:both;
+    height:0;
+    font-size: 1px;
+    line-height: 0px;
+}
+	
+
+
+.tools{ 
+	width:100%; 
+	height:35px; 
+	float:left;
+}
+.sec_body{ 
+	width:100%; 
+	height:100%; 
+	float:left; 
+	clear:none;
+	overflow:auto;
+}
+.left_tree{ 
+	width:23%; 
+	min-height:367px; 
+	float:left; 
+	clear:none;
+}
+.right_content{ 
+	float:left; 
+	clear:none;
+	width:77%;  
+	border-left:1px solid #EDEDED;
+}
+.ztree-container{
+	min-height:320px;
+}
+ 
+.gridSubSysSelectDIv{
+	width:680px; 
+	height:320px;
+	padding:10px;
+	overflow:auto;
+}
+.psGrid,.psTree{
+	background:#fffbf2;
+	border:1px solid #ffe2c6;
+	padding:4px;
+	height:27px;
+	line-height:18px;
+	width:640px; 
+	text-align:left;
+	text-indent:5px;
+	margin-top:20px;
+	margin-left:16px;
+	color:#555;
+	font-size:14px;
+}
+.psTree{
+	width: 90%;
+	margin-left: 5%;
+	margin-bottom:12px;
+	margin-top:10px;
+}
+table tr td font{
+	 font-size:16px;
+	 color:#2BBB0F;
+	 font-weight:800;
+	font-family:"微软雅黑";
+	
+}
+/*logo*/
+.header_center{
+	display: block;
+	letter-spacing: 2px;
+	line-height: 43px;
+	color: #fff;
+	position: relative;
+	text-align: left;
+	font-size: 20px;
+	margin: 0 auto;
+	text-indent: 57px;
+	font-weight: 400;
+	font-family: '微软雅黑';
+}
+
+/*otherSys user logout*/
+.header_right{position:absolute; top:0; right:-2px; display:inline-block; height:43px; z-index:2;}
+.header_right div.header_menubtn{width:43px;height:43px;background-color:#2294d3;margin-right:1px; display:block;}
+.header_right div.header_menubtn:hover{background-color:#4e4dab;}
+.header_right div{float:right;}
+
+.header_right div.nav_user{background-image:url(./images/nav/user.png)}
+.header_right div.nav_otherSys{background-image:url(./images/nav/otherSys.png)}
+.header_right div.nav_logout{background-image:url(./images/nav/logout.png);background-position: 4px 2px;}
+.header_right div.nav_logout a{display:block;height:43px;cursor:default;}
+
+
+
+/*状态1*/
+.stampStatus{ 
+	padding: 0px 12px;
+	color: #6bc91d;
+	font-family: "微软雅黑";
+	font-weight: bold;
+	line-height: 34px;
+	height: 33px;
+	margin: 22px;
+	text-indent: 0px;
+	text-align: left;
+	overflow: visible;
+	white-space: nowrap;
+ 
+	}
+.stampStatus label{  width:auto;  border:2px solid #6bc91d; padding:1px 10px 2px 8px; font-size:14px; font-weight: bold}
+
+
+
+
+
+.viewD label{  width:auto; border:2px solid red; padding:1px 18px 2px 8px;   }
+
+.viewD { padding-right:12px; background:#fff url(detail.png) no-repeat 115px  12px; clear:both;   }
+.viewDH { padding-right:12px; background:#fff url(detailH.png) no-repeat 115px 12px; color:#F00; }
+
+.detailDiv{ width:452px; height:122px; background:#fff; clear:both; font-size:15px; color:#444; border:2px solid #eee; display:none;    }
+
+ 
+.left_tree .form{margin:0; background:#FFF	;}
+.gridBox{background:#fff !Important;}
+ 
+
+.disabled{
+	cursor:default !important;
+	opacity:0.25;
+	filter:alpha(opacity=25);
+}
+a.disabled i{filter:alpha(opacity=25);}
+
+a.l-btn.disabled,a.l-btn.disabled:hover{
+	opacity:.5;
+	cursor:default;
+	background:#fafafa;
+	color:#aab;
+	filter:alpha(opacity=25);
+}
+	
+/*弹出框圆形分页*/	
+.roundPages { 
+	width: 100px;
+	height: 100px;
+/* 	border-radius: 50%; */
+	line-height: 100px;
+	font-size: 24px;
+	color: #000;
+	opacity: 0.4;
+	position: absolute;
+	z-index: 9999999;
+	top: 50%;
+	left: 45%;
+	display: none;
+	text-align: center;
+}
+/*开票点底部字体大小控制*/
+.footer-area, .footer-area div{
+	font-size:15px !Important;
+	font-family:'微软雅黑';
+}
+/*Add btn*/
+.lastThAdd{
+	background:#4fd932 !Important;
+}
+.lastThAdd:hover{
+	background:#74ef5a !Important;
+}
+.queryleft .app-wrapper{width:160px;}
+
+/*常用菜单*/
+.menuTreeDiv, .btn_containerDiv, .userdMenusDiv{float:left; margin-right:5px;}
+.menuTreeDiv{
+	width: 320px;
+	margin: 14px 10px 0px 16px;
+	border: 1px solid #eaeaea;
+	height: 511px;
+	overflow-y:auto;
+}
+.btn_containerDiv{width:110px;}
+.btn_containerDiv button{margin:230px 10px 0px 10px; width:80px; height:50px;}
+
+.bottom_icon a{display:block; width:30px; float:right;height:29px;background:url('./images/nav/favIcon.png')no-repeat 6px 7px;}
+.bottom_icon a:hover{background:#deedf5 url('./images/nav/favIcon.png')no-repeat 6px 7px;}
+
+/*panel边框线
+layout-panel-broder-west
+layout-panel-broder-east
+layout-panel-broder-north
+layout-panel-broder-center
+layout-panel-broder-south
+
+*/
+
+/*弹出登陆框*/
+.dlg-login{
+	padding: 0px 20px;
+}
+
+#dialogLogin{
+	/*min-width: 311px;
+	max-width:400px;*/
+	min-width: 312px;
+	width:312px;
+	height: 270px;
+	padding-top: 9px;
+}
+
+.dlg-login-title {
+	font-size: 14px;
+	font-weight: 700;
+	color: #555;
+	margin: 10px 0;
+	padding-left:21px;
+}
+
+.dlg-login div{
+	display:block;
+	padding:5px;
+}
+
+.dlg-login div input{
+	text-align: left;
+	border: 1px solid #aeaeae;
+	width: 100%;
+	height: 39px;
+	line-height:30px;
+	line-height: 100%;
+	font-size: 15px;
+	text-indent: 43px;
+	display: block;
+}
+
+.dlg-login-username{background: url(images/login/user.png) no-repeat left top;}
+.dlg-login-pwd{background: url(images/login/Pw.png) no-repeat left top;	}
+
+.dlg-login .errorLogin{
+	line-height: 26px;
+	color: red;
+	 margin: 0px;
+	 padding: 0px;
+	 vertical-align: middle;
+	 text-align: center;
+}
+
+.dlg-login div.captchaDiv{
+	clear:both;
+	height:48px;
+}
+
+.dlg-login .captchaDiv input{
+	display:inline-block;
+	height:38px;
+	width:100px;
+	float:left;
+	text-indent: 2px;
+	margin-right:2px;
+}
+.dlg-login .captchaDiv img{
+	display:inline-block;
+	width:100px;
+	height:40px;
+	border:1px solid #000;
+	margin-right:2px;
+	float:left;
+}
+.dlg-login .captchaDiv a{
+	display:inline-block;
+	height:39px;
+	line-height:39px;
+	clear:both;
+}
+
+
+.dlg-login .dlg-login-buttons{
+		width: 100%;
+}
+.dlg-login .dlg-login-buttons a{
+		width: 49%;
+}
+.dlg-login .dlg-login-buttons .btn-login {
+	float: left;
+}
+.dlg-login .dlg-login-buttons .btn-loginout{
+	float: right;
+}
+
+/*弹出头部*/
+.dlg-box-head{
+	height:60px; 
+	 border-bottom:1px solid #eae9e6;
+	 width:100%; 
+	 line-height:60px;
+	 background:#fdfdfd;
+	 border-radius:3px;
+}
+.dlg-box-head .dlg-box-head-left{
+	float:left;  width:100%;  white-space:nowrap; clear:none; height:56px;
+	font-family:'微软雅黑';
+	cursor:move;
+}
+.dlg-box-head .dlg-box-head-right{
+	width:auto;
+	position:absolute;
+	right:0;
+}
+.dlg-box-head-right .btnarea{
+	border:none;
+}
+.dlg-box-head .dlg-box-head-left .dlg-box-head-title{ font-size:18px;  float:left; font-weight:normal;   white-space:nowrap; padding-left:46px; background:  url(./images/home/title.png) no-repeat 17px 21px; color:#555;   white-space:nowrap; clear:none; display:block;text-align:left;}
+.dlg-box-head .dlg-box-head-left .dlg-box-head-text{font-size:16px; float:left; font-weight:400; padding-left:36px; background:  url(./images/home/title_bg.png) no-repeat 5px 29px; color:#656360;
+overflow :hidden; text-align:left; white-space:nowrap;text-overflow: ellipsis; -o-text-overflow :ellipsis;  width:260px; display:block;}
+
+.ajaxProgressBar{
+height: 100%;width: 100%;z-index: 999999; display: block;position:fixed;
+}
+.ajaxProgressBarText{
+	width: 200px;
+	height: 50px;
+	position: absolute;
+	top: 45%;
+	left: 45%;
+	border: solid 1px #ccc;
+	line-height: 50px;
+	text-align: center;
+	background-color: #fff;
+}
+
+.loadingPage-mask { 
+    height: 88%;
+    width: 100%;
+	opacity: 1;
+	/* filter:alpha(opacity=20); */
+	background:#fff; 
+	position:absolute;
+	z-index:988899;
+}
+
+.userdMenusDiv {
+    width: 320px;
+    margin: 14px 0 0 0;
+    border: 1px solid #eaeaea;
+    height: 511px;
+    overflow-y: auto;
+}
+.userdMenusDiv .usedmenu {
+    position: relative;
+    line-height: 33px;
+    display: block;
+    width: 90%;
+    background: #fff;
+    float: left;
+    border-bottom: 1px dotted #eee;
+    margin-left: 14px;
+}
+.userdMenusDiv .usedmenu a {
+    position: absolute;
+    top: 1px;
+    right: 5px;
+    color: red;
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+    background: url(./images/menu/del.png) no-repeat center center;
+}
+
+.userdMenusDiv .usedmenu span {
+    width: 100%;
+    text-align: left;
+    display: block;
+    color: #222;
+    padding: 5px;
+    font-size: 14px;
+    padding-left: 20px;
+    background: url(./images/menu/menuUserOk.png) no-repeat 4px 15px;
+    cursor: move;
+}
+.userdMenusDiv .usedmenu span:hover {
+    background-color: #fafafa;
+}
+
+.stamp {
+    padding: 0 12px;
+    color: red;
+    font-family: "微软雅黑";
+    font-weight: bold;
+    line-height: 34px;
+    height: 33px;
+    margin: 22px;
+    text-indent: 0;
+    text-align: left;
+    overflow: visible;
+    white-space: nowrap;
+    position: absolute;
+    right: 364px;
+    top: 371px;
+    z-index: 123;
+}
+.stamp label {
+    width: auto;
+    border: 2px solid red;
+    padding: 1px 10px 2px 8px;
+    font-size: 26px;
+    font-weight: bold;
+}

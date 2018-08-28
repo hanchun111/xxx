@@ -1,0 +1,3473 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://www.bosssoft.com.cn/schema/uis"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.bosssoft.com.cn/schema/uis"
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+	<xsd:annotation>
+		<xsd:documentation>
+			<![CDATA[博思软件ui框架的应用程序上下文支持配置元素]]>
+		</xsd:documentation>
+	</xsd:annotation>
+	<!-- 定义uipage -->
+	<xsd:element name="Page">
+	<xsd:annotation>
+		<xsd:documentation>
+			<![CDATA[页面模型控件]]>
+		</xsd:documentation>
+	</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="items" type="typePageItems">
+				<xsd:annotation>
+					<xsd:documentation>
+						<![CDATA[页面模型对象 子项可包含{Panel,Import}]]>
+					</xsd:documentation>
+				</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+			<xsd:attribute name="id" type="xsd:string" use="optional">
+				<xsd:annotation>
+					<xsd:documentation>ID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:attribute>
+			<xsd:attribute name="name" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>控件名称</xsd:documentation>
+				</xsd:annotation>
+			</xsd:attribute>
+			<xsd:attribute name="templatePath" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>
+						<![CDATA[模板路径 例如 platform/test/testindex]]>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:attribute>
+			<xsd:attribute name="template" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>
+						<![CDATA[数据库中模板编码，在使用数据库中定义的模板时，填写该属性]]>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:attribute>
+			<xsd:attribute name="scopeKey" type="xsd:string">
+			</xsd:attribute>
+			<xsd:attribute name="js" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>
+						<![CDATA[js脚本路径]]>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:attribute>
+			<xsd:attribute name="jsId" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>
+						<![CDATA[js对象id]]>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:attribute>
+			<xsd:attribute name="onPageLoad" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>
+						<![CDATA[页面加载完成后的事件函数，可以额外的手动做一些初始化工作。
+							函数包含一个参数，是后台Controller方法中里返回的model中设置到UIConst.UIPAGEMODEL的值
+							例如：webapp/resources/north/amodel/a.js
+							  define(["app/app-base","app/app-pagebase",], function(Base,PageBase) {
+							  	FunctionModel = PageBase.extend({
+							  	
+							  	});
+							  	
+							  	return new FunctionModel();
+							  
+							  })
+							xml: <Page id="function_index" templatePath="platform/func/function/function_index" jsId="a" js="resources/north/amodel/a" onPageLoad="a.init"> </page>]]>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:attribute>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="Panel" type="typePanel">
+	<xsd:annotation>
+		<xsd:documentation>
+			<![CDATA[面板控件]]>
+		</xsd:documentation>
+	</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="Tree" type="typeTree">
+		<xsd:annotation>
+			<xsd:documentation>
+				<![CDATA[树控件]]>
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!-- 表单 -->
+	<xsd:element name="Form" type="typeUIForm">
+		<xsd:annotation>
+			<xsd:documentation>
+				<![CDATA[表单控件]]>
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="Row" type="typeRow">
+		<xsd:annotation>
+			<xsd:documentation>
+				<![CDATA[]]>
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="FormItem" type="typeFormItem">
+		<xsd:annotation>
+			<xsd:documentation>
+				<![CDATA[表单元素控件]]>
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!-- 表单结束 -->
+	<xsd:element name="Grid" type="typeGrid">
+		<xsd:annotation>
+			<xsd:documentation>
+				<![CDATA[网格控件]]>
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="XGrid" type="typeXGrid">
+		<xsd:annotation>
+			<xsd:documentation>
+				<![CDATA[网格控件]]>
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="ButtonArea" type="typeUIButtonArea">
+		<xsd:annotation>
+			<xsd:documentation>
+				<![CDATA[按钮区控件]]>
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="Button" type="typeUIButton">
+		<xsd:annotation>
+			<xsd:documentation>
+				<![CDATA[按钮控件]]>
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="Menu" type="typeMenu">
+		<xsd:annotation>
+			<xsd:documentation>
+				<![CDATA[菜单控件]]>
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="MenuItem" type="typeUIMenuItem">
+		<xsd:annotation>
+			<xsd:documentation>
+				<![CDATA[菜单元素控件]]>
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="TreeGrid" type="typeTreeGrid">
+		<xsd:annotation>
+			<xsd:documentation>
+				<![CDATA[树形网格控件]]>
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="Upload" type="typeUpload">
+		<xsd:annotation>
+			<xsd:documentation>
+				<![CDATA[上传组件]]>
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="Query" type="typeUIQuery">
+		<xsd:annotation>
+			<xsd:documentation>
+				<![CDATA[查询控件]]>
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="QueryItem" type="typeUIQueryItem">
+	<xsd:annotation>
+			<xsd:documentation>
+				<![CDATA[查询项]]>
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	
+	<xsd:element name="Import" type="typeUIImport">
+		<xsd:annotation>
+			<xsd:documentation>
+				<![CDATA[]]>
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="Tabs" type="typeTabs">
+		<xsd:annotation>
+			<xsd:documentation>
+				<![CDATA[页签控件]]>
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="TabPanel" type="typeTabPanel">
+		<xsd:annotation>
+			<xsd:documentation>
+				<![CDATA[页签面板控件]]>
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<!-- 自定义类型定义开始 -->
+	<xsd:complexType name="typePageItems">
+		<xsd:annotation>
+			<xsd:documentation>
+				<![CDATA[页面元素对象， 可包含类型 {Panel,Import}]]>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:choice minOccurs="1" maxOccurs="unbounded">
+			<xsd:element ref="Panel" maxOccurs="unbounded" minOccurs="0"></xsd:element>
+			<xsd:element ref="Import" maxOccurs="unbounded"
+				minOccurs="0"></xsd:element>
+		</xsd:choice>
+	</xsd:complexType>
+	<xsd:complexType name="typePanelItems">
+		<xsd:annotation>
+			<xsd:documentation>
+				<![CDATA[面板下包含元素{Panel,Tree,Form,Grid,
+						XGrid,TreeGrid,ButtonArea,Upload,
+						Query,Import,Tabs}]]>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:choice minOccurs="1" maxOccurs="unbounded">
+			<xsd:element ref="Panel" maxOccurs="unbounded" minOccurs="0"></xsd:element>
+			<xsd:element ref="Tree" maxOccurs="unbounded" minOccurs="0"></xsd:element>
+			<xsd:element ref="Form" maxOccurs="unbounded" minOccurs="0"></xsd:element>
+			<xsd:element ref="Grid" maxOccurs="unbounded" minOccurs="0"></xsd:element>
+			<xsd:element ref="XGrid" maxOccurs="unbounded" minOccurs="0"></xsd:element>
+			<xsd:element ref="TreeGrid" maxOccurs="unbounded"
+				minOccurs="0"></xsd:element>
+			<xsd:element ref="ButtonArea" maxOccurs="unbounded"
+				minOccurs="0"></xsd:element>
+			<xsd:element ref="Upload" maxOccurs="unbounded"
+				minOccurs="0"></xsd:element>
+			<xsd:element ref="Query" maxOccurs="unbounded" minOccurs="0"></xsd:element>
+			<xsd:element ref="Import" maxOccurs="unbounded"
+				minOccurs="0"></xsd:element>
+			<xsd:element ref="Tabs" maxOccurs="unbounded" minOccurs="0"></xsd:element>
+		</xsd:choice>
+	</xsd:complexType>
+
+	<xsd:complexType name="typeRowItems">
+		<xsd:annotation>
+			<xsd:documentation>
+				<![CDATA[行对象下所包含元素]]>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:choice minOccurs="1" maxOccurs="unbounded">
+			<xsd:element ref="FormItem" maxOccurs="unbounded"
+				minOccurs="0"></xsd:element>
+		</xsd:choice>
+	</xsd:complexType>
+
+	<xsd:complexType name="typeFormItems">
+		<xsd:annotation>
+			<xsd:documentation>
+				<![CDATA[表单元素下所包含元素  {Row}]]>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:choice minOccurs="1" maxOccurs="unbounded">
+			<xsd:element ref="Row" maxOccurs="unbounded" minOccurs="0"></xsd:element>
+		</xsd:choice>
+	</xsd:complexType>
+	<xsd:complexType name="typeTabsItems">
+		<xsd:annotation>
+			<xsd:documentation>
+				<![CDATA[页签所包含元素]]>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:choice minOccurs="1" maxOccurs="unbounded">
+			<xsd:element ref="TabPanel" maxOccurs="unbounded"
+				minOccurs="0"></xsd:element>
+		</xsd:choice>
+	</xsd:complexType>
+
+	<xsd:complexType name="typeTabPanel">
+		<xsd:annotation>
+			<xsd:documentation>
+				<![CDATA[页签面板所包含元素]]>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="items" type="typePanelItems">
+				<xsd:annotation>
+					<xsd:documentation>
+						<![CDATA[页签面板对象   可包含子项{Panel,Tree,Form,Grid,
+								XGrid,TreeGrid,ButtonArea,Upload,
+								Query,Import,Tabs}]]>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+
+		<xsd:attribute name="active" type="xsd:string">
+		</xsd:attribute>
+		<xsd:attribute name="lazy" type="xsd:boolean">
+		</xsd:attribute>
+		<xsd:attributeGroup ref="attrPanel"></xsd:attributeGroup>
+
+	</xsd:complexType>
+
+	<xsd:complexType name="typeTabs">
+		<xsd:sequence maxOccurs="unbounded" minOccurs="0">
+			<xsd:element name="items" type="typeTabsItems">
+				<xsd:annotation>
+					<xsd:documentation>
+						<![CDATA[页签下包含元素{}]]>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+		<xsd:attribute name="id" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>
+						<![CDATA[ID]]>
+					</xsd:documentation>
+				</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="hideHeader" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>
+						<![CDATA[隐藏头部信息]]>
+					</xsd:documentation>
+				</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="afterSwitchTab" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>
+						<![CDATA[切换页签之后]]>
+					</xsd:documentation>
+				</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="beforeSwitchTab" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>
+						<![CDATA[切换页签之前]]>
+					</xsd:documentation>
+				</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="typePanel">
+		<xsd:sequence>
+			<xsd:element name="items" type="typePanelItems">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[面板对象  子项可包含{Panel,Tree,Form,Grid,XGrid,
+							TreeGrid,ButtonArea,Upload,Query,Import,Tabs}]]>
+				</xsd:documentation>
+			</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+		<xsd:attributeGroup ref="attrPanel"></xsd:attributeGroup>
+		<xsd:attributeGroup ref="attrFormDesign"></xsd:attributeGroup>
+	</xsd:complexType>
+
+	<xsd:complexType name="typeTree">
+		<!-- <xsd:sequence>去除事件 <xsd:element name="events" minOccurs="0" maxOccurs="100"> 
+			<xsd:complexType> <xsd:sequence> <xsd:element name="Event" type="typeEvent" 
+			minOccurs="1"></xsd:element> </xsd:sequence> </xsd:complexType> </xsd:element> 
+			</xsd:sequence> -->
+		<xsd:attributeGroup ref="attrTree"></xsd:attributeGroup>
+		<xsd:attributeGroup ref="attrFormDesign"></xsd:attributeGroup>
+
+	</xsd:complexType>
+	<!-- 表单类型 -->
+	<xsd:complexType name="typeUIForm">
+		<xsd:choice>
+			<xsd:element name="FormGroup" minOccurs="0" maxOccurs="unbounded">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="FormItem" type="typeFormItem"
+							minOccurs="0" maxOccurs="100">
+						</xsd:element>
+
+					</xsd:sequence>
+					<xsd:sequence>
+						<xsd:element name="items" type="typeFormItems">
+							<xsd:annotation>
+								<xsd:documentation>
+									<![CDATA[表单对象 子项可包含{attrFormItem,attrFormDesign]]>
+								</xsd:documentation>
+							</xsd:annotation>	
+						</xsd:element>
+					</xsd:sequence>
+					<xsd:attribute name="id" type="xsd:string" use="required">
+						<xsd:annotation>
+							<xsd:documentation>ID</xsd:documentation>
+						</xsd:annotation>	
+					</xsd:attribute>
+					<xsd:attribute name="name" type="xsd:string">
+						<xsd:annotation>
+							<xsd:documentation>名称</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attribute>
+					<xsd:attribute name="style" type="xsd:string">
+						<xsd:annotation>
+							<xsd:documentation>固定样式信息</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attribute>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="FormItem" type="typeFormItem"
+				minOccurs="0" maxOccurs="unbounded"></xsd:element>
+			<xsd:sequence>
+				<xsd:element name="items" type="typeFormItems"></xsd:element>
+			</xsd:sequence>
+		</xsd:choice>
+		<xsd:attributeGroup ref="attrForm"></xsd:attributeGroup>
+		<xsd:attributeGroup ref="attrFormDesign"></xsd:attributeGroup>
+	</xsd:complexType>
+
+	<xsd:complexType name="typeFormItem">
+		<xsd:annotation>
+			<xsd:documentation>json格式，用于过滤数据字典项
+				{
+				'nameKey':'aaa', //字典项中名字里包含aaa的
+				'codeKey':'01', //字典项中编码包含01的
+				'excludes':['001','002','003']
+				//排除code=001,002,003的数据
+				}
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="events" minOccurs="0" maxOccurs="15">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="Event" type="typeEvent" minOccurs="0"
+							maxOccurs="15"></xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+		<xsd:attributeGroup ref="attrFormItem"></xsd:attributeGroup>
+		<xsd:attributeGroup ref="attrFormDesign"></xsd:attributeGroup>
+	</xsd:complexType>
+
+	<xsd:complexType name="typeRow">
+		<xsd:sequence>
+			<xsd:element name="items" type="typeRowItems"></xsd:element>
+		</xsd:sequence>
+		<xsd:attributeGroup ref="attrFormDesign"></xsd:attributeGroup>
+	</xsd:complexType>
+
+	<xsd:complexType name="typeGrid">
+		<xsd:annotation>
+			<xsd:documentation>
+				<![CDATA[网格对象，   可包含类型{attrGrid,attrFormDesign}]]>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:choice maxOccurs="unbounded" minOccurs="0">
+			<xsd:element name="Column" type="typeGridColumn"
+				minOccurs="0" maxOccurs="100"></xsd:element>
+			<xsd:element name="ButtonArea" type="typeUIButtonArea"
+				minOccurs="0"></xsd:element>
+			<xsd:element name="GroupHeaders" type="typeGroupHeaders"
+				minOccurs="0" maxOccurs="1"></xsd:element>
+			<xsd:element name="events" minOccurs="0" maxOccurs="100">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:sequence>
+							<xsd:element name="Event" type="typeEvent" minOccurs="0"
+								maxOccurs="15"></xsd:element>
+						</xsd:sequence>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:choice>
+		<xsd:attributeGroup ref="attrGrid"></xsd:attributeGroup>
+		<xsd:attributeGroup ref="attrFormDesign"></xsd:attributeGroup>
+	</xsd:complexType>
+	<xsd:complexType name="typeGridColumn">
+		<xsd:annotation>
+			<xsd:documentation>
+				<![CDATA[网格列对象，   可包含类型{attrGridColumn}]]>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<!-- <xsd:element name="events" minOccurs="0"> <xsd:complexType> <xsd:sequence> 
+				<xsd:element name="Event" type="typeEvent" minOccurs="0" maxOccurs="15"></xsd:element> 
+				</xsd:sequence> </xsd:complexType> </xsd:element> -->
+			<xsd:element name="buttons" minOccurs="0" maxOccurs="15">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="Button" type="typeUIButton"
+							minOccurs="0" maxOccurs="15"></xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+		<xsd:attributeGroup ref="attrGridColumn"></xsd:attributeGroup>
+
+	</xsd:complexType>
+	<xsd:complexType name="typeGroupHeader">
+		<xsd:sequence>
+			<xsd:element name="GroupHeaders" type="typeGroupHeaders"
+				minOccurs="0" maxOccurs="100">
+			</xsd:element>
+		</xsd:sequence>
+		<xsd:attributeGroup ref="attrGroupHeader"></xsd:attributeGroup>
+
+	</xsd:complexType>
+	<xsd:complexType name="typeGroupHeaders">
+		<xsd:sequence>
+			<xsd:element name="GroupHeader" type="typeGroupHeader"
+				minOccurs="0" maxOccurs="100">
+			</xsd:element>
+		</xsd:sequence>
+		<xsd:attribute name="useColSpanStyle" type="xsd:string"></xsd:attribute>
+
+	</xsd:complexType>
+
+	<xsd:complexType name="typeXGrid">
+		<xsd:sequence>
+			<xsd:element name="toolbar" minOccurs="0" maxOccurs="1">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="Button" type="typeUIButton"
+							maxOccurs="unbounded" minOccurs="0">
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="frozenColumns" minOccurs="0"
+				maxOccurs="1">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="XGridColumn" type="typeXGridColumn"
+							maxOccurs="unbounded" minOccurs="0">
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="columns" minOccurs="0" maxOccurs="1">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="XGridColumn" type="typeXGridColumn"
+							maxOccurs="unbounded" minOccurs="0">
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="frozenColumnsRight" minOccurs="0"
+				maxOccurs="1">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="XGridColumn" type="typeXGridColumn"
+							maxOccurs="unbounded" minOccurs="0">
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="events" minOccurs="0" maxOccurs="1">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="Event" type="typeEvent" minOccurs="0"
+							maxOccurs="15">
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+		<xsd:attribute name="id" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[ID]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="autoLoad" type="xsd:boolean">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[是否自动加载数据]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="checkbox" type="xsd:boolean">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[是否使用checkbox]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="columnResizable" type="xsd:boolean">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[网格是否可以调整列宽]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="editable" type="xsd:boolean">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[网格是否可编辑]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="fitColumns">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[设置自动列宽模式]]>
+				</xsd:documentation>
+			</xsd:annotation>
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:enumeration value="N"></xsd:enumeration>
+					<xsd:enumeration value="ES"></xsd:enumeration>
+					<xsd:enumeration value="E"></xsd:enumeration>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+		<xsd:attribute name="follow">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[跟随滚动]]>
+				</xsd:documentation>
+			</xsd:annotation>
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:enumeration value="none"></xsd:enumeration>
+					<xsd:enumeration value="header"></xsd:enumeration>
+					<xsd:enumeration value="footer"></xsd:enumeration>
+					<xsd:enumeration value="all"></xsd:enumeration>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+		<xsd:attribute name="group" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>JSON格式
+
+					group.show 是否显示分组头
+					group.items 分组信息
+					group.items.field 分组的字段
+					group.items.order 排序方式可选值：
+					ace: 升序
+					desc：降序
+					group.template 主视图模板
+					group.summary 合计值选项
+					group.summary.items 合计的字段
+					group.summary.items.field 合计的字段
+					group.summary.items.type 合计类型可选值：
+					sum: 合计值
+					avg：平均值
+					min：最小值
+					max：最大值
+					count：计数值
+					group.summary.items.value
+					要输出的值
+					group.summary.method 计算的函数，如果函数为空，则使用分组数据进行替换模板
+					group.summary.template 主视图模板
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="headerCustom" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>自定义面板的jquery表达式
+					组件根据 $A(headerCustom) 取得面板 eg.
+					#query
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="height" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>网格的高度
+					1、高度默认为空：撑满整个父容器
+					2、当值为push时，高度随着数据的变化而变化
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="columnManager" type="xsd:boolean">
+			<xsd:annotation>
+				<xsd:documentation>是否允许进行列的隐藏/显示操作</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="markChange" type="xsd:boolean">
+			<xsd:annotation>
+				<xsd:documentation>是否对编辑过的数据进行标记</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="mergeColumns" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>mergeColumns</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="multiSort" type="xsd:boolean">
+			<xsd:annotation>
+				<xsd:documentation>是否允许多列排序</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="pageList" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>可选择设定的每页结果数
+
+					10,20,30,40,50
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="pageNumber" type="xsd:int">
+			<xsd:annotation>
+				<xsd:documentation>默认当前页</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="pager">
+			<xsd:annotation>
+				<xsd:documentation>分页的位置</xsd:documentation>
+			</xsd:annotation>
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:enumeration value="none"></xsd:enumeration>
+					<xsd:enumeration value="up"></xsd:enumeration>
+					<xsd:enumeration value="down"></xsd:enumeration>
+					<xsd:enumeration value="all"></xsd:enumeration>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+		<xsd:attribute name="pageSize" type="xsd:int">
+			<xsd:annotation>
+				<xsd:documentation>每页默认的结果数，默认10</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="queryParams" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>查询参数
+					JSON格式
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="radiobox" type="xsd:boolean">
+			<xsd:annotation>
+				<xsd:documentation>是否显示单选框</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="remoteSort" type="xsd:boolean">
+			<xsd:annotation>
+				<xsd:documentation>是否远程排序</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="rownumbers" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>业务数据行号，行号根据根据分页情况进行计算
+					normal repeat none
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="sort" type="xsd:boolean">
+			<xsd:annotation>
+				<xsd:documentation>是否允许单列排序</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="striped" type="xsd:boolean">
+			<xsd:annotation>
+				<xsd:documentation>隔行变色</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="summary" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>自定义合计栏的配置
+					summary.method
+					计算的函数，如果函数为空，则使用网格的data进行替换模板
+					summary.template 模板
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="summaryPos" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>合计栏所在位置 可选值 top bottom</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="title" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>标题</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="url" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>要加载数据的url</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="width" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>网格的宽度
+					宽度默认为空：撑满整个父容器
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attributeGroup ref="attrFormDesign"></xsd:attributeGroup>
+	</xsd:complexType>
+
+	<xsd:complexType name="typeXGridColumn">
+		<xsd:sequence>
+			<xsd:element name="Button" type="typeUIButton" maxOccurs="unbounded"
+				minOccurs="0">
+			</xsd:element>
+		</xsd:sequence>
+		<xsd:attribute name="title" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>列头显示值</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="field" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>对应字段名</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="align" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>对齐方式</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="width" type="xsd:int">
+			<xsd:annotation>
+				<xsd:documentation>宽度，数字类型，单位是像素</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="editorType" type="enumEditorType">
+			<xsd:annotation>
+				<xsd:documentation>
+					TEXTFIELD ： 原生的HTMLinput框 TEXTBOX ：
+					文本输入框，可以加editerOptions属性
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="editorOptions" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[编辑配置]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="showField" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[显示字段名]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="formatter" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[格式化函数]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="hidden" type="xsd:boolean">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[是否隐藏列]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="transor" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[翻译配置]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="editable" type="xsd:boolean">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[是否可编辑]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="showTitle" type="xsd:boolean">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[是否显示标题]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="summary" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>json格式</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="resizable" type="xsd:boolean">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="parentColumn" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="isRowHeader" type="xsd:boolean">
+			<xsd:annotation>
+				<xsd:documentation>是否为行头</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="showTree" type="xsd:boolean">
+			<xsd:annotation>
+				<xsd:documentation>是否作为 列隐藏/显示树 的节点</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="lockTree" type="xsd:boolean">
+			<xsd:annotation>
+				<xsd:documentation>
+					是否锁定列隐藏/显示操作，锁定将不允许用户进行列的隐藏/显示操作
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="btnFilter" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>是一个js方法，行按钮过滤器
+					函数类型：
+					该函数接收两个参数，分别为当前行实体对象，行号。函数返回布尔行数组
+					该数组描述行按钮是否显示 true为显示
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="typeUIButtonArea">
+		<xsd:sequence>
+			<xsd:element name="Button" type="typeUIButton" minOccurs="0"
+				maxOccurs="100"></xsd:element>
+			<xsd:element name="ButtonState" type="typeUIBtnState"
+				minOccurs="0" maxOccurs="15"></xsd:element>
+		</xsd:sequence>
+		<xsd:attributeGroup ref="attrUIButtonArea"></xsd:attributeGroup>
+	</xsd:complexType>
+	<xsd:complexType name="typeUIButton">
+		<xsd:choice maxOccurs="1" minOccurs="0">
+			<xsd:element name="menus" ref="Menu" minOccurs="0" maxOccurs="100">
+			</xsd:element>
+		</xsd:choice>
+		<xsd:attributeGroup ref="attrUIButton"></xsd:attributeGroup>
+	</xsd:complexType>
+	<xsd:complexType name="typeMenu">
+		<xsd:annotation>
+			<xsd:documentation>
+				<![CDATA[菜单对象，   可包含类型{attrUIMenu}]]>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:choice minOccurs="0" maxOccurs="1">
+			<xsd:element name="menus" minOccurs="0" 
+			maxOccurs="15">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="MenuItem" ref="MenuItem" minOccurs="0" 
+						maxOccurs="15"></xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:choice>
+		<xsd:attributeGroup ref="attrUIMenu"></xsd:attributeGroup>
+	</xsd:complexType>
+	<xsd:complexType name="typeUIMenuItem">
+		<xsd:annotation>
+			<xsd:documentation>
+				<![CDATA[菜单控件对象  可包含子项{attrUIMenuItem}]]>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="MenuItem" minOccurs="0" maxOccurs="20">
+				<xsd:complexType>
+					<xsd:attributeGroup ref="attrUIMenuItem"></xsd:attributeGroup>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="typeTreeGrid">
+				<xsd:annotation>
+					<xsd:documentation>
+						<![CDATA[树形网格下包含元素 {attrTreeGrid,attrFormDesign}]]>
+					</xsd:documentation>
+				</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="events" type="typeEvent" minOccurs="0"
+				maxOccurs="100"></xsd:element>
+		</xsd:sequence>
+		<xsd:attributeGroup ref="attrTreeGrid"></xsd:attributeGroup>
+		<xsd:attributeGroup ref="attrFormDesign"></xsd:attributeGroup>
+	</xsd:complexType>
+
+	<xsd:complexType name="typeUpload">
+				<xsd:annotation>
+					<xsd:documentation>
+						<![CDATA[上传组件对象,可包含元素 {attrFormDesign}]]>
+					</xsd:documentation>
+				</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="events" minOccurs="0" maxOccurs="1">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="Event" type="typeEvent" minOccurs="0"
+							maxOccurs="unbounded">
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+		<xsd:attributeGroup ref="attrFormDesign">
+		</xsd:attributeGroup>
+		<xsd:attribute name="id" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[ID]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="interval" type="xsd:int">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="toolbarPosition">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:enumeration value="top"></xsd:enumeration>
+					<xsd:enumeration value="bottom"></xsd:enumeration>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+		<xsd:attribute name="groupId" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="groupIdKey" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="uploadUrl" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="requestFile" type="xsd:boolean">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="deleteUrl" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="exts" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="fileWidth" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="fileListUrl" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="multiple" type="xsd:boolean">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="uploadBtnText" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="canDelete" type="xsd:boolean">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="css" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[样式名称]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="style" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[固定样式信息]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="typeUIQueryItem">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[查询对象组件  可包含子项{attrUIQueryItem,attrFormDesign}]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		<xsd:choice minOccurs="0">
+			<xsd:element name="events" minOccurs="0" maxOccurs="1">
+				<xsd:complexType>
+					<xsd:sequence minOccurs="1">
+						<xsd:element name="Event" type="typeEvent"></xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:choice>
+		<xsd:attributeGroup ref="attrUIQueryItem"></xsd:attributeGroup>
+		<xsd:attributeGroup ref="attrFormDesign"></xsd:attributeGroup>
+	</xsd:complexType>
+	<xsd:complexType name="typeUIQuery">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[查询对象组件  可包含子项{attrUIQuery,attrFormDesign}]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="quicks" minOccurs="0" maxOccurs="1">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="QueryItem" ref="QueryItem"
+							maxOccurs="unbounded" minOccurs="0">
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="advances" minOccurs="0" maxOccurs="1">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="QueryItem" ref="QueryItem"
+							maxOccurs="unbounded" minOccurs="0">
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+		<xsd:attributeGroup ref="attrUIQuery"></xsd:attributeGroup>
+		<xsd:attributeGroup ref="attrFormDesign"></xsd:attributeGroup>
+	</xsd:complexType>
+
+	<xsd:complexType name="typeUIImport">
+		<xsd:attribute name="resource" type="xsd:string"></xsd:attribute>
+		<xsd:attribute name="tplCode" type="xsd:string"></xsd:attribute>
+
+	</xsd:complexType>
+
+	<xsd:complexType name="typeUISnippet">
+		<xsd:sequence>
+			<xsd:element name="quickItems" ref="QueryItem"
+				minOccurs="0" maxOccurs="100"></xsd:element>
+			<xsd:element name="defaultItems" ref="QueryItem"
+				minOccurs="0" maxOccurs="100"></xsd:element>
+			<xsd:element name="alterItems" ref="QueryItem"
+				minOccurs="0" maxOccurs="100"></xsd:element>
+		</xsd:sequence>
+		<xsd:attributeGroup ref="attrUISnippet"></xsd:attributeGroup>
+		<xsd:attributeGroup ref="attrFormDesign"></xsd:attributeGroup>
+	</xsd:complexType>
+	<!-- 自定义类型定义结束 -->
+
+	<!-- 属性定义开始 -->
+	<xsd:attributeGroup name="attrTree">
+		<xsd:attribute name="id" type="xsd:string" use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[ID]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="loadUrl" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[读取数据地址]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="isAsync" type="xsd:boolean">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[是否为异步加载树]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="loadParams" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[查询参数]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="searchFields" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[搜索框查询字段]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="otherParam" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[额外参数，可以是下列两种形式
+	 						otherParam: ["id", "1", "name", "test"]
+	 						otherParam: { "id":"1", "name":"test"}]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="method" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[访问url的方法GET或POST默认为POST]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="checkable" type="xsd:boolean">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[是否带有复选框]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="checkboxType" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[复选框类型
+	 						默认值：{ "Y": "ps", "N": "ps" }
+							JSON 格式说明
+							Y 属性定义 checkbox 被勾选后的情况；
+							N 属性定义 checkbox 取消勾选后的情况；
+							"p" 表示操作会影响父级节点；
+							"s" 表示操作会影响子级节点。
+							 请注意大小写，不要改变]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="checkField" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[复选框对应的字段]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="childrenField" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[加载子节点的json中的键值]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="nameField" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[节点的名称字段]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="tipsField" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[ 提示信息json字段]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="idField" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[节点主键json字段]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="rootId" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>不建议使用，请使用rootNode属性</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="hasRoot" type="xsd:boolean">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[是否包含根节点]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="parentField" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[上级节点id字段]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="rootName" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>不建议使用，请使用rootNode属性</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="rootNode" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					建议使用的属性 json格式 {id:'ROOT','name':'MyRoot',....}
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="layoutHeight" type="xsd:string" >
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[相对整个页面的外部高度]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="width" type="xsd:string" >
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[宽度]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="height" type="xsd:string" >
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[高度]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="style" type="xsd:string" >
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[固定样式信息]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="searchUrl" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[树搜索url]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="hasQry" type="xsd:boolean">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[是否存在搜索框]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="fit" type="xsd:boolean">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[布局自适应]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="sortable" type="xsd:boolean">
+			<xsd:annotation>
+				<xsd:documentation>是否支持鼠标拖动排序</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="selectedMulti" type="xsd:boolean">
+			<xsd:annotation>
+				<xsd:documentation>是否可以选择多个节点，默认是否</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="clickSearchNode" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>点击搜索出来的节点事件，默认是和点击树节点一样</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:attributeGroup>
+
+	<xsd:attributeGroup name="attrPanel">
+		<xsd:attribute name="id" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>id</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="region" type="enumRegionType">
+			<xsd:annotation>
+				<xsd:documentation>定义布局面板（layout panel）的位置，其值是下列之一：north、south、east、west、center</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="layout" type="enumPanelLayoutType">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[布局]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="title" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[标题信息]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="ico" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="fit" type="xsd:boolean">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[布局自适应]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+			<xsd:attribute name="flex" type="xsd:String">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[自适应占位数，当Layout=vbox或hbox时有效]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="border" type="xsd:boolean">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[定义是否显示面板边框]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="style" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[固定样式信息]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="split" type="xsd:boolean">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="css" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[样式名称]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="url" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[请求加载数据的地址]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="width" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[宽度]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="height" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[高度]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="headerCls" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[添加一个CSS类ID到面板头部]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="bodyCls" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[添加一个CSS类ID到面板正文部分]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="noheader" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[如果设置为true，那么将不会创建面板标题]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="queryParams" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[在请求远程数据的时候发送额外的参数]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="loader" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[定义如何从远程服务器加载数据。返回false可以放弃本次请求动作]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="collapsible" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[定义是否显示可折叠按钮]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:attributeGroup>
+
+	<xsd:attributeGroup name="attrForm">
+		<xsd:attribute name="id" type="xsd:string" use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[ID]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="name" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[表单名称]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="model" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="css" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[样式名称]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="style" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[固定样式信息]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="width" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[宽度]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="height" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[高度]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="layoutHeight" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[相对整个页面的外部高度]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="layout" type="enumFormLayoutType">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[布局方式]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="action" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[数据源action]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="template" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[表单模板]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="colCount" type="xsd:int">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[表单列数]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="labelPos" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[是否显示标签]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="align" type="enumAlign">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[标签对齐方式]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="modelKey" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[表单对应model在SpringMvc Model中的键值]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="opState" type="enumOpState">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[表单操作状态]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="loadUrl" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[局部加载数据的url]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="sumCount" type="xsd:int">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[概要行数]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="detailUrl" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[ 细节链接]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="detailParameter" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[细节链接打开时的参数]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="layout" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[表单布局]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="maxColCount" type="xsd:int">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[Form表格的最大列数]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:attributeGroup>
+
+	<xsd:attributeGroup name="attrFormItem">
+		<xsd:attribute name="id" type="xsd:string" use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[ID]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="name" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[名称]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="tips" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[提示信息]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="model" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="field" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[字段名]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="showField" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[显示字段名]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="css" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[样式名称]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="style" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[固定样式信息]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="width" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[宽度]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="height" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[高度]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="freeContent" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="renderType" type="enumRenderType">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="render" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="editorType" type="enumEditorType">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[编辑类型]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+
+		<xsd:attribute name="isCustom" type="enumBoolean">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[是否是自定义控件]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="expType">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[]]>
+				</xsd:documentation>
+			</xsd:annotation>
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:enumeration value="json"></xsd:enumeration>
+					<xsd:enumeration value="dict"></xsd:enumeration>
+					<xsd:enumeration value="enum"></xsd:enumeration>
+					<xsd:enumeration value="bizdict"></xsd:enumeration>
+					<xsd:enumeration value="url"></xsd:enumeration>
+					<xsd:enumeration value="thousand"></xsd:enumeration>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+		<xsd:attribute name="dictItemFilter" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="defaultValue" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[默认值]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="readOnly" type="xsd:boolean">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[定义是否只读]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="enable" type="xsd:boolean">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[定义是否可用]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="visible" type="xsd:boolean">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[定义是否可见]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="required" type="xsd:boolean">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[是否为必填项]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="requiredMsg" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[为填写时，提示用户信息]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="validations" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[验证规则]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="gearRules" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="displayLabel" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="colSpan" type="xsd:int">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[合并列]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="exp1" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="exp2" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="exp3" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="value" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[值]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="showValue" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[显示值]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="transor" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[翻译配置]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="data" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[本地数据源]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="comboFieldValue" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[数据节点的隐藏值字段名称]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="comboFieldText" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[数据节点的显示值字段名称]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="comboFieldPId" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[数据节点的父节点字段名称]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="action" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[数据源action]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="suggest" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[联想的Url地址]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="remote" type="xsd:boolean">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[是否每次进行远程联想]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="multiple" type="xsd:boolean">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="editOptions" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="contentAlign">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[内容对齐方式]]>
+				</xsd:documentation>
+			</xsd:annotation>
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:enumeration value="CENTER"></xsd:enumeration>
+					<xsd:enumeration value="LEFT"></xsd:enumeration>
+					<xsd:enumeration value="RIGHT"></xsd:enumeration>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+		<xsd:attribute name="selectedNodeName" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="selectedNodeMapping" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[]]>
+				</xsd:documentation>
+			</xsd:annotation>
+			<xsd:annotation>
+				<xsd:documentation>
+					json格式 例如： { "userId":"id", "userCode":"fcode" }
+
+					key是表单数据字段，value是转换到selectedNode时的字段名称
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="onlyleaf" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="labelColSpan" type="xsd:int">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="labelStyle" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="outDictData" type="xsd:boolean">
+			<xsd:annotation>
+				<xsd:documentation>
+					当输出类型是字典项时，是否将数据字典的内容全部输出
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="description" type="xsd:string">
+		</xsd:attribute>
+	</xsd:attributeGroup>
+	<!-- 开始定义grid -->
+	<xsd:attributeGroup name="attrGrid">
+		<xsd:attribute name="id" type="xsd:string" use="required" >
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[ID]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="name" type="xsd:string" >
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[名称]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="model" type="xsd:string" >
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[模型id]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="css" type="xsd:string" >
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[样式名称]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="style" type="xsd:string" >
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[固定样式信息]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="width" type="xsd:string" >
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[宽度]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="height" type="xsd:string" >
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[高度]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="layoutHeight" type="xsd:string" >
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[相对整个页面的外部高度]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="loadUrl" type="xsd:string" >
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[数据加载地址]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="loadParams" type="xsd:string" >
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[数据加载参数(json串)]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="pageList" type="xsd:string" >
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[可选的每页大小]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="pageSize" type="xsd:string" >
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[初始化每页条数]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="showFooter" type="xsd:boolean" >
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[是否显示合计行，默认不显示 false]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="autoLoad" type="xsd:boolean" >
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[是否自动加载数据]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="checkboxable" type="xsd:boolean" >
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[是否checbox多选]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="nowrap" type="xsd:boolean" >
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[是否自适应大小]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="pageFlag" type="xsd:boolean" >
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[是否分页]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="striped" type="xsd:boolean" >
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[是否显示斑纹效果，默认是奇偶交互的形式]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="showNumber" type="xsd:boolean" >
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[ 设置是否显示行号]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="sortName" type="xsd:string" >
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[ 默认的排序名称]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="sortOrder" type="xsd:string" >
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[默认的排序方向]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="autoHeight" type="xsd:boolean" >
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[是否使用自动高度]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="shrinkToFit" type="xsd:boolean" >
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[自动调整列宽度,事列填满表格]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="editRow" type="xsd:boolean" >
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[是否可编辑]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="fit" type="xsd:boolean">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[布局自适应]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="fillNum" type="xsd:boolean">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[自动填充数]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="export" type="xsd:boolean">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[是否支持导出]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="fileName" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[导出文件]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:attributeGroup>
+	<xsd:attributeGroup name="attrGridColumn">
+		<xsd:attribute name="id" type="xsd:string">
+		</xsd:attribute>
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[ID]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		<xsd:attribute name="name" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[名称]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="tips" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[提示信息]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="model" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[控件模型]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="field" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[字段名]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="showField" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[显示字段名]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="css" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[样式名称]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="style" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[固定样式信息]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="width" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[宽度]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="height" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[高度]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="freeContent" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="columnType" type="enumColumnType">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[列表类型]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="columnContent" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[列表字段类型为模板或者js方法时,对应的模板和方法内容]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="columnHeadFunc" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[网格表头模板或者js方法时,对应的模板和方法内容]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="align" type="enumAlignment">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[对齐方式，默认左]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="footerType" type="enumFooterType">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[合计行类型]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="footerDef" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[合计行定义]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="hidden" type="xsd:boolean">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[是否隐藏]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="formatterType" type="enumFormatterType">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[格式化串]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="formatter" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[格式化串]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="formatterOptions" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[格式化参数]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="isGroup" type="xsd:boolean">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[是否为复合表头]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="groupColumn" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[所属组合列编码]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="sortable" type="xsd:boolean">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[是否可排序]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="frozen" type="xsd:boolean">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[是否锁定列]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="editable" type="xsd:boolean">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[是否可编辑]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="editorType" type="enumEditorType">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[编辑类型]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="editRules" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[编辑规则]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="editOptions" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[编辑配置]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="required" type="xsd:boolean">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[是否为必输项]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="requiredMsg" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[未填写时，提示信息]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="validations" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[验证规则]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="transor" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[翻译配置]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="gearRules" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[联动规则]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="initState" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[按钮初始状态]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="alignment" type="enumAlignment">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[对齐方式，默认左]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:attributeGroup>
+
+	<!-- ButtonAreaTag 开始 -->
+	<xsd:attributeGroup name="attrUIButtonArea">
+		<xsd:attribute name="id" type="xsd:string" use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[ID]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="name" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[名称]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="displayType" type="enumBtnDisType">
+			<xsd:annotation>
+				<xsd:documentation>
+					MENU 样式为居左，无间隔，用在普通的工具栏 BUTTON
+					样式为居中，有间隔，一般用在Dialog下面的确定，取消按钮上 DIALOG
+					样式为居右有图标，一般用在Dialog右上角上
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="width" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[宽度]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="initState" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[按钮初始状态]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="style" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[固定样式信息]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="css" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[样式名称]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:attributeGroup>
+
+	<xsd:attributeGroup name="attrUIButton">
+		<xsd:attribute name="id" type="xsd:string" use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[ID]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="name" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[按钮名称]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="tips" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[提示信息]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="css" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[样式名称]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="style" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[固定样式信息]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="icon" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[图标]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="iconMode">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[图标模型]]>
+				</xsd:documentation>
+			</xsd:annotation>
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:enumeration value="ONLYTEXT"></xsd:enumeration>
+					<xsd:enumeration value="ONLYICON"></xsd:enumeration>
+					<xsd:enumeration value="LEFT"></xsd:enumeration>
+					<xsd:enumeration value="RIGHT"></xsd:enumeration>
+					<xsd:enumeration value="TOP"></xsd:enumeration>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+		<xsd:attribute name="iconPosition" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[图标位置]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="btnType" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[按钮类型]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="handleType" type="enumHandleType">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[事件处理类型]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="handle" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[事件处理定义]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="folderKey" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[目录标识]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="operationsGrant" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					此属性为操作权限控制属性，字符串格式，多个操作Code用逗号分开
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="disabled" type="xsd:boolean">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[是否禁用]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:attributeGroup>
+	<xsd:attributeGroup name="attrUIBtnState">
+		<xsd:attribute name="id" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[ID]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="name" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[名称]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="enable" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[是否可用]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="visible" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[是否可见]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:attributeGroup>
+
+	<xsd:attributeGroup name="attrUIBtnState">
+		<xsd:attribute name="id" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[ID]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="name" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[名称]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="enable" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[是否可用]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="visible" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[是否可见 ]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:attributeGroup>
+	<xsd:complexType name="typeUIBtnState">
+		<xsd:attributeGroup ref="attrUIBtnState"></xsd:attributeGroup>
+	</xsd:complexType>
+	<!-- UISnippet 定义开始 -->
+	<xsd:attributeGroup name="attrUISnippet">
+		<xsd:attribute name="id" type="xsd:string" use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[ID]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:attributeGroup>
+	<xsd:attributeGroup name="attrGroupHeader">
+		<xsd:attribute name="titleText" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="startColumnName" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="numberOfColumns" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:attributeGroup>
+
+	<xsd:attributeGroup name="attrTreeGrid">
+		<xsd:attribute name="id" type="xsd:string" use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[ID]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="model" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="loadUrl" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[读取数据地址]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<!-- tld中有dataType 但是uigrid中没有 -->
+		<xsd:attribute name="name" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[名称]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="striped" type="xsd:boolean">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="height" type="xsd:string" >
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[高度]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="layoutHeight" type="xsd:string" >
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[相对整个页面的外部高度]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="width" type="xsd:string" >
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[宽度]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<!-- tld中有method 但是uigrid中没有 -->
+		<xsd:attribute name="nowrap" type="xsd:boolean">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[是否自适应大小]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<!-- tld中有page 但是uigrid中没有 -->
+		<xsd:attribute name="pageSize" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[初始化每页条数]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="pageList" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[可选的每页大小]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<!-- tld中有idField， 但uigrid中没有 -->
+		<xsd:attribute name="loadParams" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[数据加载参数(json串)]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="sortName" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[ 默认的排序名称]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="sortOrder" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[默认的排序方向]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="autoHeight" type="xsd:boolean">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[是否使用自动高度]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="shrinkToFit" type="xsd:boolean">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[自动调整列宽度,事列填满表格]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="treeColumn" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[ 树使用的表格列]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="levelField" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[节点的级别字段，默认最高级为0]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="parentField" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[该行数据父节点的id字段]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="leafField" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[是否为叶节点的标志字段，该字段值为true时表示该节点下面没有子节点了]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="loadedField" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[是否已经加载过子节点（为false时点击节点会自动加载子节点）]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="iconField" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[图标字段]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="autoLoad" type="xsd:boolean">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[是否自动加载数据]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<!-- 在tld中有translator 但是uitreegrid中没有 -->
+		<xsd:attribute name="fit" type="xsd:boolean">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[自适应大小]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:attributeGroup>
+	<xsd:attributeGroup name="attrUIMenuItem">
+		<xsd:attribute name="id" type="xsd:string" use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[ID]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="tips" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[提示信息]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="css" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[样式名称]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="style" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[固定样式信息]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="icon" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[图标地址]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="text" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[菜单文本]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="handleType" type="enumHandleType">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[事件处理类型]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="handle" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[事件处理定义]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:attributeGroup>
+
+	<xsd:attributeGroup name="attrUIMenu">
+		<xsd:attribute name="id" type="xsd:string" use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[ID]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="alignTo" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[菜单显示跟随对象]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="text" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[菜单文本]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="style" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[固定样式信息]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="minWidth" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[最小宽度]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="duration" type="enumHandleType">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[自动隐藏速度]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:attributeGroup>
+	<!-- UIQuery 开始 -->
+	<xsd:attributeGroup name="attrUIQuery">
+		<xsd:attribute name="id" type="xsd:string" use="required">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[ID]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="queryTarget" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[查询目标]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="name" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[名称]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="isQuick" type="xsd:boolean">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[判断查询是否支持快捷模式]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="isAdvance" type="xsd:boolean">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[判断查询是否支持高级模式]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="isDynamic" type="xsd:boolean">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="manual" type="xsd:boolean">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[是否作为手动条件,即直接将查询条件作为参数]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="style" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[固定样式信息]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="quickValidator" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>快速搜索条件校验函数</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="advValidator" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>高级搜索校验函数</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:attributeGroup>
+	<xsd:attributeGroup name="attrUIQueryItem">
+		<xsd:attribute name="id" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[ID]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="name" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[名称]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="visible" type="xsd:boolean">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[是否可见]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="tips" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[提示信息]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="model" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="field" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[字段名]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="css" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[样式名称]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="style" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[固定样式信息]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="editorType" type="enumEditorType">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[编辑类型]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="expType">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[]]>
+				</xsd:documentation>
+			</xsd:annotation>
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:enumeration value="json"></xsd:enumeration>
+					<xsd:enumeration value="dict"></xsd:enumeration>
+					<xsd:enumeration value="enum"></xsd:enumeration>
+					<xsd:enumeration value="bizdict"></xsd:enumeration>
+					<xsd:enumeration value="url"></xsd:enumeration>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+		<xsd:attribute name="dictItemFilter" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>json格式，用于过滤数据字典项
+					{
+					'nameKey':'aaa', //字典项中名字里包含aaa的
+					'codeKey':'01', //字典项中编码包含01的
+					'excludes':['001','002','003']
+					//排除code=001,002,003的数据
+					}
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="exp1" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[参数1]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="exp2" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[参数2]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="exp3" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[参数3]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="value" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[值]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="quickOp" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="operator" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[查询操作符]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="action" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[数据源action]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="editOptions" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[编辑配置]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="manual" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[是否作为手动条件,即直接将查询条件作为参数]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="data" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[本地数据源]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="comboFieldValue" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[数据节点的隐藏值字段名称]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="comboFieldText" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[数据节点的显示值字段名称]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="comboFieldPId" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[数据节点的父节点字段名称]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="onlyleaf" type="xsd:boolean">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="readOnly" type="xsd:boolean">
+			<xsd:annotation>
+				<xsd:documentation>
+					只有editorType=TEXTFIELD的时候才生效，其它类型应该写在editOptions={readonly:true}!注意此处是小写
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="width" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					<![CDATA[宽度]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:attributeGroup>
+	<xsd:attributeGroup name="attrFormDesign">
+		<xsd:attribute name="autoLayout" type="enumBoolean">
+			<xsd:annotation>
+				<xsd:documentation>
+			<![CDATA[是否自动布局]]>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:attributeGroup>
+	<!-- enum定义 -->
+	<xsd:simpleType name="enumColumnType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="DEFAULT"></xsd:enumeration>
+			<xsd:enumeration value="TEMPLATE"></xsd:enumeration>
+			<xsd:enumeration value="FUNC"></xsd:enumeration>
+			<xsd:enumeration value="OP"></xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="enumAlignment">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="LEFT"></xsd:enumeration>
+			<xsd:enumeration value="CENTER"></xsd:enumeration>
+			<xsd:enumeration value="RIGHT"></xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="enumFooterType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="TEXT"></xsd:enumeration>
+			<xsd:enumeration value="COMPUTE"></xsd:enumeration>
+			<xsd:enumeration value="FORMULA"></xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="enumFormatterType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="DEFAULT"></xsd:enumeration>
+			<xsd:enumeration value="FUNC"></xsd:enumeration>
+			<xsd:enumeration value="TEMPLATE"></xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="enumPanelLayoutType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="border"></xsd:enumeration>
+			<xsd:enumeration value="vbox"></xsd:enumeration>
+			<xsd:enumeration value="hbox"></xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="enumFormLayoutType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="table"></xsd:enumeration>
+			<xsd:enumeration value="absolute"></xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="enumBoolean">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="true"></xsd:enumeration>
+			<xsd:enumeration value="false"></xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="enumEditorType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="TEXTBOX"></xsd:enumeration>
+			<xsd:enumeration value="NUMBER"></xsd:enumeration>
+			<xsd:enumeration value="MONEY"></xsd:enumeration>
+			<xsd:enumeration value="TYPEAHEAD"></xsd:enumeration>
+			<xsd:enumeration value="TEXTAREA"></xsd:enumeration>
+			<xsd:enumeration value="RADIOBOX"></xsd:enumeration>
+			<xsd:enumeration value="CHECKBOX"></xsd:enumeration>
+			<xsd:enumeration value="COMBOBOX"></xsd:enumeration>
+			<xsd:enumeration value="COMBOZTREE"></xsd:enumeration>
+			<xsd:enumeration value="COMBOGRID"></xsd:enumeration>
+			<xsd:enumeration value="SUGGEST"></xsd:enumeration>
+			<xsd:enumeration value="DATETIME"></xsd:enumeration>
+			<xsd:enumeration value="REFERENCE"></xsd:enumeration>
+			<xsd:enumeration value="TEXTFIELD"></xsd:enumeration>
+			<xsd:enumeration value="PASSWORD"></xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="enumLabelPos">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="NONE"></xsd:enumeration>
+			<xsd:enumeration value="LEFT"></xsd:enumeration>
+			<xsd:enumeration value="TOP"></xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="enumAlign">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="LEFT"></xsd:enumeration>
+			<xsd:enumeration value="CENTER"></xsd:enumeration>
+			<xsd:enumeration value="RIGHT"></xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="enumOpState">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="VIEW"></xsd:enumeration>
+			<xsd:enumeration value="EDIT"></xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="enumRegionType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="center"></xsd:enumeration>
+			<xsd:enumeration value="west"></xsd:enumeration>
+			<xsd:enumeration value="east"></xsd:enumeration>
+			<xsd:enumeration value="north"></xsd:enumeration>
+			<xsd:enumeration value="south"></xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="enumRenderType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="DEFAULT"></xsd:enumeration>
+			<xsd:enumeration value="TEMPLATE"></xsd:enumeration>
+			<xsd:enumeration value="FUNC"></xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="enumBtnDisType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="MENU"></xsd:enumeration>
+			<xsd:enumeration value="BUTTON"></xsd:enumeration>
+			<xsd:enumeration value="DIALOG"></xsd:enumeration>
+
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="enumHandleType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="PRESET"></xsd:enumeration>
+			<xsd:enumeration value="JS"></xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+</xsd:schema>

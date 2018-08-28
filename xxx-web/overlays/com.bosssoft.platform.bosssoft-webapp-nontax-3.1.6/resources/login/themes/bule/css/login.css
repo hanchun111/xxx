@@ -1,0 +1,246 @@
+
+/*---------------------reset----------------------*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td { margin:0; padding:0; border:0; outline:0;}
+body, button, input, select, textarea {
+    font: 12px/1.5 tahoma,arial,"Hiragino Sans GB",\5b8b\4f53;
+}
+ol, ul, li { list-style:none } 
+body { background:#FFF;}
+:focus { outline:0 }
+table { border-collapse:collapse; border-spacing:0 }
+table,table td,table th{border:1px solid #edeada;border-collapse:collapse;}
+address, cite, code, dfn, em, var, i { font-style:normal }
+input[type=button], input[type=submit], button { cursor:pointer; outline:none;}
+.input, select { vertical-align:middle }
+* html .clearfix { zoom:1 }
+*+html .clearfix { zoom:1 }
+textarea{resize:none;}
+a { text-decoration:none; color:#009bd8 }
+.clearfix:after {clear: both;content: ".";display: block;height: 0;overflow: hidden;visibility: hidden;}
+.pos-r{ position:relative;}
+.hide{ display:none;}
+/*---------------------header----------------------*/
+
+.header{ height: 72px;margin:26px auto; overflow: hidden; position: relative; width: 800px; z-index: 2;}
+.header-nav { right: 0;text-align: right;top: 52px; width: 300px; position:absolute;}
+.header-nav a{ color:#515151; font-size:12px; padding:0 2px;}
+.header-nav a:hover{ text-decoration:underline; color:#658b98;}
+
+/*---------------------banner----------------------*/
+.banner{ min-width:1000px;  position:relative;  height:478px; overflow:hidden;  }
+.banner .bd{ position:relative; z-index:0;  }
+.banner .bd ul{ width:100% !important; }
+.banner .bd li{ width:100% !important;  height:478px; }
+.banner .bd li .siteWidth{ width:1000px; position:relative;  margin:0 auto;  height:299px;  }
+.banner .bd li a{ height:299px; display:block;  }
+.banner .bd .txt{ position:absolute; width:415px; top:100px; left:22px;   font:normal 18px/30px "Microsoft YaHei";    }
+.banner-shadow{ height:50px; line-height:50px; background:url(../images/banner-shdow.png) repeat-x;}
+.footer{text-align:center; font-size:12px; color:#999999; margin-top:50px;}
+.login-aside{position:absolute; width:320px; height:380px; z-index:9999999; border-radius:5px; left:58%; top:40px;}
+
+.error-box{
+color:#f7ccc8;
+font-size:12px;
+margin-bottom:10px;
+position:absolute;
+top:15px;
+}
+
+
+label.form-label {
+    display: block;
+    float: none;
+    height: auto;
+    line-height: 12px;
+    text-align: left;
+    width: auto;
+	font-size:14px;
+	color:#fff;
+	font-weight:bold;
+	text-shadow:1px 1px 1px #4e6877;
+	-o-text-shadow:1px 1px 1px #4e6877;
+	-o-moz-shadow:1px 1px 1px #4e6877;
+	-o-mis-shadow:1px 1px 1px #4e6877;
+	-o-webkit-shadow:1px 1px 1px #4e6877;
+	margin-top:16px;
+	margin-bottom:16px;
+}
+
+
+
+
+.i-text{ 
+  width:240px;
+  height:37px;
+  line-height:37px;
+  border:1px solid #858585;
+  background:#eef3f8;
+  color:#9cb5cd;
+  font-size:14px; 
+  text-indent:12px; 
+  box-shadow:1px 1px 1px #dfe4e8 inset;
+  -moz-box-shadow:1px 1px 1px #dfe4e8 inset;
+  -webkit-box-shadow:1px 1px 1px #dfe4e8 inset;
+  -o-box-shadow:1px 1px 1px #dfe4e8 inset;
+  -mis-box-shadow:1px 1px 1px #dfe4e8 inset;
+
+ }
+ 
+ .yzm{ width:112px;}
+ .yzm-img{ position:absolute; left:130px; top:29px; cursor:pointer;height:41px;}
+.btn-login {
+	
+    background-image: -moz-linear-gradient(rgba(255,255,255,.1), rgba(255,255,255,.05) 49%, rgba(0,0,0,.05) 51%, rgba(0,0,0,.1));
+    background-image: -ms-linear-gradient(rgba(255,255,255,.1), rgba(255,255,255,.05) 49%, rgba(0,0,0,.05) 51%, rgba(0,0,0,.1));
+    background-image: -o-linear-gradient(rgba(255,255,255,.1), rgba(255,255,255,.05) 49%, rgba(0,0,0,.05) 51%, rgba(0,0,0,.1));
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,.1)), color-stop(49%, rgba(255,255,255,.05)), color-stop(51%, rgba(0,0,0,.05)), to(rgba(0,0,0,.1)));
+    background-image: -webkit-linear-gradient(rgba(255,255,255,.1), rgba(255,255,255,.05) 49%, rgba(0,0,0,.05) 51%, rgba(0,0,0,.1));
+    background-image: linear-gradient(rgba(255,255,255,.1), rgba(255,255,255,.05) 49%, rgba(0,0,0,.05) 51%, rgba(0,0,0,.1));
+}
+.btn-login{ width:242px; border: 1px solid #777;
+    border-color: rgba(0,0,0,0.2);
+    border-bottom-color: #333;
+    border-bottom-color: rgba(0,0,0,0.4);
+    color: #fff;
+    -moz-box-shadow: inset 0 0.08em 0 rgba(255,255,255,0.4), inset 0 0 0.1em rgba(255,255,255,0.9);
+    -webkit-box-shadow: inset 0 0.08em 0 rgba(255,255,255,0.4), inset 0 0 0.1em rgba(255,255,255,0.9);
+    box-shadow: inset 0 0.08em 0 rgba(255,255,255,0.4), inset 0 0 0.1em rgba(255,255,255,0.9);
+    cursor: pointer;
+    display: inline-block;
+    font: bold 100%/2.1 "Lucida Grande", Tahoma, sans-serif;
+    padding: 0 .95em 0 0;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 0 1px 0 rgba(0,0,0,0.5);
+    white-space: nowrap;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    position: relative;
+    -moz-border-radius: .3em;
+    -webkit-border-radius: .3em;
+    border-radius: .3em;
+	background-color: #ff7700;
+	  height:35px;
+	}
+.btn-login:hover, .btn-login:focus {
+    background-image: -moz-linear-gradient(rgba(255,255,255,.15) 49%, rgba(0,0,0,.1) 51%, rgba(0,0,0,.15));
+    background-image: -ms-linear-gradient(rgba(255,255,255,.15) 49%, rgba(0,0,0,.1) 51%, rgba(0,0,0,.15));
+    background-image: -o-linear-gradient(rgba(255,255,255,.15) 49%, rgba(0,0,0,.1) 51%, rgba(0,0,0,.15));
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,.15)), color-stop(49%, rgba(255,255,255,.15)), color-stop(51%, rgba(0,0,0,.1)), to(rgba(0,0,0,.15)));
+    background-image: -webkit-linear-gradient(rgba(255,255,255,.15) 49%, rgba(0,0,0,.1) 51%, rgba(0,0,0,.15));
+    background-image: linear-gradient(rgba(255,255,255,.15) 49%, rgba(0,0,0,.1) 51%, rgba(0,0,0,.15));
+}
+
+.btn-login:before {
+    content: "";
+    border-right: 0.075em solid rgba(0,0,0,0.1);
+    float: left;
+    font: 120%/1.65 zocial;
+    font-style: normal;
+    /* font-weight: normal; */
+    margin: 0 0.5em 0 0;
+    padding: 0 0.5em;
+    text-align: center;
+    text-decoration: none;
+    text-transform: none;
+    -moz-box-shadow: 0.075em 0 0 rgba(255,255,255,0.25);
+    -webkit-box-shadow: 0.075em 0 0 rgba(255,255,255,0.25);
+    box-shadow: 0.075em 0 0 rgba(255,255,255,0.25);
+    -moz-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+}
+
+.h-light{
+  border:1px solid #80acd9;
+  background:#fff;
+  color:#9cb5cd;
+  font-size:14px; 
+  text-indent:12px; 
+  border-color: #0787be;
+  box-shadow: 0 1px 4px rgba(11, 122, 179, 0.65) inset, 0 0 14px rgba(11, 122, 179, 0.45);
+
+}
+
+
+.header-logo{
+	width:167px; height:87px; background:url(../images/logo.gif) no-repeat; border:none; margin-top:5px;
+	
+	
+}
+
+
+.ui-nav {
+    background: rgba(0,0,0,.5);
+    _background: 0 0;
+    filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr='#66000000', EndColorStr='#66000000');
+}
+.ui-nav li {
+    float: left;
+    width: 50%;
+    color: #fff;
+    text-align: center;
+    border-bottom: 2px #fff solid;
+    font-size: 16px;
+    padding: 15px 0 4px;
+    cursor: pointer;
+}
+.authcenter{
+	background: url(../images/login-bg.jpg)center 0 no-repeat;
+}
+.authcenter-body {
+    position: relative;
+    width: 990px;
+    height: auto;
+    min-height: 350px;
+    margin: 0 auto;
+    padding: 50px 0;
+}
+
+.clear-float {
+    clear: both;
+}
+
+.ui-nav li.active {
+    color: #0AE;
+    border-bottom-color: #0AE;
+}
+.authcenter-body-login {
+    float: right;
+  
+       width:320px;
+    height: auto;
+    position: relative;
+}
+.login-modern {
+    border: 1px solid transparent;
+    background: rgba(0,0,0,.5);
+    _background: 0 0;
+    _border: 0;
+    filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr='#66000000', EndColorStr='#66000000');
+}
+.login {
+    padding: 30px 31px 10px 33px;
+    position: relative;
+    overflow: hidden;
+ 
+}
+
+
+.login{
+	
+	
+	height:281px;
+}
+
+
+
+.need-verity .login{
+	
+	
+	height:320px;
+}
+
+

@@ -1,0 +1,786 @@
+.app-grid {
+    margin: 0px;
+    padding: 0px;
+    vertical-align: middle;
+    background: white;
+    border-bottom: 1px solid rgb(153, 187, 232);
+}
+
+.app-grid-wrap{
+    overflow: hidden !important;
+}
+
+.app-grid .grid-header{
+    position: relative;
+}
+
+.app-grid .grid-header-title {
+    border-bottom: 1px solid rgb(153, 187, 232);
+    background: url("./images/grid/titleicon.jpg") no-repeat scroll 2px 6px	white;
+    height: 31px;
+    overflow: hidden;
+    z-index: 5;
+    position: relative;
+}
+
+.app-grid .grid-header-title>span {
+    text-align: left;
+    font-size: 18px;
+    text-indent: 28px;
+    float: left;
+    height: 30px;
+    padding-top: 5px;
+}
+
+.app-grid .grid-header-title:after,
+.app-grid .grid-header-toolbar:after {
+    content: "";
+    height: 0px;
+    visibility: hidden;
+    display: block;
+    clear: both;
+}
+
+.app-grid .grid-header-toolbar {
+    padding: 2px 1px 2px 1px;
+    background-color: white;
+    overflow: hidden;
+    z-index: 5;
+    position: relative;
+}
+
+.app-grid .grid-header-toolbar i,
+.app-grid .grid-header-toolbar span {
+    vertical-align: middle;
+}
+
+.app-grid .grid-header-toolbar ul {
+    list-style: none;
+    display: block;
+}
+
+.app-grid .grid-header-toolbar ul li {
+    float: left;
+    height: 28px;
+    line-height: 28px;
+    margin: 1px 6px 1px 0px;
+    background: url("./images/button/toolsline.png") no-repeat scroll right	center;
+}
+
+.app-grid .grid-header-toolbar ul li a {
+    cursor: pointer;
+    display: block;
+    font-size: 14px;
+    height: 28px;
+    line-height: 26px;
+    border: 1px solid #dddddd;
+    padding: 0px 9px 0px 9px;
+    border-radius: 2px;
+    background: #fff url("./images/button/toorBarbtnBg.png") repeat-x bottom left;
+}
+
+.app-grid .grid-header-toolbar ul li a:hover {
+    border: 1px solid #b2b8be;
+    background: #f7f9fc url("./images/button/toorBarbtnBg.png") repeat-x bottom left;
+}
+
+.app-grid .grid-header-custom {
+    background-color: #fcfcfc;
+    overflow: auto;
+    z-index: 5;
+    position: relative;
+}
+
+.app-grid .grid-header-custom .app-wrapper>.wrapper-btn,
+.app-grid .grid-header-custom .app-wrapper>input{
+    background: #fcfcfc;
+}
+
+/*--star--整体位置布局*/
+.app-grid .grid-table-message{
+    display: none;
+    text-align: center;
+    position: absolute;
+    width: 100%;
+}
+
+.app-grid .grid-table-header .grid-header-left,
+.app-grid .grid-table-body .grid-body-left,
+.app-grid .grid-table-footer .grid-footer-left {
+    float: left;
+}
+
+.app-grid .grid-table-header .grid-header-right,
+.app-grid .grid-table-body .grid-body-right,
+.app-grid .grid-table-footer .grid-footer-right {
+    float: right;
+}
+
+.app-grid .grid-table-header .grid-header-main:after,
+.app-grid .grid-table-body .grid-body-main:after,
+.app-grid .grid-table-footer .grid-footer-main:after {
+    content: "";
+    height: 0px;
+    visibility: hidden;
+    display: block;
+    clear: both;
+}
+.app-grid .grid-table-header .grid-header-left,
+.app-grid .grid-table-header .grid-header-right,
+.app-grid .grid-table-header .grid-header-main,
+.app-grid .grid-table-footer .grid-footer-main{
+    overflow: hidden;
+}
+
+.app-grid .grid-table-body .grid-body-main {
+    overflow: hidden;
+}
+
+.app-grid .grid-table-body .grid-body-left,
+.app-grid .grid-table-body .grid-body-right {
+    overflow: hidden;
+}
+
+.app-grid .grid-body-xscrollproxy {
+    overflow: auto;
+    position: relative;
+    margin-top: -1px;
+}
+
+.app-grid .grid-body-xscrollproxy>div {
+    height: 1px;
+    background-color: transparent;
+}
+.app-grid .grid-body-yscrollproxy {
+    overflow: auto;
+    float: right;
+    width: auto;
+}
+
+.app-grid .grid-body-yscrollproxy>div {
+    width: 1px;
+    background-color: transparent;
+    margin-left: -1px;
+}
+
+/*--end--整体位置布局*/
+
+/*--star--线条控制*/
+.app-grid .grid-table {
+    border-left: 1px solid rgb(153, 187, 232);
+    border-right: 1px solid rgb(153, 187, 232);
+    overflow: hidden;
+    position: relative;
+}
+
+.app-grid .grid-table table {
+    border-collapse: collapse;
+}
+
+.app-grid .grid-table .grid-view tr,
+.app-grid .grid-table .grid-table-header tr {
+    border-bottom: 1px dotted #CCC;
+}
+
+.app-grid .grid-table-header td,
+.app-grid .grid-table-footer td,
+.app-grid .grid-body-left .grid-view td,
+.app-grid .grid-body-main .grid-view td {
+    border-right: 1px dotted #CCC;
+}
+
+.app-grid .grid-header-right td,
+.app-grid .grid-body-right .grid-view td,
+.app-grid .grid-footer-right td,
+.app-grid .grid-header-main td:last-child,
+.app-grid .grid-body-main .grid-view td:last-child,
+.app-grid .grid-footer-main  td:last-child{
+    border-right-width: 0;
+}
+
+.app-grid .grid-header-main td.show-right-border:last-child{
+    border-right-width: 1px;
+}
+
+.app-grid .grid-header-right td,
+.app-grid .grid-body-right .grid-view td,
+.app-grid .grid-footer-right td {
+    border-left: 1px dotted #CCC;
+}
+
+.app-grid .grid-table-footer tr:last-child{
+    border-bottom-width: 0px;
+}
+
+.app-grid .grid-table-header .grid-table-footer tr:last-child{
+    border-bottom-width: 1px;
+}
+/*--end--线条控制*/
+
+/*--begin--标题排序控制*/
+
+.app-grid .grid-table-header td>div{
+    position: relative;
+}
+
+.app-grid .grid-table-header span.column-title{
+    width: 100%;
+	line-height: 18px;
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+.app-grid .grid-table-header span.grid-header-btn,
+.app-grid .grid-table-header span.grid-header-sort{
+    float: right;
+    top: 50%;
+    transform: translate(0, -50%);
+    position: relative;
+    background-image: url("./images/glyphicons-halflings.png");
+    width: 16px;
+    height: 16px;
+}
+
+.app-grid .grid-table-header .edit-btn{
+    background-position: 0px 111px;
+}
+
+.app-grid .grid-table-header td.asc span.grid-header-sort{
+    background-position: -287px -97px;
+    display: inline-block;
+}
+
+.app-grid .grid-table-header td.desc span.grid-header-sort{
+    background-position: -310px -97px;
+    display: inline-block;
+}
+/*--end--标题排序控制*/
+
+/*--star--单元格大小控制*/
+.app-grid .grid-table td{
+    height: inherit;
+    line-height: inherit;
+    min-width: 20px;
+}
+
+.app-grid .grid-table .grid-view td>div,
+.app-grid .grid-table .grid-table-header td>div{
+    width: inherit;
+    height: inherit;
+    line-height: inherit;
+    overflow: hidden;
+}
+
+.app-grid .grid-table-body td>div:not(.app-wrapper),
+.app-grid .grid-table-footer td>div{
+    padding-right: 5px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.app-grid .grid-table-body td>div:first-child,
+.app-grid .grid-table-footer td>div{
+	padding-left: 5px;
+}
+
+.app-grid .grid-table-footer .grid-footer-left td[field=_rownumbers]>div{
+	padding-left: 0;
+	padding-right: 0
+}
+
+.app-grid .grid-table .grid-veiw td>div.app-wrapper>input {
+    box-sizing: border-box;
+    padding-right: 5px;
+}
+
+.app-grid .grid-table-body .grid-veiw td>div:first-child,
+.app-grid .grid-table-footer td>div{
+    padding-left: 5px;
+}
+
+.app-grid .grid-table-body .grid-view tr {
+    height: 31px;
+	line-height:31px
+}
+
+.app-grid .grid-table-footer tr {
+    height: 28px;
+    line-height: 28px;
+}
+/*--end--单元格大小控制*/
+
+
+
+.app-grid .grid-table-body .grid-cell-total,
+.app-grid .grid-table-footer .grid-cell-total{
+	font-weight: bold;
+	text-align: right;
+}
+
+.app-grid .grid-table-body .grid-cell-total-first,
+.app-grid .grid-table-footer .grid-cell-total-first{
+	font-weight: bold;
+}
+
+.app-grid .grid-cell-left{
+	text-align: left;
+}
+.app-grid .grid-cell-center{
+	text-align: center;
+}
+.app-grid .grid-cell-right{
+	text-align: right;
+}
+.app-grid .grid-cell-merger,
+.app-grid .grid-cell-hidden{
+	display: none;
+}
+
+.app-grid .grid-row-head{
+	background-color: rgb(230, 240, 252);
+	font-weight: bolder;
+}
+
+/*--star--颜色控制*/
+
+.app-grid .grid-table-header {
+    border-top: 1px solid rgb(153, 187, 232);
+    background-color: rgb(230, 240, 252);
+    font-weight: bolder;
+    position: relative;
+    z-index: 5;
+}
+
+.app-grid .grid-table-header .grid-table-footer {
+    position: static;
+}
+
+.app-grid .grid-table-footer {
+    background-color: #dfeffc;
+    position: relative;
+    display: none;
+}
+
+.app-grid .grid-table-header .grid-table-footer.splitBorder,
+.app-grid .grid-table-header .grid-table-footer.relativeFooter{
+    border-top-width: 0px;
+}
+
+.app-grid .grid-table.fixHeight .grid-table-footer{
+    border-top: 1px solid rgb(153, 187, 232);
+}
+
+.app-grid .grid-table-footer.splitBorder,
+.app-grid .grid-table-footer.relativeFooter{
+    border-top: 1px solid rgb(153, 187, 232);
+}
+
+.app-grid .grid-table-body.useStriped tr.even {
+    background-color: white;
+}
+
+.app-grid .grid-table-body.useStriped tr.odd {
+    background-color: #fafafa;
+}
+
+.app-grid .grid-table-body tr.row-selected,
+.app-grid .grid-table-body.useStriped tr.row-selected{
+    background-color: #ffffc2;
+}
+
+.app-grid .grid-table-body tr.row-uncheckable input[type=checkbox]{
+    visibility: hidden;
+}
+
+.app-grid .grid-table-body tr.row-hover,
+.app-grid .grid-table-body.useStriped tr.row-hover,
+.app-grid .grid-table-body tr.row-current,
+.app-grid .grid-table-body.useStriped tr.row-current{
+    background-color: #FFFFD3;
+}
+/*--end--颜色控制*/
+
+.app-grid .grid-table tr:not(.row-uncheckable) td[field="_checkbox"],
+.app-grid .grid-table tr:not(.row-uncheckable) td[field="_radiobox"],
+.app-grid .grid-table td[field="_checkbox"]>div>input,
+.app-grid .grid-table td[field="_radiobox"]>div>input{
+    cursor: pointer;
+}
+
+/*--star--分页栏*/
+/*----star--标题分页栏*/
+.app-grid .grid-header-title .grid-pager {
+    float: right;
+    margin-right: 5px;
+    background-color: white;
+    height: 30px;
+    border: 0px;
+}
+
+/*----end--标题分页栏*/
+/*----star--工具条分页栏*/
+.app-grid .grid-header-toolbar .grid-pager {
+    float: right;
+    margin-right: 5px;
+    background-color: white;
+    height: 30px;
+    border: 0px;
+}
+/*----end--工具条页栏*/
+.app-grid .grid-pager {
+    background-color: rgb(230, 240, 252);
+    height: 30px;
+    border-left: 1px solid rgb(153, 187, 232);
+    border-right: 1px solid rgb(153, 187, 232);
+    border-top: 1px solid rgb(153, 187, 232);
+    position: relative;
+    margin-top: -1px;
+}
+
+.app-grid .pager-tool {
+    float: right;
+}
+
+.app-grid .pager-infos {
+    float: left;
+    margin: 5px;
+}
+
+.app-grid .grid-pager td {
+    padding: 1px 4px 1px 4px;
+}
+
+.app-grid .grid-pager span.icon {
+    display: inline-block;
+    float: left;
+    width: 14px;
+    height: 14px;
+    background-image: url("./images/glyphicons-halflings.png");
+    cursor: pointer;
+}
+
+.app-grid .grid-pager span.icon-seek-first {
+    background-position: -192px -72px;
+}
+
+.app-grid .grid-pager span.icon-seek-prev {
+    background-position: -240px -72px;
+}
+
+.app-grid .grid-pager span.icon-seek-next {
+    background-position: -336px -72px;
+}
+
+.app-grid .grid-pager span.icon-seek-end {
+    background-position: -384px -72px;
+}
+
+.app-grid .grid-pager span.icon-refresh {
+    background-position:-239px -24px;
+}
+
+.app-grid .grid-pager span.icon-download {
+    background-position:-95px -24px;
+}
+
+.app-grid .grid-pager span.icon-print {
+    background-position:-95px -48px;
+}
+
+.app-grid .grid-pager span.icon-download {
+	background-position:-95px -24px;
+}
+.app-grid .grid-pager span.icon-gridview {
+	background-position:-264px -0px;
+}
+.app-grid .grid-pager span.icon-cardview {
+	background-position:-216px -0px
+}
+
+.app-grid .grid-pager span.separator {
+    height: 12px;
+    border-left: 1px solid #ccc;
+    margin: 1px;
+    float: right;
+}
+
+.app-grid .grid-pager input.currPage {
+    height: 24px;
+    line-height: 24px;
+    width: 50px;
+    font-size: 14px;
+    margin: 0;
+    text-align: center;
+}
+
+.app-grid .grid-pager .pager-pagesize{
+	position: relative;
+}
+
+.app-grid .grid-pager .pager-pagesize input{
+	position: absolute;
+    width: 40px;
+    height: 18px;
+    line-height: 18px;
+    border: none;
+    right: 18px;
+    top: 3px;
+}
+
+.app-grid .grid-pager .pager-pagesize input:hover{
+	-webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+.app-grid .grid-pager select.currPageSize {
+    font-size: 14px;
+    line-height: 24px;
+    height: 24px;
+    width: 60px;
+    cursor: pointer;
+}
+/*--end--分页栏*/
+
+.app-grid .col-resize-proxy{
+    position: absolute;
+    width: 5px;
+    height: 10000px;
+    top: 0;
+    cursor: e-resize;
+    display: none;
+    border-left: 1px solid blue;
+    z-index: 1000;
+}
+/*--begin--编辑器*/
+
+.app-grid .grid-row-editor{
+    display: none;
+}
+
+.app-grid .grid-table-body .grid-view td .app-wrapper {
+    border: none;
+    display: block;
+}
+
+.app-grid .grid-table-body .grid-view td .app-wrapper,
+.app-grid .grid-table-body .grid-view td .app-wrapper input,
+.app-grid .grid-table-body .grid-view td .app-wrapper a,
+.app-grid .grid-table-body .grid-view td .app-wrapper span{
+    height: inherit;
+}
+
+.app-grid .grid-table-body .grid-view td .multipleboxDiv,
+.app-grid .grid-table-body .grid-view td .app-wrapper>input{
+    box-shadow: -1px -1px 9px 1px #ADD8E6 inset;
+    background:white;
+}
+.app-grid .grid-table-body .grid-view td .app-wrapper.wrapper-readonly>input{
+    box-shadow: 0px 0px 0px 0px #ADD8E6 inset;
+}
+.app-grid .grid-table-body .grid-view td .app-wrapper.app-wrapper-active>input,
+.app-grid .grid-table-body .grid-view td .app-wrapper.app-wrapper-hover>input{
+    box-shadow: -1px -1px 9px 1px #48D1CC inset;
+}
+
+.app-grid .grid-table-body .grid-view td .app-wrapper .wrapper-btn,
+.app-grid .grid-table-body .grid-view td .app-wrapper:hover .wrapper-btn{
+    background: white;
+    border: 0px;
+    box-shadow: -3px -1px 10px 1px #ADD8E6 inset;
+}
+.app-grid .grid-table-body .grid-view td .app-wrapper .wrapper-readonly-mask {
+    border-bottom: none;
+}
+
+.app-grid .grid-absolute-comp>.proxy-delete-btn{
+    cursor: pointer;
+    position: absolute;
+    height: 31px;
+    width: 28px;
+    background: white;
+    z-index: 10000;
+    box-shadow: -3px -1px 10px 1px #ADD8E6 inset;
+}
+
+.app-grid .grid-absolute-comp>.proxy-delete-btn>i{
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    margin-top: -11px;
+    background: url(./images/wrapper/btn.png) no-repeat -2px -216px;
+}
+
+.app-grid .grid-absolute-comp>.proxy-delete-btn:hover>i{
+    background-position: -46px -215px
+}
+
+/*--end--编辑器*/
+
+.app-grid .grid-table-header i.btn-addList {
+    background-position: -178px -99px;
+}
+.app-grid .grid-table-header td[opts=true] .rowBtn,
+.app-grid .grid-table-body td[opts=true] .rowBtn{
+    margin-top: 4px;
+    display: inline-block;
+}
+.app-grid .grid-table-header td[opts=true]>div>a,
+.app-grid .grid-table-body td[opts=true]>div>a{
+}
+
+.app-grid .grid-table-header td[opts=true]>div>a.disabled,
+.app-grid .grid-table-body td[opts=true]>div>a.disabled{
+    opacity: 0.35;
+    filter: alpha(opacity=35);
+}
+
+.app-grid .grid-table-header td[opts=true]>div>a.hidden,
+.app-grid .grid-table-body td[opts=true]>div>a.hidden{
+    display: none;
+}
+
+.app-grid .grid-table-header td[isbtn=true]>div{
+    background: #4fd932;
+}
+
+.app-grid .grid-table-header td[isbtn=true]>div:hover{
+    background: #74ef5a;
+}
+
+/*--begin--编辑过的样式*/
+.app-grid .grid-table-body td.updated>div{
+    box-shadow: -1px -1px 10px 1px #ADD8E6 inset;
+}
+
+.app-grid .grid-table-body tr.inserted>td:not([opts=true]),
+.app-grid .grid-table-body td.updated {
+    background: url("./images/grid/modify.gif") no-repeat;
+}
+
+.app-grid .grid-table-body tr.inserted>td:not([opts=true])>div{
+    box-shadow: -1px -1px 10px 1px #98FB98 inset;
+}
+
+.app-grid .grid-table-body tr.deleted>td:not([opts=true])>div{
+    box-shadow: -1px -1px 10px 1px #A9A9A9 inset;
+}
+/*--end--编辑过的样式*/
+/*--begin--错误的单元格样式--*/
+.app-grid .grid-table-body td.invalid,
+.app-grid .grid-table-body tr.invalid>td{
+    color: red;
+}
+
+.app-grid .grid-table-body td.invalid>div,
+.app-grid .grid-table-body tr.invalid>td>div{
+    -moz-box-shadow:-1px -1px 9px red inset;
+    -webkit-box-shadow:-1px -1px 9px red inset;
+    box-shadow: -1px -1px 9px red inset;
+}
+/*--end--错误的单元格样式--*/
+/*--begin--定位单元格--*/
+.app-grid .grid-table.table-active .grid-body-left .row-current td,
+.app-grid .grid-table.table-active .grid-body-main .row-current td,
+.app-grid .grid-table.table-active .grid-body-right .row-current td{
+    border-bottom-color: #48D1CC;
+}
+.app-grid .focusInput{
+    width: 0px;
+    height: 0px;
+    border: none;
+    outline: none;
+    overflow: hidden;
+    line-height: 0px;
+}
+
+/*--end--定位单元格--*/
+
+/* .app-grid .grid-table-body tr.subtotal{
+	background: rgb(230, 240, 252);
+	text-align: left;
+	font-weight: bold;
+}
+
+.app-grid .grid-table-body .grid-body-left tr.subtotal>td{
+	text-align: center;
+} */
+
+
+.grid-column-tree{
+    position: absolute;
+    display: none;
+    width: 200px;
+    max-height: 265px;
+    z-index: 20;
+    background: white;
+    border: 1px solid rgb(153, 187, 232);
+    overflow: auto;
+}
+
+.grid-tree-msg{
+    display: none;
+    position: absolute;
+    width: 200px;
+    height: 20px;
+    background: white;
+    z-index: 999999;
+    font-size: 16px;
+    color: red;
+    font-weight: bold;
+
+}
+
+.grid-card-view{
+	border-top: 1px solid #99bbe8;
+}
+.grid-card-view .grid-body-main .grid-body-content table{
+	width:100%;
+}
+ 
+/**浮动表单**/
+.tile-query .queryitem{
+	float:left;
+	margin:7px 0px 7px 15px;
+}
+.tile-query .queryitem label{
+	float:left;
+	margin:6px 6px 0px 0px;
+}
+.tile-query .multipleboxDiv{
+	padding: 6px 40px 2px 0px;
+	height: 30px;
+	white-space: nowrap;
+}
+.tile-query form{
+	float: left;
+}
+.tile-query .multipleboxDiv label{
+	margin: 0 4px;
+}
+.tile-query .queryquick{
+	margin-top:8px;
+	margin-left:15px;
+	background: url("./images/query/searchbtn.png") no-repeat left bottom ;
+    border: 0;
+    height: 28px;
+    line-height: 28px;
+    padding: 3px !important;
+    width: 60px;
+    float:left;
+    display:block;
+}
+.tile-query .queryadv{
+    float: left;
+    width: 60px;
+    padding: 0px;
+    margin: 8px 0px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    display:block;
+}
+/**浮动表单**/

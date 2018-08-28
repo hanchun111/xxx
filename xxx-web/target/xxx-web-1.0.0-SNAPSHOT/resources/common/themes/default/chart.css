@@ -1,0 +1,25 @@
+.chart-gridview{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	display: block;
+	overflow: hidden;
+	transition: height 0.8s, background-color 1s;
+	-webkit-transition: height 0.8s, background-color 1s; 
+	z-index: 1; 
+	left: 0px; 
+	top: 0px; 
+	background-color: white;
+}
+
+.chart-gridview .chart-gridview-title{
+	padding:8px 0;
+	border-bottom:1px solid #eee;
+	cursor: pointer;
+}
+
+.chart-gridview .grid-table-footer{
+	display: none;
+}
+
+canvas{display:inline-block;overflow:hidden;text-align:left;width:300px;height:150px}

@@ -1,0 +1,43 @@
+
+/* * Skin: Blue * ----------*/
+.app-grid .grid-row-head{
+	
+	background:transparent;
+}
+.app-grid .grid-table-header{
+	border-top: 1px solid #d6d6d6;
+	background:#d5e9ff;
+}
+.app-grid .grid-table{
+	    border-left: 1px solid #d6d6d6;
+    border-right: 1px solid #d6d6d6;
+	
+}
+.app-grid .grid-pager{
+	
+	background-color: #d5e9ff;
+    border-left: 1px solid #d6d6d6;
+    border-right: 1px solid #d6d6d6;
+    border-top: 1px solid #d6d6d6;
+}
+.app-grid .grid-table-body.useStriped tr.odd {
+    background-color: #f6f6f6;
+}
+.app-grid .grid-body-left .grid-view td, .app-grid .grid-body-main .grid-view td, .app-grid .grid-table-footer td, .app-grid .grid-table-header td{
+	
+	border-color: 1px dotted #d6d6d6;
+}
+.app-grid .grid-table-body tr.row-selected, .app-grid .grid-table-body.useStriped tr.row-selected{
+	
+ background-color: #ffe1a8;
+	
+}
+.app-grid .grid-table-body tr.row-current, .app-grid .grid-table-body tr.row-hover, .app-grid .grid-table-body.useStriped tr.row-current, .app-grid .grid-table-body.useStriped tr.row-hover{
+	 background-color: #ffe1a8;
+	
+}
+.tabs-header, .tabs-tool{
+	
+		 background-color: #eee;
+	
+}

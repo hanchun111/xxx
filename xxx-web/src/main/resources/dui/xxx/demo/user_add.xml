@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Page id="addUserPage" layout="border"
+      templatePath="xxx/demo/user_add.jsp"
+      js="resources/js/user_add.js"
+      jsId="user_add" xmlns="http://www.bosssoft.User"
+      xmlns:xsi="http://www.w3.User/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.bosssoft.User ../../../schema/uis/uitemplate-2.0.xsd">
+
+
+    <items >
+        <Panel id="afaOrgPanel_User_details">
+        <Form   id="afaUserPage_form" colCount="2"  layout="table" >
+            <items>
+                <Row>
+                    <items>
+                        <FormItem id="userCode" name="用户账号" required="true"  validations="" editorType="TEXTBOX" />
+                        <FormItem id="userName" name="用户名" required="true"   editorType="TEXTBOX" />
+                    </items>
+                </Row>
+                <Row>
+                    <items>
+                        <FormItem id="userType" name="用户类型"    editorType="COMBOBOX" editOptions="{data:[{'value':'admin','name':'admin'},{'value':'user','name':'user'}]}" />
+                        <FormItem id="identityCode" name="身份证号"  required="true"  editorType="TEXTBOX" validations="{identity:true,messages:{identity:'请输入正确的身份号码'}}"/>
+                    </items>
+                </Row>
+                <Row>
+                    <items>
+                        <FormItem id="status" name="状态"    editorType="COMBOBOX" editOptions="{data:[{'value':'normal','name':'正常'},{'value':'logout','name':'注销'},{'value':'hangon','name':'挂起'}]}"/>
+                        <FormItem id="invlidate" name="密码失效日期"    editorType="DATETIME" />
+                    </items>
+                </Row>
+                <Row>
+                    <items>
+                        <FormItem id="startDate" name="用户有效日期"    editorType="DATETIME" />
+                        <FormItem id="endDate" name="用户失效日期"    editorType="DATETIME" />
+                    </items>
+                </Row>
+                <Row>
+                    <items>
+                        <FormItem id="mobileNo" name="手机号码"    editorType="TEXTBOX" />
+                        <FormItem id="menuStyle" name="门户风格角色"    editorType="COMBOBOX" editOptions="{data:[{}]}"/>
+                    </items>
+                </Row>
+                <Row>
+                    <items>
+                        <FormItem id="macAddress" name="MAC地址" editorType="TEXTBOX"/>
+                        <FormItem id="email" name="Email地址" editorType="TEXTBOX"></FormItem>
+                    </items>
+                </Row>
+
+                <Row>
+                    <items>
+                        <FormItem id="main_ORGId" name="所属机构" editorType="COMBOZTREE"/>
+                        <FormItem id="mainPositionId" name="所属岗位" editorType="COMBOZTREE" ></FormItem>
+                    </items>
+                </Row>
+
+                <Row>
+                    <items>
+                        <FormItem id="CASN" name="绑定CA序列号" editorType="TEXTBOX">
+
+                        </FormItem>
+                    </items>
+                </Row>
+            </items>
+        </Form>
+        </Panel>
+    </items>
+</Page>

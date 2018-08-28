@@ -1,0 +1,54 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.bosssoft.platform</groupId>
+		<artifactId>xxx</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+	<artifactId>xxx-web</artifactId>
+	<packaging>war</packaging>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.bosssoft.platform.component</groupId>
+			<artifactId>com.bosssoft.platform.runtime</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.bosssoft.platform.component</groupId>
+			<artifactId>com.bosssoft.platform.ui.tag</artifactId>
+		</dependency>	
+		<dependency>
+			<groupId>com.bosssoft.platform.component</groupId>
+			<artifactId>com.bosssoft.platform.shiro</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.bosssoft.platform.component</groupId>
+			<artifactId>com.bosssoft.platform.shiro.web</artifactId>
+			<type>war</type>
+		</dependency>	
+		<dependency>
+			<groupId>com.bosssoft.platform.component</groupId>
+			<artifactId>com.bosssoft.platform.ui.web</artifactId>
+			<type>war</type>
+		</dependency>				
+		<dependency>
+			<groupId>com.bosssoft.platform</groupId>
+			<artifactId>bosssoft-webapp-nontax</artifactId>
+			<version>3.1.6</version>
+			<type>war</type>
+		</dependency>
+		<dependency>
+			<groupId>com.bosssoft.platform</groupId>
+			<artifactId>xxx-common</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.12 </version>
+		</dependency>
+	</dependencies>
+
+</project>

@@ -1,0 +1,234 @@
+.app-upload {
+	margin: 2px;
+	height: 98%;
+	overflow: auto;
+	background-color: white;
+	position: relative;
+}
+
+.app-upload.readonly .file-item:hover .file-delete,
+.app-upload.readonly .upload-btn {
+	display: none;
+}
+
+.app-upload.un-upload .upload-btn {
+	display: none;
+}
+
+.app-upload .content>div{
+	height: 100px;
+	width: 90px;
+	text-align: center;
+	overflow: hidden;
+	float: left;
+	position: relative;
+}
+
+.app-upload .file-item .file-icon{
+    margin: 7px auto 7px auto;
+}
+
+.app-upload .file-item.un-delete:hover .file-delete{
+	display: none;
+}
+
+.app-upload .file-item:hover .file-delete{
+	display: block;
+}
+
+.app-upload .file-delete{
+	position: absolute;
+	top: 0; 
+	right: 0;
+	width: 22px;
+	height: 25px;
+	display: none;
+	cursor: pointer;
+}
+
+.app-upload .file-item.selected .file-selected{
+	position: absolute;
+	top: 0; 
+	left: 0;
+	width: 22px;
+	height: 25px;
+	display: block;
+}
+
+.app-upload .file-item .file-selected{
+	display: none;
+}
+
+.app-upload .file-selected i{
+	background: url(./images/wrapper/btn.png) no-repeat -46px -278px;
+}
+
+.app-upload .file-delete i{
+	background: url(./images/wrapper/btn.png) no-repeat -46px -215px;
+}
+
+.app-upload .upload-btn {
+    position: relative;
+}
+.app-upload .app-progressbar {
+	position: absolute;
+	top: 48%;
+	left: 15%;
+	margin:10px;
+	display: none;
+	z-index: 30;
+}
+.app-upload .upload-mask{
+	position: absolute;
+	display: none;
+	width: 100%;
+	height: 100%;
+	background: url(./images/mask.png) 0 0 repeat;
+	z-index: 29;
+}
+.app-upload .upload-mask-msg{
+	z-index: 30;
+	height:50px;
+    display: none;
+	position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+
+.app-upload .upload-btn .file-icon{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    border: none;
+    cursor: pointer;
+}
+
+.app-upload .upload-btn .file-icon:hover{
+	background-position:-341px -582px;
+}
+
+.app-upload .upload-btn input{
+	position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    cursor: pointer;
+}
+
+.app-upload.un-download .file-name{
+    cursor: default;
+}
+
+.app-upload .file-name{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.app-upload .file-item input[type="file"]{
+	display: none;
+}
+/*---begin---文件图标的样式*/
+div.file-icon {
+	width: 38px;
+	height: 38px;
+	border: 1px solid #d8d8d8;
+	background: url(./images/icons.png) no-repeat left top ;
+	background-position: -6px -166px;
+	margin: 2px;
+	position: relative;
+}
+
+div.file-icon.icon-excel{ background-position:-11px -129px;}
+div.file-icon.icon-pdf{ background-position:-47px -128px;}
+div.file-icon.icon-zip{ background-position:-87px -128px;}
+
+div.file-icon.icon-ppt{ background-position:-47px -168px;}
+div.file-icon.icon-word{ background-position:-88px -168px;}
+
+div.file-icon.icon-upload{ background-position:-153px -582px;}
+
+div.file-icon.icon-image{ background-position:-9px -206px;}
+div.file-icon.icon-video{ background-position:-48px -206px;}
+
+div.file-icon.icon-txt{ background-position:-125px -129px;}
+div.file-icon.icon-rar{ background-position:-88px -206px;}
+
+div.file-icon .complete {
+	width: 12px;
+	height: 12px;
+	background: url(./images/icons.png) no-repeat left top ;
+	background-position: -246px -103px;
+	border: 0;
+	position: absolute;
+	bottom: 2px;
+	right: 2px;
+	display: none;
+}
+.app-upload .done div.file-icon .complete {
+	display: block;
+}
+/*---end---文件图标的样式*/
+/*---begin---进度条的样式*/
+.app-progressbar {
+	overflow: hidden;
+	height: 20px;
+	background-color: #f5f5f5;
+	border-radius: 8px;
+	-webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
+	box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
+	position: relative;
+}
+
+.app-progressbar.stripedbar>div {
+	background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .15)
+		25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%,
+		rgba(255, 255, 255, .15) 75%, transparent 75%, transparent );
+	background-image: linear-gradient(45deg, rgba(255, 255, 255, .15) 25%,
+		transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%,
+		rgba(255, 255, 255, .15) 75%, transparent 75%, transparent );
+	background-size: 40px 40px;
+}
+
+@-webkit-keyframes stripedbar{
+	from{background-position:40px 0}
+	to{background-position:0 0}
+}
+
+@keyframes stripedbar{
+	from{background-position:40px 0}
+	to{background-position:0 0}
+}
+
+.app-progressbar.activebar>div{
+	-webkit-animation: stripedbar 2s linear infinite;
+	animation: stripedbar 2s linear infinite;
+}
+
+.app-progressbar>div {
+	float: left;
+	height: 100%;
+	background-color: #4AAE98;
+	-webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .15);
+	box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .15);
+	-webkit-transition: width .6s ease;
+	transition: width .6s ease;
+}
+
+.app-progressbar>span {
+	position: absolute;
+	right: 45%;
+	font-weight: bold;
+}
+/*---end---进度条的样式*/

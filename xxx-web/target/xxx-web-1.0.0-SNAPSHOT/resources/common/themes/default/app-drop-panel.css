@@ -1,0 +1,238 @@
+.drop-panel {
+	display: none;
+	position: absolute;
+	background-color: white;
+	overflow: hidden;
+	border: 1px solid #ccc;
+}
+
+.drop-panel .drop-panel-main {
+	height: 100%;
+	overflow: auto;
+	position: relative;
+}
+
+.drop-panel .drop-panel-custom {
+	position: absolute;
+	width: 100%;
+	left: 0px;
+	overflow: hidden;
+	border: 0px solid #ccc;
+	background-color: #fcfcfc;
+}
+
+.drop-panel .drop-panel-loading,
+.drop-panel .drop-panel-empty{
+	cursor: default;
+	display: none;
+	position: absolute;
+	background-color: white;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    background-color: #cfcfcf;
+    z-index: 1;
+    opacity: 0.9;
+    filter: alpha(opacity=90);
+}
+
+.drop-panel:hover{
+	border-color: rgba(82, 168, 236, 0.8) !important;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px
+		rgba(82, 168, 236, 0.6) !important;
+	-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px
+		rgba(82, 168, 236, 0.6) !important;
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px
+		rgba(82, 168, 236, 0.6) !important;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+.drop-panel ul.combo-list,
+.drop-panel .suggest-list>ul {
+	list-style-type: none;
+}
+
+.drop-panel ul.combo-list>li,
+.drop-panel .suggest-list>ul>li {
+	height: 30px;
+    line-height: 30px;
+	white-space: nowrap;
+	text-align: left;
+	font-size:14px;
+	cursor:pointer;
+	border-bottom:1px solid #f2f2f2;
+	font-weight: normal;
+	position: relative;
+}
+
+.drop-panel ul.combo-list>li.selected,
+.drop-panel .suggest-list>ul>li.selected {
+	color: blue;
+	background:#ffffc2;
+}
+
+.drop-panel ul.combo-list>li:hover,
+.drop-panel ul.combo-list>li.current,
+.drop-panel .suggest-list>ul>li:hover,
+.drop-panel .suggest-list>ul>li.current {
+	color: blue;
+	background:#ffffdd;
+	font-weight: bold;
+}
+
+
+.drop-panel ul.combo-list li .icon-ok,
+.drop-panel .suggest-list ul li .icon-ok {
+	display: inline-block;
+	vertical-align: middle;
+	background: url(./images/wrapper/btn.png) no-repeat -2px -278px;
+}
+
+.drop-panel ul.combo-list li.selected .icon-ok,
+.drop-panel .suggest-list ul li.selected .icon-ok {
+	background: url(./images/wrapper/btn.png) no-repeat -45px -278px;
+}
+
+.drop-panel ul.combo-list li .btn-delete{
+	display: none;
+	top: 4px;
+	right: 0px;
+	position: absolute;
+	background: url(./images/wrapper/btn.png) no-repeat -2px -216px;
+}
+
+.drop-panel ul.combo-list li:hover .btn-delete{
+	display: block;
+}
+
+.drop-panel ul.combo-list li .btn-delete:hover{
+	 background-position: -46px -215px;
+}
+
+.drop-panel .suggest-list>ul>li>em { 
+	font: inherit;
+	color: rgb(166, 0, 0);
+	font-weight: bold;
+}
+
+.drop-panel .selected-list {
+	overflow: auto;
+	line-height: 22px;
+}
+
+.drop-panel .selected-list .selected-item {
+	background:#ffffc2;
+	color: blue;
+	float: left;
+	font-size: 12px;
+	padding: 0 5px;
+	border-radius: 3px;
+	margin-left: 5px;
+	margin-top: 4px;
+	white-space: normal;
+}
+
+.drop-panel .selected-list .selected-item.current {
+	background: #555;
+	color: #EEE;
+}
+
+.drop-panel .selected-list .selected-item.current .sd-close-btn{
+	background-position: -46px -215px;
+}
+
+.drop-panel .selected-list .selected-item .sd-close-btn {
+	width: 22px;
+	cursor: pointer;
+	height: 22px;
+	float: right;
+	background: url(./images/wrapper/btn.png) no-repeat -2px -216px;
+}
+
+.drop-panel .selected-list .sd-close-btn:hover{
+	background-position: -46px -215px;
+}
+
+/*---begin---下拉树*/
+.drop-panel .comboztree-search {
+	height: 36px;
+	padding: 2px;
+	text-align: center;
+	border-top: 1px solid rgba(0, 0, 0, 0.2);
+	background-color: #CCC;
+}
+
+.drop-panel .comboztree-searchText {
+	width: 80%;
+}
+/*---end---下拉树*/
+/*---begin---日期范围框*/
+.drop-panel .date-range{
+	list-style-type: none;
+	cursor:pointer;
+}
+
+.drop-panel .date-range li{
+	font-size:14px;
+	padding: 3px 20px;
+	clear: both;
+	font-weight: normal;
+	line-height: 20px;
+	color: #333333;
+	white-space: nowrap;
+}
+.drop-panel .date-range div{
+	border-bottom: 1px solid #cfcfcf;
+}
+
+.drop-panel .date-range>li:hover{
+	color: white;
+	background:#0081c2;
+}
+/*---end---日期范围框*/
+
+/*---begin---下拉网格*/
+.drop-panel .app-grid {
+	margin: 0;
+	text-align: center;
+}
+
+.drop-panel .app-grid .grid-table-body tr {
+	height: 21px;
+	line-height: 21px;
+}
+.drop-panel .app-grid .grid-table-header,
+.drop-panel .app-grid .grid-table{
+	border-width: 0px;
+}
+
+.drop-panel .app-grid .grid-pager{
+	border-left-width: 0px;
+	border-right-width: 0px;
+}
+
+.drop-panel .app-grid .grid-table-footer{
+	display: none;
+}
+
+.drop-panel .app-grid .grid-body-xscrollproxy{
+	top: 0px !important
+}
+
+/*---end---下拉网格*/
+
+
+.panel-resize-proxy{
+	display: none;
+	overflow: hidden;
+	border-style: dashed;
+	border-width: 1px;
+	opacity: 0.5;
+	filter: alpha(opacity=50);
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 15000;
+	background: #f2f1f1;
+}

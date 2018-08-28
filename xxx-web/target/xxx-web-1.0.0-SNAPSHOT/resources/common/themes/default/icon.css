@@ -1,0 +1,515 @@
+i{  width:22px; height:22px; line-height:22px; display:inline-block; background:url(./images/icons.png) no-repeat -1212px -1111px }
+ 
+/*字体变色*/
+.l-btn-disabled .l-btn-icon-top:hover .l-btn-text{color:#999;}
+.l-btn-icon-top:hover .l-btn-text{color:#057ccf}
+ 
+/* 新的导航菜单Menu Icons */
+.navmenu_li i{width:40px; height:40px; background:url(./images/icons.png) no-repeat; display: inherit;float: left;}
+
+/*基础配置*/
+.navmenu_li i.navDefaultIcon{ background-position:-202px -120px;}
+.navmenu_li:hover i.navDefaultIcon{ background-position:-544px -120px;}
+
+/*用户角色*/
+.navmenu_li i.userRole{ background-position:-158px -119px;}
+.navmenu_li:hover i.userRole{ background-position:-158px -119px;}
+
+/*开发配置*/
+.navmenu_li i.developConfig{ background-position:-157px -158px;}
+.navmenu_li:hover i.developConfig{ background-position:-501px -158px;}
+
+/*银行配置*/
+.navmenu_li i.bankConfig{ background-position:-157px -195px;}
+.navmenu_li:hover i.bankConfig{ background-position:-501px -195px;}
+
+/*基础配置*/
+.navmenu_li i.basisConfig{ background-position:-203px -123px;}
+.navmenu_li:hover i.basisConfig{ background-position:-545px -123px;}
+
+/*用户管理*/
+.navmenu_li i.userMt{ background-position:-205px -206px;}
+.navmenu_li:hover i.userMt{ background-position:-649px -206px;}
+
+/*项目管理*/
+.navmenu_li i.projectMt{ background-position:-242px -120px;}
+.navmenu_li:hover i.projectMt{ background-position:-586px -120px;}
+
+/*单位项目管理*/
+.navmenu_li i.companyPtMt{ background-position: -240px -196px;}
+.navmenu_li:hover i.companyPtMt{ background-position:-586px -196px;}
+
+/*开票管理*/
+.navmenu_li i.billing{ background-position:-288px -121px}
+.navmenu_li:hover i.billing{ background-position:-630px -121px;}
+
+/*库存管理*/
+.navmenu_li i.reserve{ background-position:-207px -167px;}
+.navmenu_li:hover i.reserve{ background-position:-651px -167px;}
+
+/*基础资料*/
+.navmenu_li i.baseData{ background-position:-285px -158px;}
+.navmenu_li:hover i.baseData{ background-position:-587px -158px;}
+
+/*基础信息*/
+.navmenu_li i.baseInfo{ background-position:-327px -118px;}
+.navmenu_li:hover i.baseInfo{ background-position:-450px -118px;}
+
+/*票据管理*/
+.navmenu_li i.billMt{ background-position:-585px -158px;}
+.navmenu_li:hover i.billMt{ background-position:-585px -158px;}
+
+/*单位管理*/
+.navmenu_li i.companyMt{ background-position:-282px -194px;}
+.navmenu_li:hover i.companyMt{ background-position:-626px -194px;}
+
+
+
+
+/*---------------------------导航菜单Menu Icons-----------------------------------*/
+.h2_cat  span{width:40px; height:40px; background:url(./images/icons.png) no-repeat; display: inherit;float: left;}
+
+/*用户角色*/
+.h2_cat span.userRole{ background-position:-157px -119px;}
+.my_left_category .h2_cat a:hover > span.userRole{ background-position:-501px -119px;}
+
+/*开发配置*/
+.h2_cat span.developConfig{ background-position:-157px -158px;}
+.my_left_category .h2_cat a:hover > span.developConfig{ background-position:-501px -158px;}
+
+/*银行配置*/
+.h2_cat span.bankConfig{ background-position:-157px -195px;}
+.my_left_category .h2_cat a:hover > span.bankConfig{ background-position:-501px -195px;}
+
+/*基础配置*/
+.h2_cat span.basisConfig{ background-position:-197px -121px;}
+.my_left_category .h2_cat a:hover > span.basisConfig{ background-position:-541px -121px;}
+
+/*用户管理*/
+.h2_cat span.userMt{ background-position:-205px -206px;}
+.my_left_category .h2_cat a:hover > span.userMt{ background-position:-649px -206px;}
+
+/*项目管理*/
+.h2_cat span.projectMt{ background-position:-241px -119px;}
+.my_left_category .h2_cat a:hover > span.projectMt{ background-position:-585px -119px;}
+
+/*单位项目管理*/
+.h2_cat span.companyPtMt{ background-position:-239px -196px;}
+.my_left_category .h2_cat a:hover > span.companyPtMt{ background-position:-583px -196px;}
+
+/*开票管理*/
+.h2_cat span.billing{ background-position:-284px -117px;}
+.my_left_category .h2_cat a:hover > span.billing{ background-position:-628px -117px;}
+
+/*库存管理*/
+.h2_cat span.reserve{ background-position:-207px -167px;}
+.my_left_category .h2_cat a:hover > span.reserve{ background-position:-651px -167px;}
+
+/*基础资料*/
+.h2_cat span.baseData{ background-position:-282px -155px;}
+.my_left_category .h2_cat a:hover > span.baseData{ background-position:-626px -155px;}
+
+/*基础信息*/
+.h2_cat span.baseInfo{ background-position:-327px -118px;}
+.my_left_category .h2_cat a:hover > span.baseInfo{ background-position:-450px -118px;}
+
+/*票据管理*/
+.h2_cat span.billMt{ background-position:-239px -157px;}
+.my_left_category .h2_cat a:hover > span.billMt{ background-position:-583px -157px;}
+
+/*单位管理*/
+.h2_cat span.companyMt{ background-position:-282px -194px;}
+.my_left_category .h2_cat a:hover > span.companyMt{ background-position:-626px -194px;}
+
+/*---------------------------表格内icon------------------------------------*/
+/*删除*/
+i.btn-delete{ background-position:-146px -12px;}
+/*时间*/
+i.btn-time{ background-position:-12px -69px;}
+/*删除1*/
+i.btn-delete1{ background-position:-177px -40px;}
+/**/
+i.btn-allot{ background-position:-177px -69px;}
+/*编辑*/
+i.btn-edit{ background-position:-117px -12px;}
+/*用户设置*/
+i.btn-custom{ background-position: -212px -212px}
+/*增加*/
+i.btn-add{ background-position:-12px -11px;}
+
+i.btn-design{ background-position:-460px -38px}
+/*添加*/
+i.btn-addList{background-position:-174px -99px }
+/*复制*/
+i.btn-copy{ background-position:-144px -41px;}
+/*打印*/
+i.btn-print{ background-position:-211px -12px;}
+
+/*打印预览*/
+i.btn-printP{ background-position:-617px -43px;}
+/*下载*/
+i.btn-download{ background-position:-338px -67px;}
+/*下载1*/
+i.btn-upload{ background-position:-213px -101px;}
+ /*上传*/
+i.btn-upload1{background: url(./images/icons.png) -371px -67px; }
+
+/*打印设置*/
+i.printSetting{background: url(./images/icons.png) -586px -102px; }
+
+/*分配组织机构*/
+i.btn-dis_organ{ background-position:-48px -71px;}
+/*启用*/
+i.btn-enable{ background-position:-112px -41px; }
+/*停用*/
+i.btn-disable{background-position:-81px -41px;}
+/*链接*/
+i.btn-link{ background-position:-273px -66px;}
+/*启用*/
+i.btn-start{ background-position:-12px -42px;}
+
+/*审核*/
+i.btn-check{ background-position:-558px -40px;}
+
+/*审核通过*/
+i.btn-pass{ background-position:-558px -13px;}
+
+
+/*重置*/
+i.btn-reset{background-position:-79px -98px }
+
+/*查看*/
+i.btn-detail{background-position:-14px -100px }
+
+/*查询查看*/
+i.btn-search-detail{background-position:-146px -101px }
+
+/*变更*/
+i.btn-change{background-position:-272px -98px }
+
+/*搜索*/
+i.btn-search{background-position:-306px -98px }
+
+/*刷新*/
+i.btn-refresh{background-position:-243px -41px }
+
+/*展开*/
+i.btn-listShow{background-position:-369px -100px; }
+
+/*收起*/
+i.btn-listHide{background-position:-337px -100px;}
+
+/*未审核*/
+i.notVerify{background-position:-394px -10px}
+
+/*审核通过*/
+i.verifyPass{background-position:-397px -40px}
+
+/*审核通过——动作*/
+i.pass{background-position:-490px -10px}
+
+/*审核退回*/
+i.verifyReturn{background-position:-395px -69px}
+
+/*状态*/
+/*不需要审核*/
+i.notNeedVerify{background-position:-396px -100px}
+
+/*已写卡*/
+i.hasWriteCards{background-position:-425px -9px}
+
+/*上级已接收*/
+i.hasReceive{background-position:-424px -38px}
+
+/*未确认*/
+i.unconfirmed{background-position:-425px -72px}
+
+/*已确认*/
+i.hasConfirmed{background-position:-424px -102px}
+
+/*已作废*/
+i.hasInvalid{background-position:-459px -9px}
+
+/*基础数据  grid内状态：待审、将来有效、有效、无效     审核状态：未审核、审核通过、审核退回*/
+
+/*待审*/
+i.awaitVerify{background-position:-526px -69px}
+ 
+/*当前有效*/
+i.curValid{background-position:-526px -101px}
+
+/*将来有效*/
+i.furValid{background-position:-553px -101px}
+
+/*无效*/
+i.invalid{background-position:-526px -13px}
+
+/*未审核*/
+i.notVerify0{background-position:-492px -68px}
+
+/*审核通过*/
+i.pass0{background-position:-585px -70px}
+
+/*审核退回*/
+i.goback0{background-position:-585px -43px}
+
+/*发布*/
+i.release{background-position:-559px -69px}
+
+/*撤销发布*/
+i.releaseCancel{background-position:-586px -14px}
+
+/*基础数据 grid内状态：待审、有效、无效     审核状态：未审核、审核通过、审核退回*/
+
+
+ /*缴款通知*/
+ i.paymentNot{background-position:-617px -70px}
+ /*签名*/
+ i.Signature{background-position:-617px -101px}
+ 
+ /*预览*/
+i.previewing{background-position:-113px -100px}
+ 
+ /*设计*/
+i.design{background-position:-458px -40px}
+
+/*附件*/
+i.attachment{
+	background-position:-483px -38px
+}
+  /*导入*/
+i.importing{background-position:-619px -19px }
+ 
+  /*导出*/
+i.outporting{background-position:-651px -19px }
+ 
+   /*清除票据打印记录*/
+i.clearPrint{background-position:-651px -99px }
+
+   /*取消票据关联关系*/
+i.cancelRelation{background-position:-676px -99px }
+
+/*help*/
+.helpIcon{
+	background:#eee url(./images/icons.png) no-repeat -1212px -1111px;
+	width:20px;
+	height:20px; 	
+}
+
+
+
+/*---------------------------弹出标题icon48*48px------------------------------------*/
+.detailNoteice{
+	background:url(./images/dialog/noticeIcon.png) no-repeat 0 0; }
+
+/*新增*/
+.add48{background:url(./images/icons.png) -94px -248px; }
+.l-btn-icon-top:hover .add48{background: url(./images/icons.png) -282px -248px;}
+
+/*删除*/
+.delete48{background: url(./images/icons.png) -4px -297px; }
+ .l-btn-icon-top:hover .delete48{background: url(./images/icons.png) -192px -297px;}
+
+/*保存*/
+.l-btn-disabled .l-btn-icon-top:hover .save48,
+.save48{background: url(./images/icons.png) -46px -249px; }
+.l-btn-icon-top:hover .save48{background: url(./images/icons.png) -234px  -249px;}
+
+/*保存并新增*/
+.saveNew48{background: url(./images/icons.png) -48px -297px; }
+.l-btn-icon-top:hover .saveNew48{background: url(./images/icons.png) -236px -297px;}
+
+/*关闭*/
+.close48{background: url(./images/icons.png) -2px -582px; }
+ .l-btn-icon-top:hover .close48{background: url(./images/icons.png) -190px -582px;}
+
+/*缴款书纸质票*/
+.jks48{background: url(./images/icons.png) -146px -248px; }
+ .l-btn-icon-top:hover .jks48{background: url(./images/icons.png) -343px -249px;}
+
+/*换开纸质票*/
+.toPaper48{background: url(./images/icons.png) -144px -439px; }
+ .l-btn-icon-top:hover .toPaper48{background: url(./images/icons.png)-336px -439px;}
+
+/*打印*/
+.print48{background: url(./images/icons.png) -5px -489px; }
+ .l-btn-icon-top:hover .print48{background: url(./images/icons.png) -193px -489px;}
+
+/*编辑*/
+.edit48{background: url(./images/icons.png) -95px -297px; }
+ .l-btn-icon-top:hover .edit48{background: url(./images/icons.png) -283px -297px;}
+
+/*保存并打印*/
+.savePrint48{background: url(./images/icons.png) -6px -439px; }
+ .l-btn-icon-top:hover .savePrint48{background: url(./images/icons.png)  -194px -439px;}
+ 
+ /*保存并通知*/
+.saveNotice48{background: url(./images/icons.png) -97px -534px; }
+ .l-btn-icon-top:hover .saveNotice48{background: url(./images/icons.png) -285px -534px;}
+ 
+  /*短信*/
+.SMS48{background: url(./images/icons.png) -50px -345px; }
+ .l-btn-icon-top:hover .SMS48{background: url(./images/icons.png) -238px -345px;}
+ 
+   /*缴款书签名*/
+.jkssign48{background: url(./images/icons.png) -51px -438px; }
+ .l-btn-icon-top:hover .jkssign48{background: url(./images/icons.png) -239px -438px;}
+ 
+   /*收据签名*/
+.sjsign48{background: url(./images/icons.png) -8px -537px; }
+ .l-btn-icon-top:hover .sjsign48{background: url(./images/icons.png) -196px -537px;}
+ 
+ 
+ 
+/*开票并打印*/
+.billingPrint48{background: url(./images/icons.png) -149px -295px; }
+ .l-btn-icon-top:hover .billingPrint48{background: url(./images/icons.png) -337px -295px;}
+ 
+/*enable可用*/
+.enable48{background: url(./images/icons.png) -49px -346px; }
+ .enable48:Hover{background: url(./images/icons.png) -237px -346px;}
+   
+/*停用*/
+.disable48{background: url(./images/icons.png) -98px -346px; }
+ .l-btn-icon-top:hover .disable48{background: url(./images/icons.png) -292px -347px;}
+  
+ /*作废*/     
+.invalid48{background: url(./images/icons.png) -147px -345px; }
+ .l-btn-icon-top:hover .invalid48{background: url(./images/icons.png) -335px -345px;}
+      
+/*搜索*/
+.search48{background: url(./images/icons.png) -12px -393px; }
+ .l-btn-icon-top:hover .search48{background: url(./images/icons.png) -200px -393px;}
+      
+/*审核*/
+ .check48{background: url(./images/icons.png) -52px -664px; }
+ .l-btn-icon-top:hover .check48{background: url(./images/icons.png) -240px -664px  ;}
+      	  
+/*取消审核*/
+.cancelCheck48{background: url(./images/icons.png) -99px -439px; }
+ .l-btn-icon-top:hover .cancelCheck48{background: url(./images/icons.png) -288px -439px;}
+      	  
+/*缴款签字*/
+.aa48{background: url(./images/icons.png) -50px -440px; }
+ .l-btn-icon-top:hover .aa48{background: url(./images/icons.png) -243px -440px;}
+ 
+ /*审核通过*/
+.pass48{background: url(./images/icons.png) -50px -388px; }
+ .l-btn-icon-top:hover .pass48{background: url(./images/icons.png)  -238px -388px;}
+
+/*审核退回*/
+ .goback48{background: url(./images/icons.png) -96px -437px; }
+ .l-btn-icon-top:hover .goback48{background:url(./images/icons.png) -285px -437px}
+  
+ /*作废重开*/
+.invalidReopen48{background: url(./images/icons.png) -53px -487px; }
+ .l-btn-icon-top:hover .invalidReopen48{background: url(./images/icons.png) -241px -487px;}
+  
+ /*换开纸质缴款书*/
+.toPaymentBook48{background: url(./images/icons.png) -144px -439px; }
+ .l-btn-icon-top:hover .toPaymentBook48{background: url(./images/icons.png) -336px -439px;}
+
+ /*批量打印*/
+.batchPrint48{background: url(./images/icons.png) -97px -490px; }
+ .l-btn-icon-top:hover .batchPrint48{background: url(./images/icons.png) -285px -490px;}
+
+ /*票据签字*/
+.billSign48{background: url(./images/icons.png) -8px -538px; }
+ .l-btn-icon-top:hover .billSign48{background: url(./images/icons.png) -196px -538px;}
+ 
+ /*写卡*/
+.writeCard48{background: url(./images/icons.png) -50px -534px; }
+ .l-btn-icon-top:hover .writeCard48{background: url(./images/icons.png) -238px -534px;}
+ 
+ /*下载*/
+.download48{background: url(./images/icons.png) -147px -535px; }
+ .l-btn-icon-top:hover .download48{background: url(./images/icons.png) -335px -535px;}
+ 
+ /*上传*/
+.upload48{background: url(./images/icons.png) -148px -578px }
+ .l-btn-icon-top:hover .upload48{background: url(./images/icons.png)  -336px -578px;}
+ 
+  /*导入48*/
+.importing48{background: url(./images/icons.png) -49px -621px }
+ .l-btn-icon-top:hover .importing48{background: url(./images/icons.png) -237px -621px;}
+ 
+  /*导出48*/
+.outporting48{background: url(./images/icons.png) -377px -246px }
+ .l-btn-icon-top:hover .outporting48{background: url(./images/icons.png)  -426px -246px;}
+ 
+ /*出库*/
+.export48{background: url(./images/icons.png) -48px -580px; }
+ .l-btn-icon-top:hover .export48{background: url(./images/icons.png) -236px -580px;}
+ 
+ /*入库确认*/
+.intoConfirm48{background: url(./images/icons.png) -99px -580px; }
+ .l-btn-icon-top:hover .intoConfirm48{background: url(./images/icons.png) -287px -580px;}
+ 
+ /*缴款确认*/
+ .ConfirmPayment48{background: url(./images/icons.png) -104px -623px;} 
+ .l-btn-icon-top:hover .ConfirmPayment48{background: url(./images/icons.png) -293px -621px;} 
+
+ /*查看*/
+.detail48{background: url(./images/icons.png) -147px -623px; }
+
+/*预览*/
+.preview48{background: url(./images/icons.png) -147px -623px; }
+.l-btn-icon-top:hover .preview48{background: url(./images/icons.png) -335px -623px;}
+
+/*打印设置*/
+.printSet48{background: url(./images/icons.png)  -145px -663px;}
+.l-btn-icon-top:hover .printSet48{background: url(./images/icons.png) -335px -663px;}
+
+/*查看模板*/
+.viewTemplate48{background: url(./images/icons.png)  -378px -296px }
+.l-btn-icon-top:hover .viewTemplate48{background: url(./images/icons.png) -378px -345px;} 
+
+/*取消作废*/
+.CancelhasInvalid48{background: url(./images/icons.png) -102px -661px; }
+ .l-btn-icon-top:hover .CancelhasInvalid48{background: url(./images/icons.png) -290px -661px;}
+
+ /*缴款通知*/
+.payNotice48{background: url(./images/icons.png) -8px -250px ; }
+ .l-btn-icon-top:hover .payNotice48{background: url(./images/icons.png) -192px -249px;}
+ 
+ /*换开收据*/
+.toReceipt48{background: url(./images/icons.png) -140px -487px; }
+ .l-btn-icon-top:hover .toReceipt48{background: url(./images/icons.png) -332px -487px;}
+ 
+ /*打印汇总*/
+ .printGather48{background: url(./images/icons.png)  -385px -394px; }
+  .l-btn-icon-top:hover .printGather48{background: url(./images/icons.png) -437px -394px;}
+ /*打印明细*/
+ .printDetail48{background: url(./images/icons.png) -385px -439px; }
+  .l-btn-icon-top:hover .printDetail48{background: url(./images/icons.png) -437px -439px;}
+ /*白纸打印*/
+ .printWhite48{background: url(./images/icons.png) -385px -483px; }
+  .l-btn-icon-top:hover .printWhite48{background: url(./images/icons.png) -437px -483px;}
+ /*作废打印*/
+ .printInvalid48{background: url(./images/icons.png) -385px -533px; }
+  .l-btn-icon-top:hover .printInvalid48{background: url(./images/icons.png) -437px -533px;}
+ /*现场收款*/
+ .siteReceivables48{background: url(./images/icons.png) -387px -574px; }
+  .l-btn-icon-top:hover .siteReceivables48{background: url(./images/icons.png) -439px -574px;}
+ /*POS刷卡*/
+.pos48{background: url(./images/icons.png) -389px -622px; }
+.l-btn-icon-top:hover .pos48{background: url(./images/icons.png) -441px -622px;}
+  /*收取现金*/ 
+.receiveCash48{background: url(./images/icons.png) -388px -662px; }
+ .l-btn-icon-top:hover .receiveCash48{background: url(./images/icons.png) -439px -662px;}
+
+ /*最大化*/
+.maximum48{background: url(./images/icons.png) -432px -293px }
+.l-btn-icon-top:hover .maximum48{background: url(./images/icons.png)  -474px -293px;}
+  /*最小化*/ 
+.minimization48{background: url(./images/icons.png)  -433px -340px; }
+.l-btn-icon-top:hover .minimization48{background: url(./images/icons.png) -474px -340px;}
+
+   /*上报48*/ 
+.report48{background: url(./images/icons.png)  -483px -390px; }
+.l-btn-icon-top:hover .report48{background: url(./images/icons.png) -483px -440px;}
+
+  /*上报*/ 
+i.btn-report{ background-position:-679px -43px; }
+
+

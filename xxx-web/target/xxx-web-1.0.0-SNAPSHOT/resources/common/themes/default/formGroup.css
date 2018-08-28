@@ -1,0 +1,123 @@
+﻿/* CSS Document */
+*{
+	margin:0 auto;
+	padding:0;
+	text-align:left;
+	font-family:"宋体";
+	font-size:12px;
+	text-align:center;
+}
+ul, ul li{
+    list-style:none;
+}
+img, input, select{
+    vertical-align:middle;
+}
+body{
+	height:100%;
+	width:100%;
+}
+.bodyDiv{ position:relative; width:800px; background:#}
+	
+#goTop{
+	width:54px;
+	height:54px;
+	background:#abdbf4 url(../images/goTop.png) no-repeat left top;
+	position:fixed;
+	bottom:20px;
+	right:30px;
+	}
+#goTop:hover{
+	background:#80c6ed url(../images/goTop.png) no-repeat left top;
+	}
+.max{
+	width:660px;
+	margin-top:0px;
+	margin-left:110px;
+	margin-bottom:0px;
+	background:#fff;
+	padding:40px 20px 40px 30px;
+    border-left:1px solid #ddd;
+	position:relative;
+	display:block;
+	overflow:auto;
+  }
+.max h2{
+ 	overflow:hidden;
+	text-align:center;
+	font-family:"Microsoft YaHei",Arial,Helvetica,sans-serif,"宋体";
+	font-weight:600;
+	font-size:22px;
+	height:40px;
+	line-height:40px;
+	color:#000;
+}
+.bar{
+   background:#fff; 
+   border:1px solid #ddd;
+    width:80px;
+   height:180px;
+   position:fixed; 
+   top:80px; 
+   margin-left:-122px;
+   z-index:1222;
+   padding:10px 5px;
+   }
+  
+.up1{
+	background:url(../images/hide.png) no-repeat center center !important;
+	}
+.up2{
+	background:url(../images/show.png) no-repeat center center !important;
+	}
+.anklist{
+	width:80px;
+	height:40px;
+	}
+.anklist a{
+	width:80px;
+	height:40px;
+	display:block;
+	line-height:40px;
+	margin:3px 0px 3px 0px;
+	text-align:center;
+	text-decoration:none;
+	color:#000;
+	font-size:14px; font-family:'微软雅黑'; 	
+	}
+.bg{
+	background:#f00 !important;
+	}
+.selected{
+	background:#ffe026 !important;
+	}
+.xz{
+	background:#ccc !important;
+}
+.lk{
+	background:#fff !important;
+	}
+.bar ul li a:hover{
+	background:#eff4f9 !important;
+	color:#f00 !important;
+	}
+ 
+        
+  .tool-text{   
+   padding: 4px 8px 8px; 
+   line-height:22px;
+   font-size:12px; 
+   color: #000;    
+   background-color:#fff;/*tips内容的背景*/ 
+  }
+  .titleH3{ padding:10px; font-size:16px;font-family:'微软雅黑'; color:#666; text-align:left; }
+  .editDiv{ display:block; float:left;}
+  h3{ display:block; float:left; width:100%; clear:both;}
+  .editDiv p{
+	  height:33px; line-height:33px;  margin:3px 0px 5px 0px; display:block; float:left; width:100%; position:relative;}
+.editDiv p span{ display:block; float:left;  margin:0px 5px 0px 5px;font-size:14px; font-family:'微软雅黑'; color:#444;}
+.editDiv p label.xing{padding:0px 4px 0px 4px;color:#F00; font-weight:600;}
+.editDiv p span.ps{ color:#666;}
+.editDiv p span.fonts{ width:140px; text-align:right;}
+.editDiv p span input{ height:30px; line-height:30px; text-indent:2px; font-size:14px; font-family:'微软雅黑'; width:270px; text-align:left;}
+ 

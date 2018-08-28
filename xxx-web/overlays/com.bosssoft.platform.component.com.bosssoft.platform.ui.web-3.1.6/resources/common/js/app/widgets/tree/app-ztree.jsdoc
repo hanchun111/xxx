@@ -1,0 +1,515 @@
+/**
+ * @class 
+ * @classdesc 树形
+ * @name zTree
+ */
+var zTree = {};
+/** 
+ * Ajax获取数据的 URL 地址
+ * @memberof zTree
+ * @property {String} [url] 数据初始加载地址
+ */
+zTree.url = null;
+/** 
+ * 搜索栏的请求地址
+ * @memberof zTree
+ * @property {String} [qryUrl=url] 搜索栏地址
+ */
+zTree.qryUrl = null;
+/** 
+ * 设置 zTree 是否提供搜索栏
+ * @memberof zTree
+ * @property {Boolean} [hasQry=true] 提供搜索栏
+ */
+zTree.hasQry = true;
+/** 
+ * 设置 zTree 是否异步加载数据
+ * @memberof zTree
+ * @property {Boolean} [isasync=false] 非异步加载数据
+ */
+zTree.isasync = false;
+/** 
+ * 异步加载时需要自动提交父节点属性的参数
+ * @memberof zTree
+ * @property {Array|String} [autoParams=[]]  格式说明
+ * <p>1、将需要作为参数提交的属性名称，制作成 Array 即可，例如：["id", "name"]</p>
+ * <p>2、可以设置提交时的参数名称，例如 server 只接受 zId : ["id=zId"]</p>
+ * @example 1. 设置 id 属性为自动提交的参数
+ * autoParam: ["id"]  假设 异步加载 父节点(node = {id:1, name:"test"}) 的子节点时，将提交参数 id=1
+ * @example 2. 设置 id 属性作为 zId 成为自动提交的参数
+ * autoParam: ["id=zId"]  假设 对父节点 node = {id:1, name:"test"}，进行异步加载时，将提交参数 zId=1
+ */
+zTree.autoParams = [];
+/** 
+ * Ajax 请求提交的静态参数键值对。
+ * @memberof zTree
+ * @property {Array|String} [otherParam=[]]  格式说明
+ * <p>Array(String) 格式说明 可以为空[]，如果有 key，则必须存在 value。 例如：[key, value]</p>
+ * <p>JSON 格式说明 直接用 JSON 格式制作键值对，例如：{ key1:value1, key2:value2 }</p>
+ * @example 1. 设置 Array(String) 格式的参数
+ * otherParam: ["id", "1", "name", "test"] 进行异步加载时，将提交参数 id=1&name=test
+ * @example 2. 设置 JSON 格式的参数
+ * otherParam: { "id":"1", "name":"test"} 进行异步加载时，将提交参数 id=1&name=test
+ */
+zTree.otherParam = [];
+ /** 
+ * 设置 zTree 是否异步加载数据
+ * @memberof zTree
+ * @property {Boolean} [isasync] 异步加载数据
+ */
+zTree.isasync = false;
+/** 
+ * 设置 zTree 是否可以进行勾选
+ * @memberof zTree
+ * @property {Boolean} [checkable=false] 不进行勾选
+ */
+zTree.checkable = false;
+/** 
+ * 勾选 checkbox 对于父子节点的关联关系。checkable = true
+ * @memberof zTree
+ * @property {Json} [checkboxType={ "Y": "ps", "N": "ps" }] JSON 格式说明
+ * <p>Y 属性定义 checkbox 被勾选后的情况；</p>
+ * <p>N 属性定义 checkbox 取消勾选后的情况； </p>
+ * <p>"p" 表示操作会影响父级节点； </p>
+ * <p>"s" 表示操作会影响子级节点。</p>
+ * <p style="color:red;">请注意大小写，不要改变</p>
+ */
+zTree.checkboxType = { "Y": "ps", "N": "ps" };
+/** 
+ * zTree 节点数据中保存 check 状态的属性名称。
+ * @memberof zTree
+ * @property {String} [checkboxType='checked'] 
+ * <p style="color:red;">请勿与 zTree 节点数据的其他参数冲突，例如：checkedOld</p>
+ */
+zTree.checkField = 'checked';
+/** 
+ * zTree 节点数据中保存子节点数据的属性名称。
+ * @memberof zTree
+ * @property {String} [childrenField='children'] 
+ */
+zTree.childrenField = 'children';
+/** 
+ * zTree 节点数据保存节点名称的属性名称。
+ * @memberof zTree
+ * @property {String} [nameField='name'] 
+ */
+zTree.nameField = 'name';
+/** 
+ * zTree 节点数据保存节点提示信息的属性名称。
+ * @memberof zTree
+ * @property {String} [titleField='name'] 
+ */
+zTree.titleField = 'name';
+/** 
+ * 节点数据中保存唯一标识的属性名称。
+ * @memberof zTree
+ * @property {String} [idField='id'] 
+ */
+zTree.idField = 'id';
+/** 
+ * 节点数据中保存其父节点唯一标识的属性名称。
+ * @memberof zTree
+ * @property {String} [parentField='pid'] 
+ */
+zTree.parentField = 'id';
+/** 
+ * 用于修正根节点父节点数据，即 pIdKey 指定的属性值。
+ * @memberof zTree
+ * @property {String} [rootId] 
+ */
+zTree.rootId = null;
+/** 
+ * 设置 zTree 是否有根节点。
+ * @memberof zTree
+ * @property {Boolean} [hasRoot] 
+ */
+zTree.hasRoot = false;
+/** 
+ * 根节点。
+ * @memberof zTree
+ * @property {Json} [rootNode] 
+ */
+zTree.rootNode = null;
+/** 
+ * 根节点的名称。
+ * @memberof zTree
+ * @property {Json} [rootName] 
+ */
+zTree.rootName = null;
+/** 
+ * 设置 zTree 是否显示节点的图标。
+ * @memberof zTree
+ * @property {Boolean} [showIcon=true] 
+ */
+zTree.showIcon = true;
+/** 
+ * 设置是否允许同时选中多个节点。
+ * @memberof zTree
+ * @property {Boolean} [selectedMulti=false] 
+ */
+zTree.selectedMulti = false;
+
+
+/**
+ * 取消节点的选中状态。
+ * @param treeNode {JSON} 需要取消选中状态的节点。
+ * <span style="color:red;">请务必保证此节点数据对象 是 zTree 内部的数据对象，如果省略此参数，则将取消全部被选中节点的选中状态</span>
+ * @memberof zTree
+ * @instance
+ * @example 1. 取消当前所有被选中节点的选中状态
+ * $('#demo').cancelSelectedNode();
+ * @example 2. 取消当前第一个被选中节点的选中状态
+ * var nodes = $('#demo').getSelectedNodes();
+ * if (nodes.length>0) {
+ * &#9;$('#demo').cancelSelectedNode(nodes[0]);
+ * }
+ */
+zTree.cancelSelectedNode = function(){};
+/**
+ * 勾选 或 取消勾选 全部节点。<span style="color:red;">checkable=true时 有效，此方法不会触发 beforeCheck / onCheck 事件回调函数。</span>
+ * @param checked {Boolean} 
+ * <p>checked = true 表示勾选全部节点</p>
+ * <p>checked = false 表示全部节点取消勾选</p>
+ * <span style="color:red;">不会影响未加载的节点。</span>
+ * @memberof zTree
+ * @instance
+ * @example 1. 勾选全部节点
+ * $('#demo').checkAllNodes();
+ */
+zTree.checkAllNodes = function(){};
+/**
+ * 勾选 或 取消勾选 单个节点。<span style="color:red;">checkable=true时 有效</span>
+ * @param treeNode {JSON} 需要勾选 或 取消勾选 的节点数据
+ * @param checked {Boolean} 
+ * <p>checked = true 表示勾选节点</p>
+ * <p>checked = false 表示节点取消勾选</p>
+ * <span style="color:red;">省略此参数，则根据对此节点的勾选状态进行 toggle 切换</span>
+ * @param checkTypeFlag {Boolean} <p>checkTypeFlag = true 表示按照 setting.check.chkboxType 属性进行父子节点的勾选联动操作</p>
+ * <p>checkTypeFlag = false 表示只修改此节点勾选状态，无任何勾选联动操作</p>
+ * <span style="color:red;">checkTypeFlag = false 且 treeNode.checked = checked 时，不会触发回调函数，直接返回
+ * 不影响父子节点中 treeNode.nochecked = true 的节点。</span>
+ * @param callbackFlag {Boolean} 
+ * <p>callbackFlag = true 表示执行此方法时触发 beforeCheck & onCheck 事件回调函数</p>
+ * <p>callbackFlag = false 表示执行此方法时不触发事件回调函数</p>
+ * <span style="color:red;">省略此参数，等同于 false</span>
+ * @fires zTree#beforeCheck 
+ * @fires zTree#onCheck 
+ * @memberof zTree
+ * @instance
+ * @example 1. 勾选当前选中的节点
+ * var nodes = $('#demo').getSelectedNodes();
+ * for (var i=0, l=nodes.length; i < l; i++) {
+ * &#9;$('#demo').checkNode(nodes[i], true, true);
+ * }
+ */
+zTree.checkNode = function(){};
+/**
+ * 展开 / 折叠 指定的节点
+ * @param treeNode {JSON} 需要 展开 / 折叠 的节点数据
+ * @param expandFlag {Boolean} 
+ * <p>expandFlag = true 表示 展开 节点</p>
+ * <p>expandFlag = false 表示 折叠 节点</p>
+ * <span style="color:red;">省略此参数，则根据对此节点的展开状态进行 toggle 切换</span>
+ * @param sonSign {Boolean} 
+ * <p>sonSign = true 表示 全部子孙节点 进行与 expandFlag 相同的操作</p>
+ * <p>sonSign = false 表示 只影响此节点，对于其 子孙节点无任何影响</p>
+ * <span style="color:red;">sonSign = false 且 treeNode.open = expandFlag 时，不会触发回调函数，直接返回。省略此参数，等同于 false</span>
+ * @param focus {Boolean} 
+ * <p>focus = true 表示 展开 / 折叠 操作后，通过设置焦点保证此焦点进入可视区域内</p>
+ * <p>focus = false 表示 展开 / 折叠 操作后，不设置任何焦点</p>
+ * <span style="color:red;">省略此参数，等同于 true</span>
+ * @param callbackFlag {Boolean} 
+ * <p>callbackFlag = true 表示执行此方法时触发 beforeExpand / onExpand 或 beforeCollapse / onCollapse 事件回调函数</p>
+ * <p>callbackFlag = false 表示执行此方法时不触发事件回调函数</p>
+ * <span style="color:red;">省略此参数，等同于 false</span>
+ * @return xx {Boolean} 返回值表示最终实际操作情况
+ * <p>true 表示 展开 节点，</p>
+ * <p>false 表示 折叠 节点，</p>
+ * <p>null 表示 不是父节点</p>
+ * @fires zTree#beforeExpand 
+ * @fires zTree#onExpand
+ * @fires zTree#beforeCollapse  
+ * @fires zTree#onCollapse
+ * @memberof zTree
+ * @instance
+ * @example 1.  展开当前选择的第一个节点（包括其全部子节点）
+ * var nodes = $('#demo').getSelectedNodes();
+ * for (var i=0, l=nodes.length; i < l; i++) {
+ * &#9;$('#demo').expandNode(nodes[0], true, true, true);
+ * }
+ */
+zTree.expandNode = function(){};
+/**
+ * 根据节点数据的属性搜索，获取条件完全匹配的节点数据 JSON 对象
+ * @param key {String} 需要精确匹配的属性名称
+ * @param value {?} 需要精确匹配的属性值，可以是任何类型，只要保证与 key 指定的属性值保持一致即可
+ * @param parentNode {JSON} 搜索范围，指定在某个父节点下的子节点中进行搜索
+ * <span style="color:red;">忽略此参数，表示在全部节点中搜索</span>
+ * @return xx {JSON} 匹配精确搜索的节点数据
+ * <p>1、如无结果，返回 null，</p>
+ * <p>2、如有多个节点满足查询条件，只返回第一个匹配到的节点，</p>
+ * @memberof zTree
+ * @instance
+ * @example 1. 查找 id = 1 的节点数据
+ * var nodes = $('#demo').getNodeByParam("id", 1, null);
+ */
+zTree.getNodeByParam = function(){};
+/**
+ * 获取 zTree 的全部节点数据
+ * @return xx {Array(JSON)} 全部节点数据
+ * <p>1、如无结果，返回 null，</p>
+ * <p>2、如有多个节点满足查询条件，只返回第一个匹配到的节点，</p>
+ * @memberof zTree
+ * @instance
+ * @example 1. 查找 id = 1 的节点数据
+ * var nodes = $('#demo').getNodes();
+ */
+zTree.getNodes = function(){};
+/**
+ * 根据节点数据的属性搜索，获取条件完全匹配的节点数据 JSON 对象集合
+ * @param key {String} 需要精确匹配的属性名称
+ * @param value {?} 需要精确匹配的属性值，可以是任何类型，只要保证与 key 指定的属性值保持一致即可
+ * @param parentNode {JSON} 搜索范围，指定在某个父节点下的子节点中进行搜索
+ * <span style="color:red;">忽略此参数，表示在全部节点中搜索</span>
+ * @return xx {Array(JSON)} 匹配精确搜索的节点数据集合
+ * <p>如无结果，返回 [ ]</p>
+ * @memberof zTree
+ * @instance
+ * @example 1.  查找 name = "test" 的节点数据
+ * var nodes = $('#demo').getNodesByParam("name", "test", null);
+ */
+zTree.getNodesByParam = function(){};
+/**
+ * 获取 zTree 当前被选中的节点数据集合
+ * @return xx {Array(JSON)} 当前被选中的节点数据集合
+ * @memberof zTree
+ * @instance
+ * @example 1.  查找 name = "test" 的节点数据
+ * var nodes = $('#demo').getSelectedNodes();
+ */
+zTree.getSelectedNodes = function(){};
+/**
+ * 选中指定节点
+ * @param treeNode {JSON} 需要被选中的节点数据
+ * @param addFlag {Boolean}
+ * <p>addFlag = true 表示追加选中，会出现多点同时被选中的情况</p>
+ * <p>addFlag = false 表示单独选中，原先被选中的节点会被取消选中状态</p>
+ * <span style="color:red;">selectedMulti = false 时，此参数无效，始终进行单独选中</span>
+ * @memberof zTree
+ * @instance
+ * @example 1.  查找 name = "test" 的节点数据
+ * var nodes = $('#demo').getNodes();
+ * if (nodes.length>0) {
+ * &#9;$('#demo').selectNode(nodes[0]);
+ * }
+ */
+zTree.selectNode = function(){};
+
+
+/**
+ * 用于捕获搜索列表的节点被点击的事件回调函数
+ * @event zTree#clickSearchNode
+ * @param treeId {String} 对应 zTree 的 treeId，便于用户操控
+ * @param treeNode {JSON} 进行异步加载的父节点 JSON 数据对象。<span style="color:red;">针对根进行异步加载时，treeNode = null。</span>
+ * @returns xx {Boolean} <span style="color:red;">如果返回 false，zTree 将不进行异步加载，也无法触发 onAsyncSuccess / onAsyncError 事件回调函数。</span>
+ * @example 1、禁止 id 为 1 的父节点进行异步加载操作
+ * function zTreeBeforeAsync(treeId, treeNode) {
+ * &#9; return (treeNode.id !== 1);
+ * };
+ */
+
+/**
+ * 用于捕获异步加载之前的事件回调函数，zTree 根据返回值确定是否允许进行异步加载
+ * @event zTree#beforeAsync
+ * @param treeId {String} 对应 zTree 的 treeId，便于用户操控
+ * @param treeNode {JSON} 进行异步加载的父节点 JSON 数据对象。<span style="color:red;">针对根进行异步加载时，treeNode = null。</span>
+ * @returns xx {Boolean} <span style="color:red;">如果返回 false，zTree 将不进行异步加载，也无法触发 onAsyncSuccess / onAsyncError 事件回调函数。</span>
+ * @example 1、禁止 id 为 1 的父节点进行异步加载操作
+ * function zTreeBeforeAsync(treeId, treeNode) {
+ * &#9; return (treeNode.id !== 1);
+ * };
+ */
+ 
+/**
+ * 用于捕获 勾选 或 取消勾选 之前的事件回调函数，并且根据返回值确定是否允许 勾选 或 取消勾选
+ * @event zTree#beforeCheck
+ * @param treeId {String} 对应 zTree 的 treeId，便于用户操控
+ * @param treeNode {JSON} 被点击的节点 JSON 数据对象
+ * @returns xx {Boolean} <span style="color:red;">如果返回false，将不会改变勾选状态，并且无法触发 onCheck 事件回调函数。</span>
+ * @example 1、禁止所有勾选操作，保持初始化的勾选状态 
+ * function zTreeBeforeCheck(treeId, treeNode) {
+ * &#9;return false;
+ * };
+ */
+ 
+/**
+ * 用于捕获单击节点之前的事件回调函数，并且根据返回值确定是否允许单击操作
+ * @event zTree#beforeClick
+ * @param treeId {String} 对应 zTree 的 treeId，便于用户操控
+ * @param treeNode {JSON} 被点击的节点 JSON 数据对象
+ * @param clickFlag {Number} 节点被点击后的选中操作类型，详细看下表
+ * <table width="100%" border="1" cellspacing="1" cellpadding="0">
+		<thead><tr><td>clickFlag</td><td title="是否允许多点选中">selectedMulti</td><td title="是否按下 Ctrl 或 Cmd 键">autoCancelSelected<br>&amp;&amp;<br>event.ctrlKey / metaKey</td><td title="节点当前选择状态">isSelected</td><td>选中操作</td></tr></thead>
+		<tbody>
+			<tr><td>1</td><td>true</td><td>false</td><td>false</td><td>普通选中</td></tr>
+			<tr><td>1</td><td>true</td><td>false</td><td>true</td><td>普通选中</td></tr>
+			<tr><td>2</td><td>true</td><td>true</td><td>false</td><td>追加选中</td></tr>
+			<tr><td>0</td><td>true</td><td>true</td><td>true</td><td>取消选中</td></tr>
+			<tr><td>1</td><td>false</td><td>false</td><td>false</td><td>普通选中</td></tr>
+			<tr><td>1</td><td>false</td><td>false</td><td>true</td><td>普通选中</td></tr>
+			<tr><td>1</td><td>false</td><td>true</td><td>false</td><td>普通选中</td></tr>
+			<tr><td>0</td><td>false</td><td>true</td><td>true</td><td>取消选中</td></tr>
+		</tbody>
+	</table>
+ * @return xx {Boolean} <span style="color:red;">如果返回 false，zTree 将不会选中节点，也无法触发 onClick 事件回调函数。</span>
+ * @example 1. 禁止节点被选中
+ * function zTreeBeforeClick(treeId, treeNode, clickFlag) {
+ * &#9;return (treeNode.id !== 1);
+ * };
+ */
+ 
+ /**
+ * 用于捕获父节点折叠之前的事件回调函数，并且根据返回值确定是否允许折叠操作
+ * @event zTree#beforeCollapse
+ * @param treeId {String} 对应 zTree 的 treeId，便于用户操控
+ * @param treeNode {JSON} 被点击的节点 JSON 数据对象
+ * @returns xx {Boolean} <span style="color:red;">如果返回 false，zTree 将不会折叠节点，也无法触发 onCollapse 事件回调函数。</span>
+ * @example 1. 禁止所有已展开的父节点折叠 
+ * function zTreeBeforeCollapse(treeId, treeNode) {
+ * &#9;return false;
+ * };
+ */
+ 
+ /**
+ * 用于捕获 zTree 上鼠标双击之前的事件回调函数，并且根据返回值确定触发 onDblClick 事件回调函数
+ * @event zTree#beforeDblClick
+ * @param treeId {String} 对应 zTree 的 treeId，便于用户操控
+ * @param treeNode {JSON} 被点击的节点 JSON 数据对象
+ * @returns xx {Boolean} <span style="color:red;">如果返回 false，将无法触发 onDblClick 事件回调函数。</span>
+ * @example 1. 禁止 onDblClick 事件
+ * function zTreeBeforeDblClick(treeId, treeNode) {
+ * &#9;return false;
+ * };
+ */
+ 
+ /**
+ * 用于捕获父节点展开之前的事件回调函数，并且根据返回值确定是否允许展开操作
+ * @event zTree#beforeExpand
+ * @param treeId {String} 对应 zTree 的 treeId，便于用户操控
+ * @param treeNode {JSON} 被点击的节点 JSON 数据对象
+ * @returns xx {Boolean} <span style="color:red;">如果返回 false，zTree 将不会展开节点，也无法触发 onExpand 事件回调函数。</span>
+ * @example 1. 禁止所有已折叠的父节点展开 
+ * function zTreeBeforeExpand(treeId, treeNode) {
+ * &#9;return false;
+ * };
+ */
+ 
+/**
+ * 用于捕获异步加载出现异常错误的事件回调函数
+ * <span style="color:red;">如果设置了 beforeAsync 方法，且返回 false，将无法触发 onAsyncSuccess / onAsyncError 事件回调函数。</span>
+ * @event zTree#onAsyncError
+ * @param event {Event} 标准的 js event 对象
+ * @param treeId {String} 对应 zTree 的 treeId，便于用户操控
+ * @param treeNode {JSON} 被点击的节点 JSON 数据对象。<span style="color:red;">针对根进行异步加载时，treeNode = null。</span>
+ * @example 1. 异步加载出现异常后，弹出错误信息
+ * function zTreeOnCheck(event, treeId, treeNode) {
+ * &#9;alert(treeNode.tId + ", " + treeNode.name + "," + treeNode.checked);
+ * &#9;};
+ */
+ 
+/**
+ * 用于捕获异步加载正常结束的事件回调函数
+ * <span style="color:red;">如果设置了 beforeAsync 方法，且返回 false，将无法触发 onAsyncSuccess / onAsyncError 事件回调函数。</span>
+ * @event zTree#onAsyncSuccess
+ * @param event {Event} 标准的 js event 对象
+ * @param treeId {String} 对应 zTree 的 treeId，便于用户操控
+ * @param treeNode {JSON} 被点击的节点 JSON 数据对象。<span style="color:red;">针对根进行异步加载时，treeNode = null。</span>
+ * @param msg {String|Object} 异步获取的节点数据字符串，主要便于用户调试使用。
+ * @example 1. 异步加载成功后，弹出提示信息
+ * function zTreeOnAsyncSuccess(event, treeId, treeNode, msg) {
+ * &#9;alert(msg);
+ * };
+ */
+ 
+ 
+/**
+ * 用于捕获 checkbox / radio 被勾选 或 取消勾选的事件回调函数
+ * <span style="color:red;">如果设置了 beforeCheck 方法，且返回 false，将无法触发 onCheck 事件回调函数。</span>
+ * @event zTree#onCheck
+ * @param event {Event} 标准的 js event 对象
+ * @param treeId {String} 对应 zTree 的 treeId，便于用户操控
+ * @param treeNode {JSON} 被点击的节点 JSON 数据对象
+ * @param XMLHttpRequest {String} 标准 XMLHttpRequest 对象，请参考 JQuery API 文档
+ * @param textStatus {String} 请求状态：success，error，请参考 JQuery API 文档。
+ * @param errorThrown {String} 只有当异常发生时才会被传递，请参考 JQuery API 文档。
+ * @example 1. 异步加载出现异常后，弹出错误信息
+ * zTreeOnAsyncError(event, treeId, treeNode, XMLHttpRequest, textStatus, errorThrown) {
+ * &#9;alert(XMLHttpRequest);
+ * &#9;};
+ */
+
+/**
+ * 用于捕获节点被点击的事件回调函数
+ * <span style="color:red;">如果设置了beforeClick 方法，且返回 false，将无法触发 onClick 事件回调函数。</span>
+ * @event zTree#onClick
+ * @param event {Event} 标准的 js event 对象
+ * @param treeId {String} 对应 zTree 的 treeId，便于用户操控
+ * @param treeNode {JSON} 被点击的节点 JSON 数据对象
+ * @param clickFlag {Number} 节点被点击后的选中操作类型，详细看下表
+ * <table width="100%" border="1" cellspacing="1" cellpadding="0">
+		<thead><tr><td>clickFlag</td><td title="是否允许多点选中">selectedMulti</td><td title="是否按下 Ctrl 或 Cmd 键">autoCancelSelected<br>&amp;&amp;<br>event.ctrlKey / metaKey</td><td title="节点当前选择状态">isSelected</td><td>选中操作</td></tr></thead>
+		<tbody>
+			<tr><td>1</td><td>true</td><td>false</td><td>false</td><td>普通选中</td></tr>
+			<tr><td>1</td><td>true</td><td>false</td><td>true</td><td>普通选中</td></tr>
+			<tr><td>2</td><td>true</td><td>true</td><td>false</td><td>追加选中</td></tr>
+			<tr><td>0</td><td>true</td><td>true</td><td>true</td><td>取消选中</td></tr>
+			<tr><td>1</td><td>false</td><td>false</td><td>false</td><td>普通选中</td></tr>
+			<tr><td>1</td><td>false</td><td>false</td><td>true</td><td>普通选中</td></tr>
+			<tr><td>1</td><td>false</td><td>true</td><td>false</td><td>普通选中</td></tr>
+			<tr><td>0</td><td>false</td><td>true</td><td>true</td><td>取消选中</td></tr>
+		</tbody>
+	</table>
+ * @example 1. 每次点击节点后， 弹出该节点的 tId、name 的信息
+ * function zTreeOnClick(event, treeId, treeNode) {
+ * &#9;alert(treeNode.tId + ", " + treeNode.name);
+ * };
+ */
+ 
+/**
+ * 用于捕获节点被折叠的事件回调函数
+ * <span style="color:red;">如果设置了beforeCollapse方法，且返回 false，将无法触发 onCollapse 事件回调函数。</span>
+ * @event zTree#onCollapse
+ * @param event {Event} 标准的 js event 对象
+ * @param treeId {String} 对应 zTree 的 treeId，便于用户操控
+ * @param treeNode {JSON} 被点击的节点 JSON 数据对象
+ * @example 1. 每次折叠节点后， 弹出该节点的 tId、name 的信息 
+ * function zTreeOnCollapse(event, treeId, treeNode) {
+ * &#9;alert(treeNode.tId + ", " + treeNode.name);
+ * };
+ */
+ 
+/**
+ * 用于捕获 zTree 上鼠标双击之后的事件回调函数
+ * <span style="color:red;">如果设置了beforeDblClick方法，且返回 false，将无法触发 onDblClick 事件回调函数。</span>
+ * @event zTree#onDblClick
+ * @param event {Event} 标准的 js event 对象
+ * @param treeId {String} 对应 zTree 的 treeId，便于用户操控
+ * @param treeNode {JSON} 鼠标双击时所在节点的 JSON 数据对象。<span style="color:red;">如果不在节点上，则返回 null。</span>
+ * @example 1. 每次鼠标双击后， 弹出鼠标所在节点的 tId、name 的信息
+ * function zTreeOnDblClick(event, treeId, treeNode) {
+ * &#9;alert(treeNode ? treeNode.tId + ", " + treeNode.name : "isRoot");
+ * };
+ */
+
+/**
+ * 用于捕获节点被展开的事件回调函数
+ * <span style="color:red;">如果设置了 setting.callback.beforeExpand 方法，且返回 false，将无法触发 onExpand 事件回调函数。</span>
+ * @event zTree#onExpand
+ * @param event {Event} 标准的 js event 对象
+ * @param treeId {String} 对应 zTree 的 treeId，便于用户操控
+ * @param treeNode {JSON} 鼠标双击时所在节点的 JSON 数据对象。<span style="color:red;">如果不在节点上，则返回 null。</span>
+ * @example 1. 每次展开节点后， 弹出该节点的 tId、name 的信息
+ * function zTreeOnExpand(event, treeId, treeNode) {
+ * &#9;alert(treeNode.tId + ", " + treeNode.name);
+ * };
+ */

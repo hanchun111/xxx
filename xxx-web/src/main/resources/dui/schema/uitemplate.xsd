@@ -1,0 +1,1253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.bosssoft.org" 
+targetNamespace="http://www.bosssoft.org" elementFormDefault="qualified">
+	<!-- enum定义 -->
+	<xs:simpleType name="enumColumnType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="DEFAULT"></xs:enumeration>
+			<xs:enumeration value="TEMPLATE"></xs:enumeration>
+			<xs:enumeration value="FUNC"></xs:enumeration>
+			<xs:enumeration value="OP"></xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumAlignment">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="LEFT"></xs:enumeration>
+			<xs:enumeration value="CENTER"></xs:enumeration>
+			<xs:enumeration value="RIGHT"></xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumFooterType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="TEXT"></xs:enumeration>
+			<xs:enumeration value="COMPUTE"></xs:enumeration>
+			<xs:enumeration value="FORMULA"></xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumFormatterType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="DEFAULT"></xs:enumeration>
+			<xs:enumeration value="FUNC"></xs:enumeration>
+			<xs:enumeration value="TEMPLATE"></xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+		<xs:simpleType name="enumLayoutType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="border"></xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	
+	<xs:simpleType name="enumEditorType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="TEXTBOX"></xs:enumeration>
+			<xs:enumeration value="NUMBER"></xs:enumeration>
+			<xs:enumeration value="MONEY"></xs:enumeration>
+			<xs:enumeration value="TYPEAHEAD"></xs:enumeration>
+			<xs:enumeration value="TEXTAREA"></xs:enumeration>
+			<xs:enumeration value="RADIOBOX"></xs:enumeration>
+			<xs:enumeration value="CHECKBOX"></xs:enumeration>
+			<xs:enumeration value="COMBOBOX"></xs:enumeration>
+			<xs:enumeration value="COMBOZTREE"></xs:enumeration>
+			<xs:enumeration value="COMBOGRID"></xs:enumeration>
+			<xs:enumeration value="SUGGEST"></xs:enumeration>
+			<xs:enumeration value="DATETIME"></xs:enumeration>
+			<xs:enumeration value="REFERENCE"></xs:enumeration>
+			<xs:enumeration value="TEXTFIELD"></xs:enumeration>
+			<xs:enumeration value="PASSWORD"></xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumLabelPos">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NONE"></xs:enumeration>
+			<xs:enumeration value="LEFT"></xs:enumeration>
+			<xs:enumeration value="TOP"></xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumAlign">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="LEFT"></xs:enumeration>
+			<xs:enumeration value="CENTER"></xs:enumeration>
+			<xs:enumeration value="RIGHT"></xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumOpState">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="VIEW"></xs:enumeration>
+			<xs:enumeration value="EDIT"></xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="enumRegionType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="center"></xs:enumeration>
+			<xs:enumeration value="west"></xs:enumeration>
+			<xs:enumeration value="east"></xs:enumeration>
+			<xs:enumeration value="north"></xs:enumeration>
+			<xs:enumeration value="south"></xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumRenderType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="DEFAULT"></xs:enumeration>
+			<xs:enumeration value="TEMPLATE"></xs:enumeration>
+			<xs:enumeration value="FUNC"></xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumBtnDisType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="MENU"></xs:enumeration>
+			<xs:enumeration value="BUTTON"></xs:enumeration>
+			<xs:enumeration value="DIALOG"></xs:enumeration>
+			
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumHandleType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="PRESET"></xs:enumeration>
+			<xs:enumeration value="JS"></xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- event开始 -->
+	<xs:attributeGroup name="attrEvent">
+		<xs:attribute name="id" type="xs:string" use="required"></xs:attribute>
+		<xs:attribute name="name" type="xs:string"></xs:attribute>
+		<xs:attribute name="handleType" type="xs:string"></xs:attribute>
+		<xs:attribute name="eventHandler" type="xs:string"></xs:attribute>
+		<xs:attribute name="tips" type="xs:string"></xs:attribute>
+		<xs:attribute name="param1" type="xs:string"></xs:attribute>
+		<xs:attribute name="param2" type="xs:string"></xs:attribute>
+		<xs:attribute name="param3" type="xs:string"></xs:attribute>
+		<xs:attribute name="param4" type="xs:string"></xs:attribute>
+	</xs:attributeGroup>
+	<xs:complexType name="typeEvent" mixed="true">
+		<xs:attributeGroup ref="attrEvent"></xs:attributeGroup>
+	</xs:complexType>
+	
+	<!-- tree开始 -->
+	<xs:attributeGroup name="attrTree">
+		<xs:attribute name="id" type="xs:string" use="required"></xs:attribute>
+		<xs:attribute name="loadUrl" type="xs:string"></xs:attribute>
+		<xs:attribute name="isAsync" type="xs:boolean"></xs:attribute>
+		<xs:attribute name="loadParams" type="xs:string"></xs:attribute>
+		<xs:attribute name="otherParam" type="xs:string"></xs:attribute>
+		<xs:attribute name="method" type="xs:string"></xs:attribute>
+		<xs:attribute name="checkable" type="xs:boolean"></xs:attribute>
+		<xs:attribute name="checkboxType" type="xs:string"></xs:attribute>
+		<xs:attribute name="checkField" type="xs:string"></xs:attribute>
+		<xs:attribute name="childrenField" type="xs:string"></xs:attribute>
+		<xs:attribute name="nameField" type="xs:string"></xs:attribute>
+		<xs:attribute name="tipsField" type="xs:string"></xs:attribute>
+		<xs:attribute name="idField" type="xs:string"></xs:attribute>
+		<xs:attribute name="rootId" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>不建议使用，请使用rootNode属性</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="hasRoot" type="xs:boolean"></xs:attribute>
+		<xs:attribute name="parentField" type="xs:string"></xs:attribute>
+		<xs:attribute name="rootName" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>不建议使用，请使用rootNode属性</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="rootNode" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					建议使用的属性 json格式 {id:'ROOT','name':'MyRoot',....}
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="layoutHeight" type="xs:string" />
+		<xs:attribute name="width" type="xs:string" />
+		<xs:attribute name="height" type="xs:string" />
+		<xs:attribute name="style" type="xs:string" />
+		<xs:attribute name="searchUrl" type="xs:string"></xs:attribute>
+		<xs:attribute name="hasQry" type="xs:boolean"></xs:attribute>
+		<xs:attribute name="fit" type="xs:boolean"></xs:attribute>
+		<xs:attribute name="sortable" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>是否支持鼠标拖动排序</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="selectedMulti" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>是否可以选择多个节点，默认是否</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="clickSearchNode" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>点击搜索出来的节点事件，默认是和点击树节点一样</xs:documentation>
+			</xs:annotation></xs:attribute>
+	</xs:attributeGroup>
+	<xs:complexType name="typeTree">
+		<xs:sequence>
+			<xs:element name="events" minOccurs="0" maxOccurs="100">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Event" type="typeEvent" minOccurs="1"></xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attributeGroup ref="attrTree"></xs:attributeGroup>
+	</xs:complexType>
+	<!-- 开始定义grid -->
+	<xs:attributeGroup name="attrGrid">
+		<xs:attribute name="id" type="xs:string" use="required" />
+		<xs:attribute name="name" type="xs:string" />
+		<xs:attribute name="model" type="xs:string" />
+		<xs:attribute name="css" type="xs:string" />
+		<xs:attribute name="style" type="xs:string" />
+		<xs:attribute name="width" type="xs:string" />
+		<xs:attribute name="height" type="xs:string" />
+		<xs:attribute name="layoutHeight" type="xs:string" />
+		<xs:attribute name="loadUrl" type="xs:string" />
+		<xs:attribute name="loadParams" type="xs:string" />
+		<xs:attribute name="pageList" type="xs:string" />
+		<xs:attribute name="pageSize" type="xs:string" />
+		<xs:attribute name="showFooter" type="xs:boolean" />
+		<xs:attribute name="autoLoad" type="xs:boolean" />
+		<xs:attribute name="checkboxable" type="xs:boolean" />
+		<xs:attribute name="nowrap" type="xs:boolean" />
+		<xs:attribute name="pageFlag" type="xs:boolean" />
+		<xs:attribute name="striped" type="xs:boolean" />
+		<xs:attribute name="showNumber" type="xs:boolean" />
+		<xs:attribute name="sortName" type="xs:string" />
+		<xs:attribute name="sortOrder" type="xs:string" />
+		<xs:attribute name="autoHeight" type="xs:boolean" />
+		<xs:attribute name="shrinkToFit" type="xs:boolean" />
+		<xs:attribute name="editRow" type="xs:boolean" />
+		<xs:attribute name="fit" type="xs:boolean"></xs:attribute>
+		<xs:attribute name="fillNum" type="xs:boolean"></xs:attribute>
+		<xs:attribute name="export" type="xs:boolean"></xs:attribute>
+		<xs:attribute name="fileName" type="xs:string"></xs:attribute>
+	</xs:attributeGroup>
+	<xs:attributeGroup name="attrGridColumn">
+		<xs:attribute name="id" type="xs:string"></xs:attribute>
+		<xs:attribute name="name" type="xs:string"></xs:attribute>
+		<xs:attribute name="tips" type="xs:string"></xs:attribute>
+		<xs:attribute name="model" type="xs:string"></xs:attribute>
+		<xs:attribute name="field" type="xs:string"></xs:attribute>
+		<xs:attribute name="showField" type="xs:string"></xs:attribute>
+		<xs:attribute name="css" type="xs:string"></xs:attribute>
+		<xs:attribute name="style" type="xs:string"></xs:attribute>
+		<xs:attribute name="width" type="xs:string"></xs:attribute>
+		<xs:attribute name="height" type="xs:string"></xs:attribute>
+		<xs:attribute name="freeContent" type="xs:string"></xs:attribute>
+		<xs:attribute name="columnType" type="enumColumnType"></xs:attribute>
+		<xs:attribute name="columnContent" type="xs:string"></xs:attribute>
+		<xs:attribute name="columnHeadFunc" type="xs:string"></xs:attribute>
+		<xs:attribute name="align" type="enumAlignment"></xs:attribute>
+		<xs:attribute name="footerType" type="enumFooterType"></xs:attribute>
+		<xs:attribute name="footerDef" type="xs:string"></xs:attribute>
+		<xs:attribute name="hidden" type="xs:boolean"></xs:attribute>
+		<xs:attribute name="formatterType" type="enumFormatterType"></xs:attribute>
+		<xs:attribute name="formatter" type="xs:string"></xs:attribute>
+		<xs:attribute name="formatterOptions" type="xs:string"></xs:attribute>
+		<xs:attribute name="isGroup" type="xs:boolean"></xs:attribute>
+		<xs:attribute name="groupColumn" type="xs:string"></xs:attribute>
+		<xs:attribute name="sortable" type="xs:boolean"></xs:attribute>
+		<xs:attribute name="frozen" type="xs:boolean"></xs:attribute>
+		<xs:attribute name="editable" type="xs:boolean"></xs:attribute>
+		<xs:attribute name="editorType" type="enumEditorType"></xs:attribute>
+		<xs:attribute name="editRules" type="xs:string"></xs:attribute>
+		<xs:attribute name="editOptions" type="xs:string"></xs:attribute>
+		<xs:attribute name="required" type="xs:boolean"></xs:attribute>
+		<xs:attribute name="requiredMsg" type="xs:string"></xs:attribute>
+		<xs:attribute name="validations" type="xs:string"></xs:attribute>
+		<xs:attribute name="transor" type="xs:string"></xs:attribute>
+		<xs:attribute name="gearRules" type="xs:string"></xs:attribute>
+		<xs:attribute name="initState" type="xs:string"></xs:attribute>
+		<xs:attribute name="alignment" type="enumAlignment"></xs:attribute>
+	</xs:attributeGroup>
+	<xs:complexType name="typeGridColumn">
+		<xs:sequence>
+			<xs:element name="events" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Event" type="typeEvent" minOccurs="0" maxOccurs="15"></xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="buttons" minOccurs="0" maxOccurs="15">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Button" type="typeUIButton" minOccurs="0" maxOccurs="15"></xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attributeGroup ref="attrGridColumn"></xs:attributeGroup>
+	</xs:complexType>
+	
+	<xs:attributeGroup name="attrGroupHeader">
+		<xs:attribute name="titleText" type="xs:string"></xs:attribute>
+		<xs:attribute name="startColumnName" type="xs:string"></xs:attribute>
+		<xs:attribute name="numberOfColumns" type="xs:string"></xs:attribute>
+	</xs:attributeGroup>
+	
+	<xs:complexType name="typeGrid">
+		<xs:choice maxOccurs="unbounded" minOccurs="0">
+			<xs:element name="Column" type="typeGridColumn" minOccurs="0" maxOccurs="100"></xs:element>
+			<xs:element name="ButtonArea" type="typeUIButtonArea" minOccurs="0"></xs:element>
+			<xs:element name="GroupHeaders" type="typeGroupHeaders" minOccurs="0" maxOccurs="1"></xs:element>
+			<xs:element name="events"  minOccurs="0" maxOccurs="100">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:sequence>
+							<xs:element name="Event" type="typeEvent" minOccurs="0" maxOccurs="15"></xs:element>
+						</xs:sequence>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:choice>
+		<xs:attributeGroup ref="attrGrid"></xs:attributeGroup>
+	</xs:complexType>
+	
+	<xs:complexType name="typeGroupHeader">
+		<xs:sequence><xs:element name="GroupHeaders" type="typeGroupHeaders"
+				minOccurs="0" maxOccurs="100">
+			</xs:element></xs:sequence>
+		<xs:attributeGroup ref="attrGroupHeader"></xs:attributeGroup>
+
+	</xs:complexType>
+	<xs:complexType name="typeGroupHeaders">
+		<xs:sequence><xs:element name="GroupHeader" type="typeGroupHeader"
+				minOccurs="0" maxOccurs="100">
+			</xs:element></xs:sequence>
+		<xs:attribute name="useColSpanStyle" type="xs:string"></xs:attribute>
+		
+	</xs:complexType>
+	<!-- 定义treegrid -->
+	<xs:attributeGroup name="attrTreeGrid">
+		<xs:attribute name="id" type="xs:string" use="required"></xs:attribute>
+		<xs:attribute name="model" type="xs:string"></xs:attribute>
+		<xs:attribute name="loadUrl" type="xs:string"></xs:attribute>
+		<!-- tld中有dataType  但是uigrid中没有 -->
+		<xs:attribute name="name" type="xs:string"></xs:attribute>
+		<xs:attribute name="striped" type="xs:boolean"></xs:attribute>
+		<xs:attribute name="height" type="xs:string" />
+		<xs:attribute name="layoutHeight" type="xs:string" />
+		<xs:attribute name="width" type="xs:string" />
+		<!-- tld中有method 但是uigrid中没有 -->
+		<xs:attribute name="nowrap" type="xs:boolean"></xs:attribute>
+		<!-- tld中有page 但是uigrid中没有 -->
+		<xs:attribute name="pageSize" type="xs:string"></xs:attribute>
+		<xs:attribute name="pageList" type="xs:string"></xs:attribute>
+		<!-- tld中有idField， 但uigrid中没有 -->
+		<xs:attribute name="loadParams" type="xs:string"></xs:attribute>
+		<xs:attribute name="sortName" type="xs:string"></xs:attribute>
+		<xs:attribute name="sortOrder" type="xs:string"></xs:attribute>
+		<xs:attribute name="autoHeight" type="xs:boolean"></xs:attribute>
+		<xs:attribute name="shrinkToFit" type="xs:boolean"></xs:attribute>
+		<xs:attribute name="treeColumn" type="xs:string"></xs:attribute>
+		<xs:attribute name="levelField" type="xs:string"></xs:attribute>
+		<xs:attribute name="parentField" type="xs:string"></xs:attribute>
+		<xs:attribute name="leafField" type="xs:string"></xs:attribute>
+		<xs:attribute name="loadedField" type="xs:string"></xs:attribute>
+		<xs:attribute name="iconField" type="xs:string"></xs:attribute>
+		<xs:attribute name="autoLoad" type="xs:boolean"></xs:attribute>
+		<!-- 在tld中有translator 但是uitreegrid中没有 -->
+		<xs:attribute name="fit" type="xs:boolean"></xs:attribute>
+	</xs:attributeGroup>
+	<xs:complexType name="typeTreeGrid">
+		<xs:sequence>
+			<xs:element name="events" type="typeEvent" minOccurs="0" maxOccurs="100"></xs:element>
+		</xs:sequence>
+		<xs:attributeGroup ref="attrTreeGrid"></xs:attributeGroup>
+	</xs:complexType>
+	
+	<!-- form 开始 -->
+	<xs:attributeGroup name="attrForm">
+		<xs:attribute name="id" type="xs:string" use="required"></xs:attribute>
+		<xs:attribute name="name" type="xs:string"></xs:attribute>
+		<xs:attribute name="model" type="xs:string"></xs:attribute>
+		<xs:attribute name="css" type="xs:string"></xs:attribute>
+		<xs:attribute name="style" type="xs:string"></xs:attribute>
+		<xs:attribute name="width" type="xs:string"></xs:attribute>
+		<xs:attribute name="height" type="xs:string"></xs:attribute>
+		<xs:attribute name="layoutHeight" type="xs:string"></xs:attribute>
+		<xs:attribute name="action" type="xs:string"></xs:attribute>
+		<xs:attribute name="template" type="xs:string"></xs:attribute>
+		<xs:attribute name="colCount" type="xs:int"></xs:attribute>
+		<xs:attribute name="labelPos" type="xs:string"></xs:attribute>
+		<xs:attribute name="align" type="enumAlign"></xs:attribute>
+		<xs:attribute name="modelKey" type="xs:string"></xs:attribute>
+		<xs:attribute name="opState" type="enumOpState"></xs:attribute>
+		<xs:attribute name="loadUrl" type="xs:string"></xs:attribute>
+		<xs:attribute name="sumCount" type="xs:int"></xs:attribute>
+		<xs:attribute name="detailUrl" type="xs:string"></xs:attribute>
+		<xs:attribute name="detailParameter" type="xs:string"></xs:attribute>
+		<xs:attribute name="layout" type="xs:string"></xs:attribute>
+		<xs:attribute name="maxColCount" type="xs:int"></xs:attribute>
+	</xs:attributeGroup>
+	<xs:attributeGroup name="attrFormItem">
+		<xs:attribute name="id" type="xs:string" use="required"></xs:attribute>
+		<xs:attribute name="name" type="xs:string"></xs:attribute>
+		<xs:attribute name="tips" type="xs:string"></xs:attribute>
+		<xs:attribute name="model" type="xs:string"></xs:attribute>
+		<xs:attribute name="field" type="xs:string"></xs:attribute>
+		<xs:attribute name="showField" type="xs:string"></xs:attribute>
+		<xs:attribute name="css" type="xs:string"></xs:attribute>
+		<xs:attribute name="style" type="xs:string"></xs:attribute>
+		<xs:attribute name="width" type="xs:string"></xs:attribute>
+		<xs:attribute name="height" type="xs:string"></xs:attribute>
+		<xs:attribute name="freeContent" type="xs:string"></xs:attribute>
+		<xs:attribute name="renderType" type="enumRenderType"></xs:attribute>
+		<xs:attribute name="render" type="xs:string"></xs:attribute>
+		<xs:attribute name="editorType" type="enumEditorType"></xs:attribute>
+		<xs:attribute name="expType">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="json"></xs:enumeration>
+					<xs:enumeration value="dict"></xs:enumeration>
+					<xs:enumeration value="enum"></xs:enumeration>
+					<xs:enumeration value="bizdict"></xs:enumeration>
+					<xs:enumeration value="url"></xs:enumeration>
+					<xs:enumeration value="thousand"></xs:enumeration>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="dictItemFilter" type="xs:string"></xs:attribute>
+		<xs:attribute name="defaultValue" type="xs:string"></xs:attribute>
+		<xs:attribute name="readOnly" type="xs:boolean"></xs:attribute>
+		<xs:attribute name="enable" type="xs:boolean"></xs:attribute>
+		<xs:attribute name="visible" type="xs:boolean"></xs:attribute>
+		<xs:attribute name="required" type="xs:boolean"></xs:attribute>
+		<xs:attribute name="requiredMsg" type="xs:string"></xs:attribute>
+		<xs:attribute name="validations" type="xs:string"></xs:attribute>
+		<xs:attribute name="gearRules" type="xs:string"></xs:attribute>
+		<xs:attribute name="displayLabel" type="xs:string"></xs:attribute>
+		<xs:attribute name="colSpan" type="xs:int"></xs:attribute>
+		<xs:attribute name="exp1" type="xs:string"></xs:attribute>
+		<xs:attribute name="exp2" type="xs:string"></xs:attribute>
+		<xs:attribute name="exp3" type="xs:string"></xs:attribute>
+		<xs:attribute name="value" type="xs:string"></xs:attribute>
+		<xs:attribute name="showValue" type="xs:string"></xs:attribute>
+		<xs:attribute name="transor" type="xs:string"></xs:attribute>
+		<xs:attribute name="data" type="xs:string"></xs:attribute>
+		<xs:attribute name="comboFieldValue" type="xs:string"></xs:attribute>
+		<xs:attribute name="comboFieldText" type="xs:string"></xs:attribute>
+		<xs:attribute name="comboFieldPId" type="xs:string"></xs:attribute>
+		<xs:attribute name="action" type="xs:string"></xs:attribute>
+		<xs:attribute name="suggest" type="xs:string"></xs:attribute>
+		<xs:attribute name="remote" type="xs:boolean"></xs:attribute>
+		<xs:attribute name="multiple" type="xs:boolean"></xs:attribute>
+		<xs:attribute name="editOptions" type="xs:string"></xs:attribute>
+		<xs:attribute name="contentAlign">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="CENTER"></xs:enumeration>
+					<xs:enumeration value="LEFT"></xs:enumeration>
+					<xs:enumeration value="RIGHT"></xs:enumeration>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="selectedNodeName" type="xs:string"></xs:attribute>
+		<xs:attribute name="selectedNodeMapping" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					json格式 例如： { "userId":"id", "userCode":"fcode" }
+
+					key是表单数据字段，value是转换到selectedNode时的字段名称
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="onlyleaf" type="xs:string"></xs:attribute>
+		<xs:attribute name="labelColSpan" type="xs:int"></xs:attribute>
+		<xs:attribute name="labelStyle" type="xs:string"></xs:attribute>
+		<xs:attribute name="outDictData" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>
+					当输出类型是字典项时，是否将数据字典的内容全部输出
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="description" type="xs:string"></xs:attribute>
+	</xs:attributeGroup>
+	<xs:complexType name="typeFormItem">
+        <xs:annotation>
+        	<xs:documentation>json格式，用于过滤数据字典项
+{
+'nameKey':'aaa', //字典项中名字里包含aaa的
+'codeKey':'01', //字典项中编码包含01的
+'excludes':['001','002','003'] //排除code=001,002,003的数据
+}</xs:documentation></xs:annotation>
+        <xs:sequence>
+			<xs:element name="events" minOccurs="0" maxOccurs="15">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Event" type="typeEvent" minOccurs="0" maxOccurs="15"></xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attributeGroup ref="attrFormItem"></xs:attributeGroup>
+	</xs:complexType>
+	<xs:complexType name="typeUIForm">
+		<xs:choice>
+			<xs:element name="FormGroup" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="FormItem" type="typeFormItem"
+							minOccurs="0" maxOccurs="100">
+						</xs:element>
+					</xs:sequence>
+					<xs:attribute name="id" type="xs:string"
+						use="required">
+					</xs:attribute>
+					<xs:attribute name="name" type="xs:string">
+					</xs:attribute>
+					<xs:attribute name="style"
+						type="xs:string">
+					</xs:attribute>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="FormItem" type="typeFormItem" minOccurs="0" maxOccurs="unbounded"></xs:element>
+			<xs:element name="events" type="typeEvent" minOccurs="0" maxOccurs="unbounded"></xs:element>
+		</xs:choice>
+		<xs:attributeGroup ref="attrForm"></xs:attributeGroup>
+	</xs:complexType>
+	<!-- UIQuery 开始 -->
+	<xs:attributeGroup name="attrUIQuery">
+		<xs:attribute name="id" type="xs:string" use="required"></xs:attribute>
+		<xs:attribute name="queryTarget" type="xs:string"></xs:attribute>
+		<xs:attribute name="name" type="xs:string"></xs:attribute>
+		<xs:attribute name="isQuick" type="xs:boolean"></xs:attribute>
+		<xs:attribute name="isAdvance" type="xs:boolean"></xs:attribute>
+		<xs:attribute name="isDynamic" type="xs:boolean"></xs:attribute>
+		<xs:attribute name="manual" type="xs:boolean"></xs:attribute>
+		<xs:attribute name="style" type="xs:string"></xs:attribute>
+		<xs:attribute name="quickValidator" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>快速搜索条件校验函数</xs:documentation>
+			</xs:annotation></xs:attribute>
+		<xs:attribute name="advValidator" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>高级搜索校验函数</xs:documentation>
+			</xs:annotation></xs:attribute>
+	</xs:attributeGroup>
+	<xs:attributeGroup name="attrUIQueryItem">
+		<xs:attribute name="id" type="xs:string"></xs:attribute>
+		<xs:attribute name="name" type="xs:string"></xs:attribute>
+		<xs:attribute name="visible" type="xs:boolean"></xs:attribute>
+		<xs:attribute name="tips" type="xs:string"></xs:attribute>
+		<xs:attribute name="model" type="xs:string"></xs:attribute>
+		<xs:attribute name="field" type="xs:string"></xs:attribute>
+		<xs:attribute name="css" type="xs:string"></xs:attribute>
+		<xs:attribute name="style" type="xs:string"></xs:attribute>
+		<xs:attribute name="editorType" type="enumEditorType"></xs:attribute>
+		<xs:attribute name="expType">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="json"></xs:enumeration>
+					<xs:enumeration value="dict"></xs:enumeration>
+					<xs:enumeration value="enum"></xs:enumeration>
+					<xs:enumeration value="bizdict"></xs:enumeration>
+					<xs:enumeration value="url"></xs:enumeration>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="dictItemFilter" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>json格式，用于过滤数据字典项
+{
+'nameKey':'aaa', //字典项中名字里包含aaa的
+'codeKey':'01', //字典项中编码包含01的
+'excludes':['001','002','003'] //排除code=001,002,003的数据
+}</xs:documentation></xs:annotation></xs:attribute>
+		<xs:attribute name="exp1" type="xs:string"></xs:attribute>
+		<xs:attribute name="exp2" type="xs:string"></xs:attribute>
+		<xs:attribute name="exp3" type="xs:string"></xs:attribute>
+		<xs:attribute name="value" type="xs:string"></xs:attribute>
+		<xs:attribute name="quickOp" type="xs:string"></xs:attribute>
+		<xs:attribute name="operator" type="xs:string"></xs:attribute>
+		<xs:attribute name="action" type="xs:string"></xs:attribute>
+		<xs:attribute name="editOptions" type="xs:string"></xs:attribute>
+		<xs:attribute name="manual" type="xs:string"></xs:attribute>
+		<xs:attribute name="data" type="xs:string"></xs:attribute>
+		<xs:attribute name="comboFieldValue" type="xs:string"></xs:attribute>
+		<xs:attribute name="comboFieldText" type="xs:string"></xs:attribute>
+		<xs:attribute name="comboFieldPId" type="xs:string"></xs:attribute>
+		<xs:attribute name="onlyleaf" type="xs:boolean"></xs:attribute>
+		<xs:attribute name="readOnly" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>
+					只有editorType=TEXTFIELD的时候才生效，其它类型应该写在editOptions={readonly:true}!注意此处是小写
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="width" type="xs:string"></xs:attribute>
+	</xs:attributeGroup>
+	<xs:complexType name="typeUIQueryItem">
+		<xs:choice minOccurs="0">
+			<xs:element name="events" minOccurs="0" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence minOccurs="1">
+						<xs:element name="Event" type="typeEvent"></xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:choice>
+		<xs:attributeGroup ref="attrUIQueryItem"></xs:attributeGroup>
+	</xs:complexType>	
+	<xs:complexType name="typeUIQuery">
+		<xs:sequence>
+			<xs:element name="quicks" minOccurs="0" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="QueryItem"
+							type="typeUIQueryItem" maxOccurs="unbounded" minOccurs="0">
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType></xs:element>
+			<xs:element name="advances" minOccurs="0" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="QueryItem"
+							type="typeUIQueryItem" maxOccurs="unbounded" minOccurs="0">
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attributeGroup ref="attrUIQuery"></xs:attributeGroup>
+	</xs:complexType>
+	<!-- UISnippet 定义开始 -->
+	<xs:attributeGroup name="attrUISnippet">
+		<xs:attribute name="id"  type="xs:string" use="required"></xs:attribute>
+	</xs:attributeGroup>
+	<xs:complexType name="typeUISnippet">
+		<xs:sequence>
+			<xs:element name="quickItems" type="typeUIQueryItem" minOccurs="0" maxOccurs="100"></xs:element>
+			<xs:element name="defaultItems" type="typeUIQueryItem" minOccurs="0" maxOccurs="100"></xs:element>
+			<xs:element name="alterItems" type="typeUIQueryItem" minOccurs="0" maxOccurs="100"></xs:element>
+		</xs:sequence>
+		<xs:attributeGroup ref="attrUISnippet"></xs:attributeGroup>
+	</xs:complexType>
+	<!-- ButtonAreaTag 开始 -->
+	<xs:attributeGroup name="attrUIButtonArea">
+		<xs:attribute name="id" type="xs:string" use="required"></xs:attribute>
+		<xs:attribute name="name" type="xs:string"></xs:attribute>
+		<xs:attribute name="displayType" type="enumBtnDisType">
+			<xs:annotation>
+				<xs:documentation>
+					MENU 样式为居左，无间隔，用在普通的工具栏 BUTTON
+					样式为居中，有间隔，一般用在Dialog下面的确定，取消按钮上 DIALOG
+					样式为居右有图标，一般用在Dialog右上角上
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="width" type="xs:string"></xs:attribute>
+		<xs:attribute name="initState" type="xs:string"></xs:attribute>
+		<xs:attribute name="style" type="xs:string"></xs:attribute>
+		<xs:attribute name="css" type="xs:string"></xs:attribute>
+	</xs:attributeGroup>
+
+	<xs:attributeGroup name="attrPanel">
+		<xs:attribute name="id" type="xs:string"></xs:attribute>
+		<xs:attribute name="region" type="enumRegionType"></xs:attribute>
+		<xs:attribute name="layout" type="enumLayoutType"></xs:attribute>
+		<xs:attribute name="title" type="xs:string"></xs:attribute>
+		<xs:attribute name="ico" type="xs:string"></xs:attribute>
+		<xs:attribute name="fit" type="xs:boolean"></xs:attribute>
+		<xs:attribute name="border" type="xs:boolean"></xs:attribute>
+		<xs:attribute name="style" type="xs:string"></xs:attribute>
+		<xs:attribute name="split" type="xs:boolean"></xs:attribute>
+		<xs:attribute name="css" type="xs:string"></xs:attribute>
+		<xs:attribute name="url" type="xs:string"></xs:attribute>
+		<xs:attribute name="width" type="xs:string"></xs:attribute>
+		<xs:attribute name="height" type="xs:string"></xs:attribute>
+		<xs:attribute name="headerCls" type="xs:string"></xs:attribute>
+		<xs:attribute name="bodyCls" type="xs:string"></xs:attribute>
+		<xs:attribute name="noheader" type="xs:string"></xs:attribute>
+		<xs:attribute name="queryParams" type="xs:string"></xs:attribute>
+		<xs:attribute name="loader" type="xs:string"></xs:attribute>
+		<xs:attribute name="collapsible" type="xs:string"></xs:attribute>
+    </xs:attributeGroup>
+
+
+	<xs:attributeGroup name="attrUIButton">
+		<xs:attribute name="id" type="xs:string" use="required"></xs:attribute>
+		<xs:attribute name="name" type="xs:string"></xs:attribute>
+		<xs:attribute name="tips" type="xs:string"></xs:attribute>
+		<xs:attribute name="css" type="xs:string"></xs:attribute>
+		<xs:attribute name="style" type="xs:string"></xs:attribute>
+		<xs:attribute name="icon" type="xs:string"></xs:attribute>
+		<xs:attribute name="iconMode">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="ONLYTEXT"></xs:enumeration>
+					<xs:enumeration value="ONLYICON"></xs:enumeration>
+					<xs:enumeration value="LEFT"></xs:enumeration>
+					<xs:enumeration value="RIGHT"></xs:enumeration>
+					<xs:enumeration value="TOP"></xs:enumeration>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="iconPosition" type="xs:string"></xs:attribute>
+		<xs:attribute name="btnType" type="xs:string"></xs:attribute>
+		<xs:attribute name="handleType" type="enumHandleType"></xs:attribute>
+		<xs:attribute name="handle" type="xs:string"></xs:attribute>
+		<xs:attribute name="folderKey" type="xs:string"></xs:attribute>
+		<xs:attribute name="operationsGrant" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					此属性为操作权限控制属性，字符串格式，多个操作Code用逗号分开
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="disabled" type="xs:boolean"></xs:attribute>
+	</xs:attributeGroup>
+	<xs:complexType name="typeUIMenuItem">
+		<xs:sequence>
+			<xs:element name="MenuItem" minOccurs="0" maxOccurs="20">
+				<xs:complexType>
+					<xs:attributeGroup ref="attrUIMenuItem"></xs:attributeGroup>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>	
+
+	<xs:complexType name="typeUIButton">
+		<xs:choice maxOccurs="1" minOccurs="0">
+			<xs:element name="menus" type="typeUIMenuItem" minOccurs="0" maxOccurs="100"></xs:element>
+		</xs:choice>
+		<xs:attributeGroup ref="attrUIButton"></xs:attributeGroup>
+	</xs:complexType>
+	<xs:attributeGroup name="attrUIBtnState">
+		<xs:attribute name="id" type="xs:string"></xs:attribute>
+		<xs:attribute name="name" type="xs:string"></xs:attribute>
+		<xs:attribute name="enable" type="xs:string"></xs:attribute>
+		<xs:attribute name="visible" type="xs:string"></xs:attribute>
+	</xs:attributeGroup>
+	<xs:complexType name="typeUIBtnState">
+		<xs:attributeGroup ref="attrUIBtnState"></xs:attributeGroup>
+	</xs:complexType>
+	<xs:complexType name="typeUIButtonArea">
+		<xs:sequence>
+			<xs:element name="Button" type="typeUIButton" minOccurs="0" maxOccurs="100"></xs:element>
+			<xs:element name="ButtonState" type="typeUIBtnState" minOccurs="0" maxOccurs="15"></xs:element>
+		</xs:sequence>
+		<xs:attributeGroup ref="attrUIButtonArea"></xs:attributeGroup>
+	</xs:complexType>
+	<!-- 定义uipage -->
+	<xs:element name="Page">
+		<xs:complexType>
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element name="Tree" type="typeTree" minOccurs="0"></xs:element>
+				<xs:element name="Grid" type="typeGrid" minOccurs="0"></xs:element>
+				<xs:element name="TreeGrid" type="typeTreeGrid"
+					minOccurs="0">
+				</xs:element>
+				<xs:element name="Form" type="typeUIForm"
+					minOccurs="0">
+				</xs:element>
+				<xs:element name="Query" type="typeUIQuery"
+					minOccurs="0">
+				</xs:element>
+				<xs:element name="Snippet" type="typeUISnippet"
+					minOccurs="0">
+				</xs:element>
+				<xs:element name="ButtonArea" type="typeUIButtonArea"
+					minOccurs="0">
+				</xs:element>
+				<xs:element name="Tabs" type="typeTabs" minOccurs="0"
+					maxOccurs="1">
+				</xs:element>
+				<xs:element name="XGrid" type="typeXGrid" maxOccurs="1"
+					minOccurs="0">
+
+				</xs:element>
+				<xs:element name="Panel" type="typePanel" minOccurs="0"
+					maxOccurs="1">
+				</xs:element>
+				<xs:element name="Upload" type="typeUpload" maxOccurs="1" minOccurs="0"></xs:element>
+			</xs:choice>
+			<xs:attribute name="id" type="xs:string" use="optional">
+				<xs:annotation>
+					<xs:documentation>ID</xs:documentation>
+				</xs:annotation></xs:attribute>
+			<xs:attribute name="name" type="xs:string"></xs:attribute>
+			<xs:attribute name="templatePath" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>模板路径 例如 platform/test/testindex</xs:documentation>
+				</xs:annotation></xs:attribute>
+			<xs:attribute name="template" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>数据库中模板编码，在使用数据库中定义的模板时，填写该属性</xs:documentation>
+				</xs:annotation></xs:attribute>
+			<xs:attribute name="scopeKey" type="xs:string"></xs:attribute>
+			<xs:attribute name="js" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>js脚本路径</xs:documentation>
+				</xs:annotation></xs:attribute>
+			<xs:attribute name="jsId" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>js脚本返回值的名称</xs:documentation>
+				</xs:annotation></xs:attribute>
+			<xs:attribute name="onPageLoad" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>页面加载完成后的事件函数，可以额外的手动做一些初始化工作。
+函数包含一个参数，是后台Controller方法中里返回的model中设置到UIConst.UIPAGEMODEL的值
+例如：
+Controller：model.addAttribute(UIConst.UIPAGEMODEL,"aaa");
+js:
+define([],function(){
+	return {
+		"myPageload":function(data){
+			alert(data);
+		}
+	}
+});
+xml: jsId="test" onPageLoad="test.myPageload"
+</xs:documentation>
+				</xs:annotation></xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<!-- tabs开始
+	<xs:attributeGroup name="attrTabs">
+		<xs:attribute name="id" type="xs:string" use="required"></xs:attribute>
+		<xs:attribute name="name" type="xs:string"></xs:attribute>
+		<xs:attribute name="width" type="xs:string"></xs:attribute>
+		<xs:attribute name="height" type="xs:string"></xs:attribute>
+	</xs:attributeGroup> -->
+	<!--
+	<xs:complexType name="typeTabs">
+		<xs:sequence>
+			<xs:element name="tabPanels">
+				
+			</xs:element>
+		</xs:sequence>
+		<xs:attributeGroup ref="attrTabs"></xs:attributeGroup>
+	</xs:complexType>  -->
+
+	<xs:complexType name="typeTabs">
+		<xs:sequence maxOccurs="unbounded" minOccurs="0">
+			<xs:element name="TabPanel" type="typeTabPanel"></xs:element>
+			<xs:element name="events" minOccurs="0" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Event" type="typeEvent"
+							minOccurs="0" maxOccurs="unbounded">
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:string"></xs:attribute>
+		<xs:attribute name="hideHeader" type="xs:string"></xs:attribute>
+		<xs:attribute name="afterSwitchTab" type="xs:string"></xs:attribute>
+		<xs:attribute name="beforeSwitchTab" type="xs:string"></xs:attribute>
+	</xs:complexType>
+
+	<xs:complexType name="typeTabPanel">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="ButtonArea" type="typeUIButtonArea"
+				minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="Form" type="typeUIForm" minOccurs="0"
+				maxOccurs="1">
+			</xs:element>
+			<xs:element name="Tree" type="typeTree" minOccurs="0"
+				maxOccurs="1">
+			</xs:element>
+			<xs:element name="Query" type="typeUIQuery" minOccurs="0"
+				maxOccurs="1">
+			</xs:element>
+			<xs:element name="Grid" type="typeGrid" maxOccurs="1"
+				minOccurs="0">
+
+			</xs:element>
+			<xs:element name="XGrid" type="typeXGrid" maxOccurs="1"
+				minOccurs="0">
+			</xs:element>
+			<xs:element name="Upload" type="typeUpload" maxOccurs="1"
+				minOccurs="0">
+			</xs:element>
+			<xs:element name="Panel" type="typePanel" maxOccurs="1" minOccurs="0"></xs:element>
+		</xs:choice>
+		<xs:attribute name="id" type="xs:string"></xs:attribute>
+		<xs:attribute name="name" type="xs:string"></xs:attribute>
+		<xs:attribute name="type" type="xs:string"></xs:attribute>
+		<xs:attribute name="url" type="xs:string"></xs:attribute>
+		<xs:attribute name="buttonPosition" type="xs:string"></xs:attribute>
+		<xs:attribute name="active" type="xs:string"></xs:attribute>
+		<xs:attribute name="lazy" type="xs:boolean"></xs:attribute>
+	</xs:complexType>
+
+
+	<xs:attributeGroup name="attrUIMenuItem">
+		<xs:attribute name="id" type="xs:string" use="required"></xs:attribute>
+		<xs:attribute name="tips" type="xs:string"></xs:attribute>
+		<xs:attribute name="css" type="xs:string"></xs:attribute>
+		<xs:attribute name="style" type="xs:string"></xs:attribute>
+		<xs:attribute name="icon" type="xs:string"></xs:attribute>
+		<xs:attribute name="text" type="xs:string"></xs:attribute>
+		<xs:attribute name="handleType" type="enumHandleType"></xs:attribute>
+		<xs:attribute name="handle" type="xs:string"></xs:attribute>
+	</xs:attributeGroup>
+
+	<xs:attributeGroup name="attrUIMenu">
+		<xs:attribute name="id" type="xs:string" use="required"></xs:attribute>
+		<xs:attribute name="alignTo" type="xs:string"></xs:attribute>
+		<xs:attribute name="text" type="xs:string"></xs:attribute>
+		<xs:attribute name="style" type="xs:string"></xs:attribute>
+		<xs:attribute name="minWidth" type="xs:string"></xs:attribute>
+		<xs:attribute name="duration" type="enumHandleType"></xs:attribute>
+	</xs:attributeGroup>
+
+
+	<xs:complexType name="typeMenu">
+		<xs:choice minOccurs="0" maxOccurs="1">
+			<xs:element name="menus" minOccurs="0" maxOccurs="15">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="MenuItem" type="typeUIMenuItem"
+							minOccurs="0" maxOccurs="15"></xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:choice>
+		<xs:attributeGroup ref="attrUIMenu"></xs:attributeGroup>
+	</xs:complexType>
+    
+
+	<xs:complexType name="typeXGrid">
+		<xs:sequence>
+			<xs:element name="toolbar" minOccurs="0" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Button" type="typeUIButton"
+							maxOccurs="unbounded" minOccurs="0">
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="frozenColumns" minOccurs="0"
+				maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="XGridColumn"
+							type="typeXGridColumn" maxOccurs="unbounded" minOccurs="0">
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="columns" minOccurs="0" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="XGridColumn"
+							type="typeXGridColumn" maxOccurs="unbounded" minOccurs="0">
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="frozenColumnsRight" minOccurs="0"
+				maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="XGridColumn"
+							type="typeXGridColumn" maxOccurs="unbounded" minOccurs="0">
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="events" minOccurs="0" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Event" type="typeEvent"
+							minOccurs="0" maxOccurs="15">
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:string"></xs:attribute>
+		<xs:attribute name="autoLoad" type="xs:boolean"></xs:attribute>
+		<xs:attribute name="checkbox" type="xs:boolean"></xs:attribute>
+		<xs:attribute name="columnResizable" type="xs:boolean"></xs:attribute>
+		<xs:attribute name="editable" type="xs:boolean"></xs:attribute>
+		<xs:attribute name="fitColumns">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="N"></xs:enumeration>
+					<xs:enumeration value="ES"></xs:enumeration>
+					<xs:enumeration value="E"></xs:enumeration>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="follow">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="none"></xs:enumeration>
+					<xs:enumeration value="header"></xs:enumeration>
+					<xs:enumeration value="footer"></xs:enumeration>
+					<xs:enumeration value="all"></xs:enumeration>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="group" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>JSON格式
+
+group.show 是否显示分组头 
+group.items 分组信息
+group.items.field 分组的字段
+group.items.order 排序方式可选值：
+		ace: 升序
+		desc：降序
+group.template 主视图模板
+group.summary 合计值选项
+group.summary.items 合计的字段
+group.summary.items.field 合计的字段
+group.summary.items.type 合计类型可选值：
+		sum: 合计值
+		avg：平均值
+		min：最小值
+		max：最大值
+		count：计数值
+group.summary.items.value 要输出的值
+group.summary.method 计算的函数，如果函数为空，则使用分组数据进行替换模板
+group.summary.template 主视图模板</xs:documentation>
+			</xs:annotation></xs:attribute>
+		<xs:attribute name="headerCustom" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>自定义面板的jquery表达式
+组件根据 $A(headerCustom) 取得面板 eg. #query</xs:documentation>
+			</xs:annotation></xs:attribute>
+		<xs:attribute name="height" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>网格的高度
+1、高度默认为空：撑满整个父容器
+2、当值为push时，高度随着数据的变化而变化</xs:documentation>
+			</xs:annotation></xs:attribute>
+		<xs:attribute name="columnManager" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>是否允许进行列的隐藏/显示操作</xs:documentation></xs:annotation></xs:attribute>
+		<xs:attribute name="markChange" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>是否对编辑过的数据进行标记</xs:documentation></xs:annotation></xs:attribute>
+		<xs:attribute name="mergeColumns" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>mergeColumns</xs:documentation></xs:annotation></xs:attribute>
+		<xs:attribute name="multiSort" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>是否允许多列排序</xs:documentation></xs:annotation></xs:attribute>
+		<xs:attribute name="pageList" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>可选择设定的每页结果数
+
+10,20,30,40,50</xs:documentation>
+			</xs:annotation></xs:attribute>
+		<xs:attribute name="pageNumber" type="xs:int">
+			<xs:annotation>
+				<xs:documentation>默认当前页</xs:documentation></xs:annotation></xs:attribute>
+		<xs:attribute name="pager">
+			<xs:annotation>
+				<xs:documentation>分页的位置</xs:documentation>
+			</xs:annotation>
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="none"></xs:enumeration>
+					<xs:enumeration value="up"></xs:enumeration>
+					<xs:enumeration value="down"></xs:enumeration>
+					<xs:enumeration value="all"></xs:enumeration>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="pageSize" type="xs:int">
+			<xs:annotation>
+				<xs:documentation>每页默认的结果数，默认10</xs:documentation>
+			</xs:annotation></xs:attribute>
+		<xs:attribute name="queryParams" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>查询参数
+JSON格式</xs:documentation>
+			</xs:annotation></xs:attribute>
+		<xs:attribute name="radiobox" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>是否显示单选框</xs:documentation></xs:annotation></xs:attribute>
+		<xs:attribute name="remoteSort" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>是否远程排序</xs:documentation></xs:annotation></xs:attribute>
+		<xs:attribute name="rownumbers" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>业务数据行号，行号根据根据分页情况进行计算
+normal repeat none
+</xs:documentation>
+			</xs:annotation></xs:attribute>
+		<xs:attribute name="sort" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>是否允许单列排序</xs:documentation></xs:annotation></xs:attribute>
+		<xs:attribute name="striped" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>隔行变色</xs:documentation></xs:annotation></xs:attribute>
+		<xs:attribute name="summary" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>自定义合计栏的配置
+summary.method 计算的函数，如果函数为空，则使用网格的data进行替换模板
+summary.template 模板</xs:documentation>
+			</xs:annotation></xs:attribute>
+		<xs:attribute name="summaryPos" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>合计栏所在位置 可选值 top bottom</xs:documentation></xs:annotation></xs:attribute>
+		<xs:attribute name="title" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>标题</xs:documentation></xs:annotation></xs:attribute>
+		<xs:attribute name="url" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>要加载数据的url</xs:documentation></xs:annotation></xs:attribute>
+		<xs:attribute name="width" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>网格的宽度
+宽度默认为空：撑满整个父容器</xs:documentation>
+			</xs:annotation></xs:attribute>
+	</xs:complexType>
+
+	<xs:complexType name="typeXGridColumn">
+		<xs:sequence>
+			<xs:element name="Button" type="typeUIButton"
+				maxOccurs="unbounded" minOccurs="0">
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="title" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>列头显示值</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="field" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>对应字段名</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="align" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>对齐方式</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="width" type="xs:int">
+			<xs:annotation>
+				<xs:documentation>宽度，数字类型，单位是像素</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="editorType" type="enumEditorType">
+			<xs:annotation>
+				<xs:documentation>
+					TEXTFIELD ： 原生的HTMLinput框 TEXTBOX ：
+					文本输入框，可以加editerOptions属性
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="editorOptions" type="xs:string"></xs:attribute>
+		<xs:attribute name="showField" type="xs:string"></xs:attribute>
+		<xs:attribute name="formatter" type="xs:string"></xs:attribute>
+		<xs:attribute name="hidden" type="xs:boolean"></xs:attribute>
+		<xs:attribute name="transor" type="xs:string"></xs:attribute>
+		<xs:attribute name="editable" type="xs:boolean"></xs:attribute>
+		<xs:attribute name="showTitle" type="xs:boolean"></xs:attribute>
+		<xs:attribute name="summary" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>json格式</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="resizable" type="xs:boolean"></xs:attribute>
+		<xs:attribute name="parentColumn" type="xs:string"></xs:attribute>
+		<xs:attribute name="isRowHeader" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>是否为行头</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="showTree" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>是否作为 列隐藏/显示树 的节点</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="lockTree" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>
+					是否锁定列隐藏/显示操作，锁定将不允许用户进行列的隐藏/显示操作
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="btnFilter" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>是一个js方法，行按钮过滤器
+函数类型：
+该函数接收两个参数，分别为当前行实体对象，行号。函数返回布尔行数组
+该数组描述行按钮是否显示 true为显示</xs:documentation>
+			</xs:annotation></xs:attribute>
+	</xs:complexType>
+
+
+	<xs:complexType name="typePanel">
+		<xs:sequence>
+			<xs:element name="comps" type="typeComps"></xs:element>
+		</xs:sequence>
+				<xs:attributeGroup ref="attrPanel"></xs:attributeGroup>
+		
+	</xs:complexType>
+
+	<xs:complexType name="typeComps">
+
+		<xs:choice minOccurs="1" maxOccurs="unbounded">
+		<xs:element name="ButtonArea" type="typeUIButtonArea"
+				minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="Form" type="typeUIForm" minOccurs="0"
+				maxOccurs="1">
+			</xs:element>
+			<xs:element name="Tree" type="typeTree" minOccurs="0"
+				maxOccurs="1">
+			</xs:element>
+			<xs:element name="Query" type="typeUIQuery" minOccurs="0"
+				maxOccurs="1">
+			</xs:element>
+			<xs:element name="Grid" type="typeGrid" maxOccurs="1"
+				minOccurs="0">
+
+			</xs:element>
+			<xs:element name="XGrid" type="typeXGrid" maxOccurs="1" minOccurs="0"></xs:element>
+			<xs:element name="Panel" type="typePanel" maxOccurs="1" minOccurs="0"></xs:element>
+		
+		</xs:choice>
+	</xs:complexType>
+
+	<xs:complexType name="typeUpload">
+		<xs:sequence>
+			<xs:element name="events" minOccurs="0" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Event" type="typeEvent"
+							minOccurs="0" maxOccurs="unbounded">
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:string"></xs:attribute>
+		<xs:attribute name="interval" type="xs:int"></xs:attribute>
+		<xs:attribute name="toolbarPosition">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="top"></xs:enumeration>
+					<xs:enumeration value="bottom"></xs:enumeration>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="groupId" type="xs:string"></xs:attribute>
+		<xs:attribute name="groupIdKey" type="xs:string"></xs:attribute>
+		<xs:attribute name="uploadUrl" type="xs:string"></xs:attribute>
+		<xs:attribute name="requestFile" type="xs:boolean"></xs:attribute>
+		<xs:attribute name="deleteUrl" type="xs:string"></xs:attribute>
+		<xs:attribute name="exts" type="xs:string"></xs:attribute>
+		<xs:attribute name="fileWidth" type="xs:string"></xs:attribute>
+		<xs:attribute name="fileListUrl" type="xs:string"></xs:attribute>
+		<xs:attribute name="multiple" type="xs:boolean"></xs:attribute>
+		<xs:attribute name="uploadBtnText" type="xs:string"></xs:attribute>
+		<xs:attribute name="canDelete" type="xs:boolean"></xs:attribute>
+		<xs:attribute name="css" type="xs:string"></xs:attribute>
+		<xs:attribute name="style" type="xs:string"></xs:attribute>
+	</xs:complexType>
+</xs:schema>

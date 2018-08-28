@@ -1,0 +1,494 @@
+.form {
+	margin: 20px 0 20px;
+	text-align:center;
+	display:block;
+}
+.no-margin{margin:0;}
+.form section{
+	margin-bottom:20px;
+	text-align:center;
+	margin-left:auto;
+	margin-right:auto;
+	display:block;
+}
+.form section h5{
+	text-align:left;
+	font-family: "Helvetica Neue","微软雅黑";
+    font-size: 14px;
+/* 	border-bottom: 1px dashed #ccc; */
+	padding-bottom: 3px;
+	margin-bottom: 10px;  
+/*     background:url(images/h5bg.png) no-repeat 3px 5px; */
+    padding:0px 0px 0px 22px
+}
+.form .formgroup{
+	display:inline-block;
+
+}
+.tab-container .formgroup {
+	border: 1px solid #eee;
+	padding-bottom:22px;
+	padding-top:20px;
+}
+fieldset {
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+
+legend {
+	display: block;
+	width: 100%;
+	padding: 0;
+	margin-bottom: 20px;
+	font-size: 21px;
+	line-height: 40px;
+	color: #333333;
+	border: 0;
+	border-bottom: 1px solid #e5e5e5;
+}
+
+legend small {
+	font-size: 15px;
+	color: #999999;
+}
+
+label,input,textarea {
+	font-size: 14px;
+	font-weight: normal;
+	line-height: 20px;
+}
+
+input,textarea {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	display: inline-block;
+	height: 28px;
+	line-height: 28px;
+	text-align: left;
+	text-indent:3px;
+	width: 210px;
+	background-color: #ffffff;
+	border:1px solid #fff;
+	border-bottom: 1px solid #d1cdc8;
+	font-size: 15px;
+	font-family: '微软雅黑';
+/* 	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	-webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
+	-moz-transition: border linear 0.2s, box-shadow linear 0.2s;
+	-o-transition: border linear 0.2s, box-shadow linear 0.2s;
+	transition: border linear 0.2s, box-shadow linear 0.2s; */
+}
+
+input[type="checkbox"],input[type="radio"] {
+	margin: 4px 0 0;
+	margin-top: 1px \9;
+	*margin-top: 0;
+	line-height: normal;
+	margin-top: 4px;
+	border: 0px;
+	width: auto;
+	height: auto;
+}
+
+textarea {
+	height: auto;
+}
+
+textarea:focus,input:focus {
+	border-color: rgba(82, 168, 236, 0.8);
+	outline: 0;
+	outline: thin dotted \9;
+	/* IE6-9 */
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px
+		rgba(82, 168, 236, 0.6);
+	-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px
+		rgba(82, 168, 236, 0.6);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px
+		rgba(82, 168, 236, 0.6);
+}
+
+input[readonly],textarea[readonly] {
+	background-color: #fff; 
+	cursor: pointer;
+	border:1px solid #fff;
+	border-bottom:1px dashed #d1cdc8;
+	
+/* 	-webkit-box-shadow: inset 0 1px 1px rgba(255, 255, 255, 255), 0 0 0px
+		rgba(255, 255, 255, 1);
+	-moz-box-shadow: inset 0 1px 1px rgba(255, 255, 255, 255), 0 0 0px
+		rgba(255, 255, 255, 1);
+	box-shadow: inset 0 1px 1px rgba(255, 255, 255, 255), 0 0 0px
+		rgba(255, 255, 255, 1); */
+
+}
+
+input[disabled],textarea[disabled] {
+	background-color: #fafafa; 
+	cursor: not-allowed;
+}
+
+input:focus:invalid:focus,textarea:focus:invalid:focus {
+	border-color: #e9322d;
+	-webkit-box-shadow: 0 0 6px #f8b9b7;
+	-moz-box-shadow: 0 0 6px #f8b9b7;
+	box-shadow: 0 0 6px #f8b9b7;
+}
+input:hover,textarea:hover {
+	border: 1px solid #5191f7;
+	/* IE6-9 */
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px
+		rgba(82, 168, 236, 0.6);
+	-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px
+		rgba(82, 168, 236, 0.6);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px
+		rgba(82, 168, 236, 0.6);
+}
+
+input[readonly]:hover,textarea[readonly]:hover {
+	border:1px solid #fff;
+ 	border-bottom:1px dashed #d1cdc8;
+ 	cursor:default;
+
+	/* IE6-9 */
+	-webkit-box-shadow: inset 0 1px 1px rgba(255, 255, 255, 255), 0 0 0px
+		rgba(255, 255, 255, 1);
+	-moz-box-shadow: inset 0 1px 1px rgba(255, 255, 255, 255), 0 0 0px
+		rgba(255, 255, 255, 1);
+	box-shadow: inset 0 1px 1px rgba(255, 255, 255, 255), 0 0 0px
+		rgba(255, 255, 255, 1);
+	
+}
+
+.form form table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin:auto;
+    margin-right:50px;
+}
+.form .onecolumn table{
+}
+
+.form .multicolumn table{
+}
+
+.form form table tr td {
+/*     border: 1px solid #efefef; */
+    height: 15px;
+    line-height: 15px;
+    padding: 5px 4px 5px 4px;
+    vertical-align: middle;
+}
+.form form table tr td.clabel {
+    /* width: 130px; */
+    text-align:right;
+}
+.form form table tr td.clabel label{
+	float: left;
+    font-size: 15px;
+    line-height: 30px;
+    margin: 0;
+    text-align: right;
+    width:130px;
+}
+ 
+#bottomForm table tr td.clabel, #bottomForm table tr td.clabel label{
+  width: 60px;
+}
+.form form table tr td.clabel label.left{
+    text-align: right;
+}
+.form form table tr td.clabel label.center{
+    text-align: center;
+}
+.form form table tr td.clabel label.right{
+    text-align: right;
+}
+.form .formitem .render{
+	text-align:left;
+ 	border-bottom:1px dashed #d1cdc8;  
+ 	font-size:14px;
+	min-height:15px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.dialog .form .formitem{
+ 
+/* 	border-bottom:1px dashed #d1cdc8; */
+}
+.form  .required{
+	font-size: 15px;
+	padding:2px;
+	color:red;
+}
+.form .onecolumn  table select,
+.form .onecolumn table textarea,
+.form .onecolumn table input[type="textfield"],
+.form .onecolumn table input[type="password"],
+.form .onecolumn table input[type="number"],
+.form .onecolumn table input[type="email"],
+.form .onecolumn table input[type="url"],
+.form .onecolumn table input[type="search"],
+.form .onecolumn table input[type="tel"],
+.form .onecolumn table input[type="date"],
+.form .onecolumn table input[type="datetime"],
+.form .onecolumn table input[type="reference"],
+.form .onecolumn table input[type="combotree"],
+.form .onecolumn table input[type="combobox"]{
+    width: 260px;
+}
+.form .onecolumn table div.app-wrapper{
+    width: 100%;
+}
+
+.form .multicolumn table select,
+.form .multicolumn table textarea,
+.form .multicolumn table input[type="textfield"],
+.form .multicolumn table input[type="password"],
+.form .multicolumn table input[type="number"],
+.form .multicolumn table input[type="email"],
+.form .multicolumn table input[type="url"],
+.form .multicolumn table input[type="search"],
+.form .multicolumn table input[type="tel"],
+.form .multicolumn table input[type="combo"],
+.form .multicolumn table input[type="date"],
+.form .multicolumn table input[type="datetime"],
+.form .multicolumn table input[type="reference"]{
+    width: 235px;
+}
+.form .multicolumn table div.app-wrapper{
+    width: 100%;
+}
+
+
+.radio,
+.checkbox {
+	min-height: 20px;
+	padding-left: 20px;
+}
+
+.radio input[type="radio"],
+.checkbox input[type="checkbox"] {
+	float: left;
+	margin-left: -20px;
+}
+
+.radio.inline,
+.checkbox.inline {
+	display: inline-block;
+	padding-top: 5px;
+	margin-bottom: 0;
+	vertical-align: middle;
+}
+
+.radio.inline + .radio.inline,
+.checkbox.inline + .checkbox.inline {
+	margin-left: 10px;
+}
+
+.input-mini {
+	width: 60px;
+}
+
+.input-small {
+	width: 90px;
+}
+
+.input-medium {
+	width: 150px;
+}
+
+.input-large {
+	width: 210px;
+}
+
+.input-xlarge {
+	width: 210px;
+}
+
+.input-xxlarge {
+	width: 530px;
+}
+
+.help-block,
+.help-inline {
+	color: #595959;
+}
+
+.help-block {
+	display: block;
+	margin-bottom: 10px;
+}
+
+.help-inline {
+	display: inline-block;
+	*display: inline;
+	padding-left: 5px;
+	vertical-align: middle;
+	*zoom: 1;
+}
+
+.input-append,
+.input-prepend {
+	display: inline-block;
+	font-size: 0;
+	/*white-space: nowrap;
+	vertical-align: middle;*/
+}
+
+.input-append input,
+.input-prepend input,
+.input-append .popover,
+.input-prepend .popover {
+	font-size: 14px;
+}
+
+.input-append input,
+.input-prepend input {
+	position: relative;
+	margin-bottom: 0;
+	*margin-left: 0;
+	vertical-align: top;
+}
+
+.input-append input:focus,
+.input-prepend input:focus {
+	z-index: 2;
+}
+
+.input-append .add-on,
+.input-prepend .add-on {
+	display: inline-block;
+	width: auto;
+	height: 30px;
+	min-width: 16px;
+	padding: 6px 5px;
+	font-size: 14px;
+	font-weight: normal;
+	line-height: 20px;
+	text-align: center;
+	text-shadow: 0 1px 0 #ffffff;
+	background-color: #eeeeee;
+	border: 1px solid #ccc;
+}
+
+
+.input-append .active,
+.input-prepend .active {
+	background-color: #a9dba9;
+	border-color: #46a546;
+}
+
+.input-prepend .add-on,
+.input-prepend .btn {
+	margin-right: -1px;
+}
+
+
+.input-append .add-on,
+.input-append .btn{
+	margin-left: -1px;
+}
+.form .onecolumn .render{
+	width:260px;
+}
+.form .multicolumn .render{
+    width: 235px;
+    word-break: break-all;
+}
+/*查询区input背景无色*/
+.xquery input, .xquery select{
+	background:none;
+	border:0;
+	border-bottom:1px #d1cdc8 solid
+}
+
+.calcform {
+	width: 100%;
+	max-width: calc(100% - 50px);
+	max-width: -webkit-calc(100% - 50px);
+	max-width: -moz-calc(100% - 50px);
+	table-layout: fixed;
+}
+.calcform2{
+	/* width: 365px; */
+}
+.calcform4{
+	/* width: 678px; */
+}
+.calcform6{
+	/* width: 991px; */
+}
+.calcform8{
+	/* width: 1244px; */
+}
+.calcform .calcform-md1-1 {
+	width: calc(100% - 130px);
+	width: -webkit-calc(100% - 130px);
+	width: -moz-calc(100% - 130px);
+}
+
+.calcform .calcform-md2-1 {
+	width: calc(50% - 130px);
+	width: -webkit-calc(50% - 130px);
+	width: -moz-calc(50% - 130px);
+}
+.calcform .calcform-md2-3 {
+	width: calc(100% - 130px);
+	width: -webkit-calc(100% - 130px);
+	width: -moz-calc(100% - 130px);
+}
+
+.calcform .calcform-md3-1 {
+	width: calc(33.333333% - 130px);
+	width: -webkit-calc(33.333333% - 130px);
+	width: -moz-calc(33.333333% - 130px);
+}
+
+.calcform .calcform-md3-3 {
+	width: calc(66.666666% - 130px);
+	width: -webkit-calc(66.666666% - 130px);
+	width: -moz-calc(66.666666% - 130px);
+}
+
+.calcform .calcform-md3-5 {
+	width: calc(100% - 130px);
+	width: -webkit-calc(100% - 130px);
+	width: -moz-calc(100% - 130px);
+}
+
+.calcform .calcform-md4-1 {
+	width: calc(25% - 130px);
+	width: -webkit-calc(25% - 130px);
+	width: -moz-calc(25% - 130px);
+}
+
+.calcform .calcform-md4-3 {
+	width: calc(50% - 130px);
+	width: -webkit-calc(50% - 130px);
+	width: -moz-calc(25% - 130px);
+}
+
+.calcform .calcform-md4-5 {
+	width: calc(75% - 130px);
+	width: -webkit-calc(75% - 130px);
+	width: -moz-calc(75% - 130px);
+}
+
+.calcform .calcform-md4-7 {
+	width: calc(100% - 130px);
+	width: -webkit-calc(100% - 130px);
+	width: -moz-calc(100% - 130px);
+}
+
+
+.calcform .thead{
+	height:0px;
+	visibility: hidden;
+}
+.calcform  .thead td{
+	height:0px!important;
+	padding: 0px!important;
+}

@@ -1,0 +1,111 @@
+.upload-box {
+  width: 400px;
+  height: 200px;
+  border: 0px;
+  display: inline-block;
+  position: fixed !important;
+  z-index: 9999999999;
+  background-color: #fff;
+}
+.upload-box .upload-box-header {
+  cursor: move;
+  height: 30px;
+  line-height: 30px;
+  background: #36a7df;
+  color: #fff;
+}
+.upload-box .upload-box-header .upload-add-btn {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  color: #fafafa;
+  padding: 1px;
+  margin: 3px;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 21px;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid #fff;
+  border-radius: 4px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 87px;
+  height: 24px;
+  cursor: pointer;
+}
+.upload-box .upload-box-header .upload-add-btn:hover {
+  color: #6aeaff;
+  border: 1px solid #6aeaff;
+}
+.upload-box .upload-box-header .upload-add-btn input[type=file] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  bottom: 0;
+  opacity: 0;
+  -ms-filter: 'alpha(opacity=0)';
+  cursor: pointer;
+}
+.upload-box .upload-box-header .upload-box-title {
+  margin-left: 5px;
+}
+.upload-box .upload-box-header .title-btn {
+  float: right;
+  cursor: pointer;
+  font-size: 24px;
+  width: 30px;
+  text-align: center;
+}
+.upload-box .upload-box-header .title-btn:hover {
+  color: #6aeaff;
+  font-size: 28px;
+}
+.upload-box .upload-box-body {
+  overflow: hidden!important;
+  border: 1px solid #62a9f1;
+  width: 100%;
+  height: 165px;
+}
+.upload-box .upload-progress-bar {
+  height: 23px;
+  margin-top: 5px;
+  width: 100%;
+  border: 1px solid #99bbe8;
+  border-radius: 10px;
+  padding: 2px 1px 1px 1px;
+  position: relative;
+}
+.upload-box .upload-progress-bar .progress-percent {
+  height: 17px;
+  width: 0%;
+  background-color: #36a7df;
+  border-radius: 10px 0px 0px 10px;
+}
+.upload-box .upload-progress-bar .progress-text {
+  position: absolute;
+  top: 0px;
+  display: block;
+  width: 100%;
+  text-align: center;
+  line-height: 20px;
+}
+.upload-box .upload-start-btn {
+  color: deepskyblue;
+  cursor: pointer;
+}
+.upload-box .upload-btn {
+  font-size: 20px;
+  cursor: pointer;
+  margin-top: 3px;
+}
+.upload-box .upload-btn:hover {
+  color: #62a9f1;
+}
